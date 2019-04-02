@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import ButtonAppBar from "./ButtonAppBar.jsx";
 import BetTab from "./Bet-tab.jsx";
-import Typography from "@material-ui/core/Typography";
 
 export default class Bet extends Component {
   render() {

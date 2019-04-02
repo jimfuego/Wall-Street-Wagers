@@ -1,5 +1,6 @@
+import { Component } from 'react';
 import React from 'react';
-import { Paper, withStyles, Grid, TextField, Button, FormControlLabel, Checkbox } from '@material-ui/core';
+import { Paper, withStyles, Grid, TextField, Button } from '@material-ui/core';
 import { Face, Fingerprint } from '@material-ui/icons'
 import Typography from "@material-ui/core/Typography";
 
@@ -12,7 +13,7 @@ const styles = theme => ({
     }
 });
 
-class BetTab extends React.Component {
+class BetTab extends Component {
   render() {
     const { classes } = this.props;
     return (
@@ -44,7 +45,7 @@ class BetTab extends React.Component {
               <Fingerprint />
             </Grid>
           <Grid item md={true} sm={true} xs={true}>
-            <TextField id="bet" label="Predicted closing price" type="number" fullWidth required /></Grid>
+            <TextField id="bet" label="Predicted closing price (USD)" type="number" fullWidth required /></Grid>
           </Grid>
           <Grid container justify="center" style={{ marginTop: '10px' }}>
             <Button variant="outlined" color="primary" style={{ textTransform: "none" }}>Make Prediction!</Button>
