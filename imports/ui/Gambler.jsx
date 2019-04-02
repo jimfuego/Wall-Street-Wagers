@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -35,9 +34,8 @@ function Gambler() {
             Gambler Name (prop)
           </Typography>
           <Typography component="p">
-              Gamblers are often degenerate folk, and this is where they can
-              detail the extent of their habit, and how it affects other areas
-              of their lives (prop)
+              Gamblers are often interesting folk, and this is where they
+              are intended to elaborate...
           </Typography>
         </CardContent>
       </CardActionArea>

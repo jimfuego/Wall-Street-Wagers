@@ -5,7 +5,10 @@ import Achievements from "./Achievements.jsx";
 import PredictionStats from "./Prediction-stats.jsx";
 import Gambler from "./Gambler.jsx";
 import ButtonAppBar from "./ButtonAppBar.jsx";
-import LoginTab from "./Login-tab.jsx"
+import Landing from "./Landing.jsx";
+import Registration from "./Registration.jsx";
+import Bet from "./Bet.jsx";
+
 
 // import { Meteor } from "meteor/meteor";
 // import { withTracker } from "meteor/react-meteor-data";
@@ -22,7 +25,7 @@ export default class App extends Component {
   render() {
     return (
       <MuiThemeProvider>
-        <RaisedButton label="Oh yeah, button"/>
+        // <RaisedButton label="Oh yeah, button"/>
         <div className="container">
           <div className="row">
             <div className="col s12 12"><ButtonAppBar /></div>
@@ -37,7 +40,13 @@ export default class App extends Component {
             <div className="col s12 m12"><Achievements /></div>
           </div>
           <div className="row">
-            <div className="col s12 m12"><LoginTab /></div>
+            <div className="col s12 m12"><Landing /></div>
+          </div>
+          <div className="row">
+            <div className="col s12 m12"><Registration /></div>
+          </div>
+          <div className="row">
+            <div className="col s12 m12"><Bet /></div>
           </div>
         </div>
       </MuiThemeProvider>
