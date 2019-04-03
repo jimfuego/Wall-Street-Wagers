@@ -6,6 +6,7 @@ SimpleSchema.extendOptions(["autoform"]);
 
 export const Users = new Mongo.Collection("users");
 
+//schema definition
 const UserSchema = new SimpleSchema({
   userName: { type: String },
   wins: { type: Number } ,
@@ -14,11 +15,9 @@ const UserSchema = new SimpleSchema({
 
 Users.attachSchema(UserSchema);
 
-//sets answer to game creator's preference
+//add user to database
 Meteor.methods({
   "users.insert"(user)  {
-
-
     // Make sure the user is logged in before inserting a task
     if (! this.userId) {
       throw new Meteor.Error("not-authorized");
@@ -28,6 +27,7 @@ Meteor.methods({
     //if document exists
     if(Users.findOne({ userName : user}) != undefined){
       //username already exists
+      throw new Meteor.Error("Username already exists!");
     }
     //document doe snot exist
     else {
@@ -39,3 +39,18 @@ Meteor.methods({
     }
   }
 });
+
+//update user bio info
+Meteor.methods({
+  "users.updateProfile"(text) {
+    if(!this.userId){
+      throw new Meteor.Error("not-authorized");
+    } else{
+      Users.update({}, {
+        $set:{
+          bio: text
+        }
+      });
+    }
+  }
+})
