@@ -1,48 +1,36 @@
 import { Meteor } from "meteor/meteor";
 import { Mongo } from "meteor/mongo";
-import SimpleSchema from "simpl-schema";
+import { Accounts } from "meteor/accounts-base";
 
-SimpleSchema.extendOptions(["autoform"]);
-
-export const Users = new Mongo.Collection("users");
-
-//schema definition
-const UserSchema = new SimpleSchema({
-  userName: { type: String },
-  wins: { type: Number } ,
-  createdAt: { type: Date }
-});
-
-Users.attachSchema(UserSchema);
+export const Users = new Mongo.Collection("user");
 
 //add user to database
 Meteor.methods({
-  "users.insert"(user)  {
-    // Make sure the user is logged in before inserting a task
-    if (! this.userId) {
-      throw new Meteor.Error("not-authorized");
-    }
+  "user.insert"(user, password)  {
+    let profile = { profile: "Default profiel value" };
+    let wins = { wins: 0 };
+    let gamesPlayed = { gamesPlayed: 0 };
+    return Accounts.createUser({ username: user, password: password, profile: profile, wins: wins, gamesPlayed: gamesPlayed });
+  }
+});
 
-    //stores solution from game creator
-    //if document exists
-    if(Users.findOne({ userName : user}) != undefined){
-      //username already exists
-      throw new Meteor.Error("Username already exists!");
-    }
-    //document doe snot exist
-    else {
-      Users.insert({
-        userName : user,
-        wins : 0,
-        createdAt : Date.now()
-      });
-    }
+// gets total wins for @param user
+Meteor.methods({
+  "user.getWins"(user){
+    return Users.findOne({ userName : user }, { _id: 0, username: 0, password: 0, profile: 0, gamesPlayed: 0});
+  }
+});
+
+// gets total games played for @param user
+Meteor.methods({
+  "user.getBetsPlaced"(user){
+    return Users.findOne({ userName : user }, { _id: 0, username: 0, password: 0, profile: 0, wins: 0});
   }
 });
 
 //update user bio info
 Meteor.methods({
-  "users.updateProfile"(text) {
+  "user.updateProfile"(text) {
     if(!this.userId){
       throw new Meteor.Error("not-authorized");
     } else{
