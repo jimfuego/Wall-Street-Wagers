@@ -2,3 +2,43 @@ body {
   padding: 10px;
   font-family: sans-serif;
 }
+.prediction {
+
+	height: 1000%;
+}
+
+.achieveheading{
+	text-align: center;
+}
+
+
+/* Create two equal columns that floats next to each other */
+.column-flex {
+  float: left;
+  width: 50%;
+  padding: 0px;
+  height: 850px; /* Should be removed. Only for demonstration */
+}
+
+
+.media{
+float: left;
+  width: 100%;
+  padding: 0px;
+  height: 850px;
+}
+
+.LoginClass{
+  float: left;
+  width: 100%;
+  padding: 0px;
+  height: 500px;
+  margin-top:350px;
+}
+
+/* Clear floats after the columns */
+.row-flex:after {
+  content: "";
+  display: table;
+  clear: both;
+}

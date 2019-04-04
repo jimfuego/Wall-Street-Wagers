@@ -1,5 +1,5 @@
 {
-  "name": "PlayRoom",
+  "name": "Wall-Street-Wagers",
   "private": true,
   "scripts": {
     "start": "meteor run",
@@ -13,6 +13,8 @@
     "@material-ui/icons": "^3.0.2",
     "@material-ui/styles": "^3.0.0-alpha.10",
     "@meteorjs/eslint-config-meteor": "^1.0.5",
+    "alphavantage": "^1.2.3",
+    "axios": "^0.18.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
@@ -21,10 +23,18 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-meteor": "^5.1.0",
     "eslint-plugin-react": "^7.12.4",
+    "install": "^0.12.2",
     "material-ui": "^0.20.2",
     "meteor-node-stubs": "^0.4.1",
-    "react": "^16.5.0",
+    "react": "^16.8.6",
+    "react-bootstrap": "^1.0.0-beta.6",
+    "react-bootstrap-table": "^4.3.1",
     "react-dom": "^16.5.0",
+    "react-redux": "^6.0.1",
+    "react-router-dom": "^5.0.0",
+    "react-split-pane": "^0.1.87",
+    "redux": "^4.0.1",
+    "simpl-schema": "^1.5.5",
     "typeface-roboto": "^0.0.54"
   },
   "meteor": {
