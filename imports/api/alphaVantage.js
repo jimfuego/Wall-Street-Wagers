@@ -21,7 +21,3 @@ Meteor.methods({
     });
   }
 });
-
-// Meteor.methods({
-//   "alphaVantage."
-// });
