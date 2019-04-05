@@ -1,4 +1,3 @@
-# Wall-Street-Wagers
 # [Wall-Street-Wagers]()
 Wall-Street-Wagers is a betting game 
 ## Preview
