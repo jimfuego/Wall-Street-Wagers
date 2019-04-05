@@ -22,7 +22,7 @@ render(){
           <div className="col s12 m5"><PredictionStats /></div>
         </div>
           {/*<div className="col s12 m9"><Bio/></div>*/}
-          <div className="achievements"><Achievements /></div>
+          {/*<div className="achievements"><Achievements /></div>*/}
         </div>
   );
   }
