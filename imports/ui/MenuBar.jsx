@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Route, Redirect, Router, withRouter } from 'react-router-dom';
-
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -17,9 +16,6 @@ import Menu from '@material-ui/core/Menu';
 import { Link } from 'react-router-dom';
 import { withTracker } from "meteor/react-meteor-data";
 import Button from '@material-ui/core/Button';
-
-
-
 
 const styles = {
   root: {
@@ -59,7 +55,6 @@ class MenuAppBar extends Component {
   /*onClick(){
   if (Meteor.user()){
       this.props.history.push("/bet");
-
   }
   }*/
 
@@ -70,14 +65,11 @@ class MenuAppBar extends Component {
     }
     //Meteor.setTimeout(function(){ Router.go('/'); }, 10);
 
-};
-
-
+  };
   render() {
     const { classes } = this.props;
     const { auth, anchorEl } = this.state;
     const open = Boolean(anchorEl);
-
     return (
       <div className={classes.root}>
         <AppBar position="static">
@@ -117,7 +109,6 @@ class MenuAppBar extends Component {
                 >
                   <MenuItem onClick={this.handleClose}>Logout</MenuItem>
                 </Menu>
-
               </div>
             )}
           </Toolbar>
