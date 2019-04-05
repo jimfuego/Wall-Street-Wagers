@@ -31,9 +31,10 @@ class Profile extends Component{
 
 render(){
   return (
-    <div className="container-fluid">
+    <div className="container-fluid" role="main">
+    <div className="col s12 12"><MenuBar /></div>
       <div className="row">
-        <div className="col s12 12"><MenuBar /></div>
+      <h1 className="damn" text-align="center">Profile</h1>
           {/*<div className=" col s12 m7"><Gambler /></div>*/}
           <div className="col s12 m5"><PredictionStats /></div>
         </div>

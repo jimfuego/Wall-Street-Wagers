@@ -13,9 +13,10 @@ import MenuBar from "./MenuBar.jsx";
  class Registration extends Component {
   render() {
     return(
-      <div className="container-fluid">
+      <div className="container-fluid" role="main">
+      <div className="col s12 12"><MenuBar /></div>
+      <h1 className="stregis" text-align="center">Register</h1>
         <div className="row">
-          <div className="col s12 12"><MenuBar /></div>
         </div>
         <Card className="TheCard">
           <CardActionArea>

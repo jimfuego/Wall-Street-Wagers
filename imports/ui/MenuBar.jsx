@@ -80,7 +80,7 @@ class MenuAppBar extends Component {
             <Typography variant="h6" color="inherit" className={classes.grow}>
               Wall-Street-Wagers
             </Typography>
-            <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="hamburger">
           {Meteor.user()? Meteor.user().username : ""}
             </Link>
             {auth && (
@@ -90,6 +90,7 @@ class MenuAppBar extends Component {
                   aria-haspopup="true"
                   onClick={this.handleMenu}
                   color="inherit"
+                  aria-label="hamburger"
                 >
                   <AccountCircle />
                 </IconButton>

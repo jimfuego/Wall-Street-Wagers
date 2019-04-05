@@ -16,8 +16,9 @@ import { withTracker } from "meteor/react-meteor-data";
  class Bet extends Component {
   render() {
     return(
-      <div className="container-fluid">
+      <div className="container-fluid" role="main">
       <div className="col s12 12"><MenuBar/></div>
+      <h1 className="seeb" text-align="center" >Make that bet</h1>
         <div className="row-flex">
           <div className="column-flex">
           <Card className="HomeCard">

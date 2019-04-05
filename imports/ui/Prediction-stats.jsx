@@ -14,7 +14,7 @@ import { Meteor } from "meteor/meteor";
   render() {
     return(
     	<div>
-      <h4>Prediction Stats</h4>
+      <h2>Prediction Stats</h2>
       <Table className="prediction" responsive striped bordered hover variant="dark">
     <thead>
     </thead>

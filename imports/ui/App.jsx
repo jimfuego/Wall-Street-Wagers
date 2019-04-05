@@ -109,7 +109,6 @@ function PublicRoute({ component: Component, ...rest }) {
             <Route exact path="/register" component={Registration}/>
             <Route exact path="/bet" component={Bet}/>
             <Route exact path="/profile" component={Profile}/>
-            <Route exact path="/prediction" component={PredictionStats}/>
           </Switch>
           <br />
           <div></div>

@@ -18,8 +18,9 @@ import { withRouter } from "react-router-dom";
   //{Meteor.userId()?  (<Redirect to="/otherusers"/>) : (<Redirect to="/creategame"/>): this.state.component}
   render() {
     return(
-    <div className="container-fluid">
+    <div className="container-fluid" role="main">
       <div className="col s12 12"><ButtonAppBar /></div>
+      <h1 className="fuckall">Beat Wall Street</h1>
         <div className="row-flex">
           <div className="column-flex">
           <Card className="HomeCard">
