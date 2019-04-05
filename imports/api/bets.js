@@ -29,8 +29,9 @@ Meteor.methods({
     }
 
     //get info on tickerSymbol
-    let apiResponse = alpha.data.daily_adjusted(tickerSymbol, 1);
-    if(apiResponse == undefined || apiResponse != null) {
+    let apiResponse = JSON.parse(alpha.data.daily_adjusted(tickerSymbol, 1));
+    let currentPrice = apiResponse[0].open;
+    if(apiResponse == undefined || apiResponse == null) {
       alert("No stock data available for ", tickerSymbol);
     }
     else{

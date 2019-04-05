@@ -5,33 +5,57 @@ import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
+import { withTracker } from "meteor/react-meteor-data";
+import { Meteor } from "meteor/meteor";
+import {Redirect} from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
-export default class Landing extends Component {
+
+
+
+
+ class Landing extends Component {
+  //{Meteor.userId()?  (<Redirect to="/otherusers"/>) : (<Redirect to="/creategame"/>): this.state.component}
   render() {
     return(
-      <div className="container">
-        <div className="row">
-          <div className="col s12 12"><ButtonAppBar /></div>
-        </div>
-        <Card className="TheCard">
+    <div className="container-fluid">
+      <div className="col s12 12"><ButtonAppBar /></div>
+        <div className="row-flex">
+          <div className="column-flex">
+          <Card className="HomeCard">
           <CardActionArea>
             <CardMedia
             title="Profile Picture"
             component="img"
             alt="User Profile Picture"
-            className="{classes.media}"
+            className="media"
             image="ace-action-adult-1688506.jpg"
             />
             <CardContent>
-              <div className="container">
-                <div className="row">
-                  <div className="col s12 m12"><LoginTab /></div>
-                </div>
-              </div>
             </CardContent>
           </CardActionArea>
         </Card>
+        </div>
+            <div className="column-flex"><LoginTab /></div>
+        </div>
+
       </div>
     )
   }
 }
+export default withTracker (() => {
+  return {
+    user: Meteor.user()
+  }
+})(withRouter(Landing));
+
+
+
+/*export default withTracker(() => {
+  //const handle = Meteor.subscribe("answer");
+  return {
+    //answer: Answer.findOne({gameInProgress : true}),
+    //user: Meteor.user(),
+    //ready : handle.ready()
+  };
+})(Landing);*/
