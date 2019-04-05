@@ -19,7 +19,7 @@ render(){
         <div className="row">
           {/*<div className="col s12 12"><ButtonAppBar /></div>*/}
           {/*<div className=" col s12 m7"><Gambler /></div>*/}
-          {/*<div className="col s12 m5"><PredictionStats /></div>*/}
+          <div className="col s12 m5"><PredictionStats /></div>
         </div>
           {/*<div className="col s12 m9"><Bio/></div>*/}
           {/*<div className="achievements"><Achievements /></div>*/}
