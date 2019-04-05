@@ -8,12 +8,6 @@ import { withTracker } from "meteor/react-meteor-data";
 import { Users } from "../api/users.js";
 import { Accounts } from "meteor/accounts-base";
 
-
-
-
-
-
-
 /*const styles = theme => ({
     margin: {
         margin: theme.spacing.unit * 2,
@@ -72,11 +66,7 @@ class RegisterTab extends Component {
       else {
         that.props.history.push("/profile");
       }
-
-
     }
-
-
    // Accounts.createUser("user.insert",document.getElementById("username").value, document.getElementById("password").value, (err, res) => {
     );
   }
