@@ -33,7 +33,7 @@ Load the [URL](https://wall-street-wager.herokuapp.com/) onto your browser,
 [Web Development Spring 2019](http://johnguerra.co/classes/webDevelopment_spring_2019/)
 
 ## Video Demo
-Demo can be found [here]()
+Demo can be found [here](https://www.youtube.com/watch?v=MPTlC0-12q8&feature=youtu.be)
 
 ## Google Slides URL
 Slides can be found [here](https://docs.google.com/presentation/d/1kXzsZCRbZHAZPNUCdcWgx2c65Kt7aA_hYgLuAAOToOk/edit#slide=id.gc6f80d1ff_0_0)
