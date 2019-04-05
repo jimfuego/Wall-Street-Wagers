@@ -23,7 +23,7 @@ const styles = theme => ({
 class HighLow extends React.Component {
   state = {
     Bet: '',
-    open: false,
+    open: false
   };
 
   handleChange = event => {
@@ -55,7 +55,7 @@ class HighLow extends React.Component {
               name: 'Bet',
               id: 'demo-controlled-open-select',
             }}
-          >
+            >
             <MenuItem value="">
               <em>None</em>
             </MenuItem>

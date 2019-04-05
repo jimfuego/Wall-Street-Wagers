@@ -16,43 +16,45 @@ Meteor.publish("bets", function betsPublish() {
 //sets answer to game creator's preference
 // FIXME: remove user param
 Meteor.methods({
-  "bets.insert"(user, tickerSymbol, highLow)  {
+  "bets.insert"(tickerSymbol)  {
     check(tickerSymbol, String);
-    check(highLow, String);
-    check(user, String);
+    // check(highLow, String);
+    // check(user, String);
 
-    alert("key: ", PUBLIC_KEY);
 
     // Make sure the user is logged in before inserting a task
-    if (!this.userId) {
+    if (! this.userId) {
+      console.log("!userId");
       throw new Meteor.Error("not-authorized");
     }
 
     //get info on tickerSymbol
-    let apiResponse = JSON.parse(alpha.data.daily_adjusted(tickerSymbol, 1));
-    let openingPrice = apiResponse[0].open;
-    if(apiResponse == undefined || apiResponse == null) {
-      alert("No stock data available for ", tickerSymbol);
-    }
-    else{
-      //find one user&tickerSymbol, return error, or something
-      if(Bets.findOne({gambler: user, tickerSymbol: tickerSymbol}) != undefined){
+    // let apiResponse = JSON.parse(alpha.data.daily_adjusted(tickerSymbol, 1));
+
+    alpha.data.daily_adjusted(tickerSymbol, 1).then(data => {
+      // let openingPrice = apiResponse[0].open;
+      if(data == undefined || data == null) {
+        console.log("No stock data available for ", tickerSymbol);
+      }
+      let queryResponse = Bets.findOne({ $and: [{gambler: Meteor.user().username}, { tickerSymbol: tickerSymbol }]});
+      if(queryResponse != undefined){
+        console.log(queryResponse);
+        console.log("cant bet same tickersymbol same day");
         return;
       }
-
-      //document does not exist
-      else {
+      else{
         Bets.insert({
           tickerSymbol : tickerSymbol,
-          gambler : Meteor.user().user,
-          highOrLow : highLow,
-          createdAt : new Date
+          gambler : Meteor.user().username,
+          highOrLow : "",
+          createdAt : Date.now()
         });
-        alert(Meteor.user().user + " predicted that " + tickerSymbol +
-        " will close " + highLow + "er than it's opening price of "
-        + openingPrice);
+        console.log(Meteor.user().username + " predicted that " + tickerSymbol +
+        " will close (hihgLow)er than it's opening price of (openingPrice)");
+        console.log(data);
+        return data;
       }
-    }
+    })
   }
 });
 
