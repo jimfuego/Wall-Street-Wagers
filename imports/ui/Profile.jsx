@@ -13,13 +13,12 @@ class Profile extends Component{
     constructor(props) {
     super(props);
   }
-
 render(){
 	return (
 		<div className="container-fluid">
           <div className="row">
-            <div className="col s12 12"><ButtonAppBar /></div>
-            <div className=" col s12 m7"><Gambler /></div>
+            {/*<div className="col s12 12"><ButtonAppBar /></div>*/}
+            {/*<div className=" col s12 m7"><Gambler /></div>*/}
             <div className="col s12 m5"><PredictionStats /></div>
           </div>
            <div className="col s12 m9"><Bio/></div>
