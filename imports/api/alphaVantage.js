@@ -7,8 +7,8 @@ import { Meteor } from "meteor/meteor";
  *   Your Alpha Vantage API key.
  */
 
-// const PUBLIC_KEY = process.env.API_KEY;
-const PUBLIC_KEY = "AD7JAZ51CFHTA74D";
+const PUBLIC_KEY = process.env.API_KEY;
+// const PUBLIC_KEY = "";
 
 const alpha = require('alphavantage')({ key: PUBLIC_KEY });
 

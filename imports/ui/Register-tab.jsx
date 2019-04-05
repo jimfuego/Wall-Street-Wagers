@@ -54,7 +54,7 @@ class RegisterTab extends Component {
     );*/
     let that = this;
     let profile = { wins:0,
-    gamesPlayed:0 };
+                    gamesPlayed:0 };
 
     Accounts.createUser({
       username: document.getElementById("username").value,
@@ -62,12 +62,12 @@ class RegisterTab extends Component {
       profile: profile
       }, (err) => {
         if(err){
-        alert("Error inserting into Db");
-        console.log(err);
-        return;
-    }
-      else {
-        that.props.history.push("/profile");
+          alert("Error inserting into Db");
+          console.log(err);
+          return;
+        }
+        else {
+          that.props.history.push("/profile");
       }
     }
    // Accounts.createUser("user.insert",document.getElementById("username").value, document.getElementById("password").value, (err, res) => {
@@ -89,7 +89,7 @@ class RegisterTab extends Component {
             <Grid item md={true} sm={true} xs={true}>
               <TextField   id="username"
               ref={input =>
-        (this.email = input)} label="Username" type="email" fullWidth autoFocus required  />
+                (this.email = input)} label="Username" type="email" fullWidth autoFocus required  />
             </Grid>
           </Grid>
           <Grid container spacing={8} alignItems="flex-end">
