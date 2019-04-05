@@ -50,12 +50,11 @@ class BetTab extends Component {
         console.log(err);
         return;
       }
-      // alert(res);
-      // else if (res != null && res != undefined){
-      //   console.log(res);
-      //   alert("Stock price is (insert price of stock). Current price of stock is (insert current price of stock). Check again tommrow if you won/lost");
-      //   this.props.history.push("/profile");
-      // }
+      else if (res != undefined){
+        console.log(res);
+        alert("Stock price is (insert price of stock). Current price of stock is (insert current price of stock). Check again tommrow if you won/lost");
+        this.props.history.push("/profile");
+      }
     }
   )}
 
