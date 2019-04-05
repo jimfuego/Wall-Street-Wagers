@@ -54,7 +54,7 @@ export class LoginNavBar extends Component {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" color="inherit" className={classes.grow}>
-            Beat-the-Bookie
+            Wall-Street-Wagers
           </Typography>
 
               <div className="pos-f-t">
