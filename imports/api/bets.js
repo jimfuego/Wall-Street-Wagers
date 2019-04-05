@@ -4,6 +4,9 @@ import { check } from "meteor/check";
 
 export const Bets = new Mongo.Collection("bets");
 
+const PUBLIC_KEY = process.env.API_KEY;
+const alpha = require('alphavantage')({ key: PUBLIC_KEY });
+
 //publish
 Meteor.publish("bets", function betsPublish() {
   return (Bets.find({}));
@@ -17,24 +20,35 @@ Meteor.methods({
     check(highLow, String);
     check(user, String);
 
-    // Make sure the user is logged in before inserting a task
-    // if (!this.userId) {
-    //   throw new Meteor.Error("not-authorized");
-    // }
+    alert("key: ", PUBLIC_KEY);
 
-    //find one user&tickerSymbol, return error, or something
-    if(Bets.findOne({gambler: user, tickerSymbol: tickerSymbol}) != undefined){
-      return;
+    // Make sure the user is logged in before inserting a task
+    if (!this.userId) {
+      throw new Meteor.Error("not-authorized");
     }
 
-    //document does not exist
-    else {
-      Bets.insert({
-        tickerSymbol : tickerSymbol,
-        gambler : Meteor.user().user,
-        highOrLow : highLow,
-        createdAt : new Date
-      });
+    //get info on tickerSymbol
+    let apiResponse = alpha.data.daily_adjusted(tickerSymbol, 1);
+    if(apiResponse == undefined || apiResponse != null) {
+      alert("No stock data available for ", tickerSymbol);
+    }
+    else{
+      //find one user&tickerSymbol, return error, or something
+      if(Bets.findOne({gambler: user, tickerSymbol: tickerSymbol}) != undefined){
+        return;
+      }
+
+      //document does not exist
+      else {
+        Bets.insert({
+          tickerSymbol : tickerSymbol,
+          gambler : Meteor.user().user,
+          highOrLow : highLow,
+          createdAt : new Date
+        });
+
+      }
+
     }
   }
 });

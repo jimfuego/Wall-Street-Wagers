@@ -17,14 +17,14 @@ Meteor.methods({
 // gets total wins for @param user
 Meteor.methods({
   "user.getWins"(user){
-    return Users.findOne({ userName : user }, { _id: 0, username: 0, password: 0, profile: 0, gamesPlayed: 0});
+    return Accounts.findOne({ userName : user }, { _id: 0, username: 0, password: 0, profile: 0, gamesPlayed: 0});
   }
 });
 
 // gets total games played for @param user
 Meteor.methods({
   "user.getBetsPlaced"(user){
-    return Users.findOne({ userName : user }, { _id: 0, username: 0, password: 0, profile: 0, wins: 0});
+    return Accounts.findOne({ userName : user }, { _id: 0, username: 0, password: 0, profile: 0, wins: 0});
   }
 });
 
@@ -34,7 +34,7 @@ Meteor.methods({
     if(!this.userId){
       throw new Meteor.Error("not-authorized");
     } else{
-      Users.update({}, {
+      Accounts.update({}, {
         $set:{
           bio: text
         }
