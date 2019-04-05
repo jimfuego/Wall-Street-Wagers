@@ -1,8 +1,6 @@
 import { Component } from 'react';
 import React from 'react';
-import { Paper, withStyles, Grid, TextField, Button,Card } from '@material-ui/core';
-import { Face, Fingerprint } from '@material-ui/icons'
-import Typography from "@material-ui/core/Typography";
+import { Grid, Button } from '@material-ui/core';
 import { withRouter } from "react-router-dom";
 import {Meteor} from "meteor/meteor";
 import { withTracker } from "meteor/react-meteor-data";
@@ -17,19 +15,16 @@ import { withTracker } from "meteor/react-meteor-data";
 
   onClick(event) {
     event.preventDefault();
-
      this.props.history.push("/bet");
-
-}
+   }
 
 render() {
-	    return(
-	   <div>
-
-          <Grid container justify="center" style={{ marginTop: '10px' }}>
-            <Button variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onClick} >Start Betting!</Button>
-          </Grid>
-          </div>
+  return(
+    <div>
+      <Grid container justify="center" style={{ marginTop: '10px' }}>
+        <Button variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onClick} >Start Betting!</Button>
+      </Grid>
+    </div>
     );
 }
 }
