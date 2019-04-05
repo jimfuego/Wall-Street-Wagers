@@ -1,5 +1,5 @@
 # [Wall-Street-Wagers](https://wall-street-wager.herokuapp.com/)
-Wall-Street-Wagers is a betting game 
+Wall-Street-Wagers is a game that allows users to bet against the stock market
 ## Preview
 
 ![App Preview](https://wall-street-wager.herokuapp.com/ace-action-adult-1688506.jpg) 
@@ -36,7 +36,7 @@ Load the [URL](https://wall-street-wager.herokuapp.com/) onto your browser,
 Demo can be found [here]()
 
 ## Google Slides URL
-Slides can be found [here]()
+Slides can be found [here](https://docs.google.com/presentation/u/1/d/1kXzsZCRbZHAZPNUCdcWgx2c65Kt7aA_hYgLuAAOToOk/edit?usp=sharing)
 
 ## Copyright and License
 Code released under the [MIT](https://github.com/facebook/react/blob/master/LICENSE) license.
