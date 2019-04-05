@@ -32,18 +32,3 @@ Meteor.methods({
     return Accounts.findOne({ userName : user }, { _id: 0, username: 0, password: 0, profile: 0, wins: 0});
   }
 });
-
-//update user bio info
-Meteor.methods({
-  "user.updateProfile"(text) {
-    if(!this.userId){
-      throw new Meteor.Error("not-authorized");
-    } else{
-      Accounts.update({}, {
-        $set:{
-          bio: text
-        }
-      });
-    }
-  }
-})
