@@ -5,7 +5,6 @@ import {withRouter} from "react-router-dom";
 import {Meteor} from "meteor/meteor";
 import axios from 'axios';
 import { withTracker } from "meteor/react-meteor-data";
-import { Users } from "../api/users.js";
 import { Accounts } from "meteor/accounts-base";
 
 /*const styles = theme => ({
@@ -53,11 +52,15 @@ class RegisterTab extends Component {
     .then(res =>this.props.history.push('/gambler'))
     .catch(err =>console.log(err)
     );*/
-      let that = this;
-          let profile = { profile: "Default profiel value" };
-    let wins = { wins: 0 };
-    let gamesPlayed = { gamesPlayed: 0 };
-    Accounts.createUser({ username: document.getElementById("username").value, password: document.getElementById("password").value, profile: profile, wins: wins, gamesPlayed: gamesPlayed }, (err, res) => {
+    let that = this;
+    let profile = { wins:0,
+    gamesPlayed:0 };
+
+    Accounts.createUser({
+      username: document.getElementById("username").value,
+      password: document.getElementById("password").value,
+      profile: profile
+      }, (err) => {
         if(err){
         alert("Error inserting into Db");
         console.log(err);

@@ -56,7 +56,6 @@ Meteor.methods({
       throw new Meteor.Error("not-authorized");
     }
     if (Achievements.findOne({answer : guess}) != undefined) {
-      // Answer.remove({});
       //game over - winner
       return true;
     }

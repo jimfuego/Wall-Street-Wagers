@@ -4,8 +4,8 @@ import { check } from "meteor/check";
 
 export const Bets = new Mongo.Collection("bets");
 
-const PUBLIC_KEY = process.env.API_KEY;
-// const PUBLIC_KEY = "";
+// const PUBLIC_KEY = process.env.API_KEY;
+const PUBLIC_KEY = "AD7JAZ51CFHTA74D";
 const alpha = require('alphavantage')({ key: PUBLIC_KEY });
 
 //publish
@@ -30,7 +30,7 @@ Meteor.methods({
 
     //get info on tickerSymbol
     let apiResponse = JSON.parse(alpha.data.daily_adjusted(tickerSymbol, 1));
-    let currentPrice = apiResponse[0].open;
+    let openingPrice = apiResponse[0].open;
     if(apiResponse == undefined || apiResponse == null) {
       alert("No stock data available for ", tickerSymbol);
     }
@@ -48,6 +48,9 @@ Meteor.methods({
           highOrLow : highLow,
           createdAt : new Date
         });
+        alert(Meteor.user().user + " predicted that " + tickerSymbol +
+        " will close " + highLow + "er than it's opening price of "
+        + openingPrice);
       }
     }
   }

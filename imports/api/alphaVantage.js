@@ -8,7 +8,7 @@ import { Meteor } from "meteor/meteor";
  */
 
 // const PUBLIC_KEY = process.env.API_KEY;
-const PUBLIC_KEY = "";
+const PUBLIC_KEY = "AD7JAZ51CFHTA74D";
 
 const alpha = require('alphavantage')({ key: PUBLIC_KEY });
 

@@ -4,6 +4,11 @@ import { Accounts } from "meteor/accounts-base";
 
 export const Users = new Mongo.Collection("user");
 
+// if (Meteor.isServer) {
+//   Meteor.publish("user", function guessesPublish() {
+//     return (Users.find({}));
+//   });
+// }
 //add user to database
 Meteor.methods({
   "user.insert"(user, password)  {
