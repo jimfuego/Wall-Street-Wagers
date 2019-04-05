@@ -13,14 +13,12 @@ import { Grid, Button } from '@material-ui/core';
 class Profile extends Component{
     constructor(props) {
     super(props);
-    this.onClick = this.onClick.bind(this);
   }
 
   onClick(event) {
     event.preventDefault();
      this.props.history.push("/bet");
    }
-
 render(){
 	return (
 		<div className="container-fluid">
@@ -29,12 +27,12 @@ render(){
           {/*<div className=" col s12 m7"><Gambler /></div>*/}
           <div className="col s12 m5"><PredictionStats /></div>
         </div>
-        <Grid container justify="center" style={{ marginTop: '10px' }}>
+        <div>
           <Button variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onClick} >Start Betting!</Button>
-        </Grid>
+        </div>
           {/*<div className="col s12 m9"><Bio/></div>*/}
           {/*<div className="achievements"><Achievements /></div>*/}
-        </div>
+    </div>
   );
   }
 }
