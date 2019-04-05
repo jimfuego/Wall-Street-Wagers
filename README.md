@@ -1,10 +1,10 @@
-# [Wall-Street-Wagers]()
+# [Wall-Street-Wagers](https://wall-street-wager.herokuapp.com/)
 Wall-Street-Wagers is a betting game 
 ## Preview
 
-![App Preview](pic_this.png) 
+![App Preview](ace-action-adult-1688506.jpg) 
 
-**[View Live Preview]()**
+**[View Live Preview](https://wall-street-wager.herokuapp.com/)**
 
 ## Tech Requirements
 * Meteor
@@ -22,7 +22,7 @@ Wall-Street-Wagers is a betting game
 
 **OR**
 
-Load the [URL]() onto your browser, 
+Load the [URL](https://wall-street-wager.herokuapp.com/) onto your browser, 
 
 
 ## Authors
