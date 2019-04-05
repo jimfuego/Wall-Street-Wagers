@@ -7,11 +7,6 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-//import Table from 'react-bootstrap/Table'
-import {  Grid, TextField } from '@material-ui/core';
-import { Face, Fingerprint } from '@material-ui/icons'
-
-
 
 const styles = {
   card: {
@@ -25,8 +20,6 @@ const styles = {
 function Gambler() {
   // const { classes } = props;
   return(
-    <div>
-
     <Card className="TheCard">
       <CardActionArea>
         <CardMedia
@@ -37,29 +30,24 @@ function Gambler() {
           image="ace-action-adult-1688506.jpg"
         />
         <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
+          <Typography gutterBottom variant="h5" component="h2">
             Gambler Name (prop)
           </Typography>
           <Typography component="p">
               Gamblers are often interesting folk, and this is where they
               are intended to elaborate...
           </Typography>
-          <Typography gutterBottom variant="h5" component="h2">
-          </Typography>
-          <Typography component="p">
-
-          </Typography>
         </CardContent>
-
       </CardActionArea>
       <CardActions>
-
+        <Button label="button1" size="small" color="primary">
+              Send message
+        </Button>
+        <Button label="button2" size="small" color="primary">
+              Like
+        </Button>
       </CardActions>
     </Card>
-
-    </div>
-
-
   );
 }
 

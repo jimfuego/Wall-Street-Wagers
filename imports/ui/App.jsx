@@ -8,13 +8,6 @@ import ButtonAppBar from "./ButtonAppBar.jsx";
 import Landing from "./Landing.jsx";
 import Registration from "./Registration.jsx";
 import Bet from "./Bet.jsx";
-import LoginTab from "./Login-tab.jsx";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { withTracker } from "meteor/react-meteor-data";
-import { Meteor } from "meteor/meteor";
-import { Redirect } from "react-router-dom";
-import Profile from "./Profile.jsx"
-
 
 
 // import { Meteor } from "meteor/meteor";
@@ -27,55 +20,11 @@ import Profile from "./Profile.jsx"
 //     <div>We should call Suhas 🤷‍♀️</div>
 //   </div>;
 
-/*function PrivateRoute({ component: Component, ...rest }) {
-  return (
-    <Route
-      {...rest}
-      render={props =>
-        Meteor.userId() ? (
-          <Component {...props} />
-        ) : (
-          <Redirect
-            to={{
-              pathname: "/login",
-              state: { from: props.location }
-            }}
-          />
-        )
-      }
-    />
-  );
-}
-
-function PublicRoute({ component: Component, ...rest }) {
-  return (
-    <Route
-      {...rest}
-      render={props =>
-        !Meteor.userId() ? (
-          <Component {...props} />
-        ) : (
-          <Redirect
-            to={{
-              pathname: "/account",
-              state: { from: props.location }
-            }}
-          />
-        )
-      }
-    />
-  );
-}*/
-
 //Main class
- class App extends Component {
-  constructor(props) {
-    super(props);
-
-  }
+export default class App extends Component {
   render() {
     return (
-      /*<MuiThemeProvider>
+      <MuiThemeProvider>
         // <RaisedButton label="Oh yeah, button"/>
         <div className="container">
           <div className="row">
@@ -100,31 +49,10 @@ function PublicRoute({ component: Component, ...rest }) {
             <div className="col s12 m12"><Bet /></div>
           </div>
         </div>
-      </MuiThemeProvider>*/
-      <Router>
-        <div>
-          <Switch>
-            <Route exact path="/" component={Landing} />
-            <Route exact path="/register" component={Registration}/>
-            <Route exact path="/bet" component={Bet}/>
-            <Route exact path="/profile" component={Profile}/>
-            <Route exact path="/prediction" component={PredictionStats}/>
-          </Switch>
-          <br />
-          <div></div>
-
-
-        </div>
-      </Router>
+      </MuiThemeProvider>
     );
   }
 }
-
-export default withTracker(() => {
-  return {
-    user: Meteor.userId()
-  };
-})(App);
 
 // export default withTracker(() => {
 //   return {
