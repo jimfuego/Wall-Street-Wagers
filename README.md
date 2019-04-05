@@ -36,7 +36,7 @@ Load the [URL](https://wall-street-wager.herokuapp.com/) onto your browser,
 Demo can be found [here]()
 
 ## Google Slides URL
-Slides can be found [here](https://docs.google.com/presentation/u/1/d/1kXzsZCRbZHAZPNUCdcWgx2c65Kt7aA_hYgLuAAOToOk/edit?usp=sharing)
+Slides can be found [here](https://docs.google.com/presentation/d/1kXzsZCRbZHAZPNUCdcWgx2c65Kt7aA_hYgLuAAOToOk/edit#slide=id.gc6f80d1ff_0_0)
 
 ## Copyright and License
 Code released under the [MIT](https://github.com/facebook/react/blob/master/LICENSE) license.
