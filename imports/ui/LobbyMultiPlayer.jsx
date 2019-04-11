@@ -2,25 +2,15 @@ import React, { Component } from "react";
 import { Meteor } from "meteor/meteor";
 import { withTracker } from "meteor/react-meteor-data";
 import { withRouter } from "react-router-dom";
-import { Route, Redirect, Router} from 'react-router-dom';
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
 import PropTypes from "prop-types";
 import Challenge from "./Challenge.jsx";
 import { Paper, withStyles, Grid, Face, TextField, Button, FormControlLabel, Checkbox } from '@material-ui/core';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import InboxIcon from '@material-ui/icons/Inbox';
 import DraftsIcon from '@material-ui/icons/Drafts';
 import {Front} from "../api/minimongo.js";
 import MenuBar from "./MenuBar.jsx";
-import Session from "meteor/session";
-import Presences from "meteor/tmeasday:presence"
 
 
 

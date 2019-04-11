@@ -42,12 +42,7 @@ Meteor.methods({
       //console.log(Meteor.user().username + "was inserted")
       return;
     }
-
-
   }
-
-
-
 });
 
 

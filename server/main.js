@@ -4,6 +4,9 @@ import "../imports/api/achievements.js";
 import "../imports/api/bets.js";
 import "../imports/api/market.js";
 import "../imports/api/users.js";
+import "../imports/api/minimongo.js";
+import "../imports/api/wager.js";
+
 import { DDPRateLimiter } from "meteor/ddp-rate-limiter";
 import { WebApp } from 'meteor/webapp';
 

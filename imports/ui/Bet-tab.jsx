@@ -12,7 +12,6 @@ import HighLow from "./HighLow.jsx"
 
 const styles = theme => ({
     height: 3,
-
     margin: {
         margin: theme.spacing.unit * 2,
     },
@@ -43,7 +42,6 @@ class BetTab extends Component {
 
   onClick(event){
     event.preventDefault();
-
     Meteor.call("bets.insert", this.state.tickerSymbolInputInput, (err, res) => {
       if(err){
         alert("Error inserting bet");
