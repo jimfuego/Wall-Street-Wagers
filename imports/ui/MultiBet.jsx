@@ -1,24 +1,35 @@
-import React, { Component } from "react";
-import ButtonAppBar from "./ButtonAppBar.jsx";
-import BetTab from "./Bet-tab.jsx";
-import LoginNavBar from "./LoginNavBar.jsx";
-import MenuBar from "./MenuBar.jsx";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
+import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from "@material-ui/icons/Menu";
+import { Link } from 'react-router-dom';
+import { withTracker } from "meteor/react-meteor-data";
+import { Meteor } from "meteor/meteor";
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import MenuItem from '@material-ui/core/MenuItem';
+import Menu from '@material-ui/core/Menu';
+import React, { Component } from 'react';
+import {withRouter} from "react-router-dom";
+import { Paper, Grid, Text, Face, TextField, FormControlLabel, Checkbox } from '@material-ui/core';
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
-import Typography from "@material-ui/core/Typography";
-import { withRouter } from "react-router-dom";
-import {Meteor} from "meteor/meteor";
-import { withTracker } from "meteor/react-meteor-data";
+import MenuBar from "./MenuBar.jsx";
+import BetTab from "./Bet-tab.jsx"
 
- class Bet extends Component {
+
+ class MultiBet extends Component {
   render() {
     return(
       <div className="container-fluid" role="main">
       <div className="col s12 12"><MenuBar/></div>
-      <h1 className="seeb" align="center" >Single Player Bet</h1>
+      <h1 className="seeb" align="center" >Multi Player Bet</h1>
         <div className="row-flex">
           <div className="column-flex">
           <Card className="HomeCard">
@@ -50,4 +61,4 @@ export default withTracker (() => {
   return {
     user: Meteor.user()
   }
-})(withRouter(Bet));
+})(withRouter(MultiBet));

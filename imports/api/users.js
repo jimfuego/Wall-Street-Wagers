@@ -12,7 +12,7 @@ export const Users = new Mongo.Collection("user");
 //add user to database
 Meteor.methods({
   "user.insert"(user, password)  {
-    let profile = { profile: "Default profiel value" };
+    let profile = { profile: "Default profile value" };
     let wins = { wins: 0 };
     let gamesPlayed = { gamesPlayed: 0 };
     return Accounts.createUser({ username: user, password: password, profile: profile, wins: wins, gamesPlayed: gamesPlayed });

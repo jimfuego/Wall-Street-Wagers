@@ -5,6 +5,7 @@ export default class Achievements extends Component {
   render() {
     return(
     <div style={{ width: '100%' }}>
+    <Box className="achieve" align="center"> Achievments 
       <Box display="flex" justifyContent="center" m={1} p={1} bgcolor="background.paper">
         <Box p={1} bgcolor="grey.300">
           Most recent achievement
@@ -16,6 +17,7 @@ export default class Achievements extends Component {
           3rd most
         </Box>
       </Box>
+    </Box>
     </div>
     );
   }

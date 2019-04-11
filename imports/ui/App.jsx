@@ -13,7 +13,16 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { withTracker } from "meteor/react-meteor-data";
 import { Meteor } from "meteor/meteor";
 import { Redirect } from "react-router-dom";
-import Profile from "./Profile.jsx"
+import Profile from "./Profile.jsx";
+import LobbyMultiPlayer from "./LobbyMultiPlayer.jsx"
+import YourChallenges from "./YourChallenges.jsx"
+import MultiBet from "./MultiBet.jsx"
+import NoChallenge from "./NoChallenge.jsx";
+import Game from "./Game.jsx"
+import Rank from "./Rank.jsx"
+import OnLogin from "./OnLogin.jsx"
+
+
 
 
 
@@ -109,8 +118,15 @@ function PublicRoute({ component: Component, ...rest }) {
             <Route exact path="/register" component={Registration}/>
             <Route exact path="/bet" component={Bet}/>
             <Route exact path="/profile" component={Profile}/>
+            <Route exact path="/lobby" component={LobbyMultiPlayer}/>
+            <Route exact path="/wager" component={YourChallenges}/>
+            <Route exact path="/multibet" component={MultiBet}/>
+            <Route exact path="/nochallenge" component={NoChallenge}/>
+            <Route exact path="/winorlose" component={Game}/>
+            <Route exact path="/rank" component={Rank}/>
+            <Route exact path="/onlogin" component={OnLogin}/>
+
           </Switch>
-          <br />
           <div></div>
 
 

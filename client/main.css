@@ -61,6 +61,12 @@ float: left;
 
 }
 
+.liz{
+   margin-top:0px;
+
+
+}
+
 .BetClass{
 
 	 margin-top:350px;
@@ -71,4 +77,10 @@ float: left;
   content: "";
   display: table;
   clear: both;
+}
+
+.divider{
+    width:50px;
+    height:auto;
+    display:inline-block;
 }

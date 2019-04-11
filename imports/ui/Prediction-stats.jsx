@@ -10,7 +10,31 @@ import { Meteor } from "meteor/meteor";
  class PredictionStats extends Component {
     constructor(props) {
     super(props);
+
+    this.state = {
+      Win: "",
+      Gamesplayed: "",
+      Streak: "",
+      BetsPlaced: "",
+    };
   }
+
+  
+
+   /*componentDidMount(){
+    axios
+    .get("/api/index/getUser")
+    .then(res => {
+        this.setState({StartBMI: parseInt((res.data.StartWeight)/parseInt(res.data.Height*res.data.Height)*703),
+                      CurrentBMI: parseInt((res.data.CurrentWeight)/parseInt(res.data.Height*res.data.Height)*703),
+                      StartCals: parseInt(res.data.StartCals),
+                      CurrentCals: parseInt(res.data.CurrentCals),
+                      StartWeight:parseInt(res.data.StartWeight),
+                      CurrentWeight: parseInt(res.data.CurrentWeight)});
+});
+
+}*/
+
   render() {
     return(
     	<div>
