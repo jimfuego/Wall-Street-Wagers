@@ -60,7 +60,20 @@ class MenuAppBar extends Component {
 
   handleClose = () => {
     if (Meteor.user()){
-      Meteor.logout();
+      Meteor.call("null.deleteAll", (err)=> {
+          if (err) {
+            alert("There was an error deleting logged out user");
+            console.log(err);
+            return;
+          }
+
+          else {
+            console.log( " Deleted from minimongo")
+          }
+           Meteor.logout();
+
+
+      });
       this.props.history.push("/");
     }
     //Meteor.setTimeout(function(){ Router.go('/'); }, 10);

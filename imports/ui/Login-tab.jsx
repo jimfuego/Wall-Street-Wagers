@@ -8,6 +8,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { withTracker } from "meteor/react-meteor-data";
 import { Users } from "../api/users.js";
+import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 
 
 
@@ -61,10 +62,26 @@ handleChange(event) {
   let that = this;
   Meteor.loginWithPassword(document.getElementById("username").value, document.getElementById("password").value, function (err) {
     if (!err) {
-              that.props.history.push("/profile");
+       Meteor.call("null.insert",
+        document.getElementById("username").value,
+        (err,res) => {
+          if (err) {
+            alert("Error inserting into Database")
+            return;
+          }
+          //console.log(res + "was inserted")
+
+          //console.log("null.find");
+        });
+        //if there is a challenger in lobby
+        that.props.history.push("/wager");
+        //else
+       // that.props.history.push("/nochallenge");
+
 
     } else {
-              console.log('Check Username and Password')
+              //console.log('Check Username and Password')
+              alert("User profile does not exist-Must register")
 
     }
   })
@@ -98,12 +115,14 @@ handleChange(event) {
       //<Paper className={classes.padding}>
         //<div className={classes.margin}>
         <div className="LoginClass">
+
           <Grid container spacing={8} alignItems="flex-end">
             <Grid item>
               <Face />
             </Grid>
             <Grid item md={true} sm={true} xs={true}>
               <TextField  id="username" label="Username" ref={input=> this.email=input} type="email" fullWidth autoFocus required />
+
             </Grid>
           </Grid>
           <Grid container spacing={8} alignItems="flex-end">

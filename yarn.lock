@@ -2611,6 +2611,11 @@ progress@^2.0.0:
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
 
+promise-polyfill@8.1.0:
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/promise-polyfill/-/promise-polyfill-8.1.0.tgz#30059da54d1358ce905ac581f287e184aedf995d"
+  integrity sha512-OzSf6gcCUQ01byV4BgwyUCswlaQQ6gzXc23aLQWhicvfX9kfsUiUhgt3CCQej8jDnl8/PhGF31JdHX2/MzF3WA==
+
 promise@^7.1.1:
   version "7.3.1"
   resolved "https://registry.yarnpkg.com/promise/-/promise-7.3.1.tgz#064b72602b18f90f29192b8b1bc418ffd1ebd3bf"
@@ -2758,6 +2763,14 @@ react-event-listener@^0.6.2:
     prop-types "^15.6.0"
     warning "^4.0.1"
 
+react-form-validator-core@0.6.2:
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/react-form-validator-core/-/react-form-validator-core-0.6.2.tgz#60118e604eb93536e26c1f226a7c3b1f7f855375"
+  integrity sha512-36be/ynZEwjwRJ5m7at+59e27igoiAVM7x+BRBwztF4Qj02YTtkVd6OhGPVq4iAjT9Ge+4z6o9ZeQJg5QmDIkQ==
+  dependencies:
+    promise-polyfill "8.1.0"
+    react-lifecycles-compat "^3.0.2"
+
 react-input-autosize@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/react-input-autosize/-/react-input-autosize-2.2.1.tgz#ec428fa15b1592994fb5f9aa15bb1eb6baf420f8"
@@ -2774,6 +2787,13 @@ react-lifecycles-compat@^3.0.0, react-lifecycles-compat@^3.0.2, react-lifecycles
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
+
+react-material-ui-form-validator@^2.0.7:
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/react-material-ui-form-validator/-/react-material-ui-form-validator-2.0.7.tgz#2f2ea072d1b71f3c89ddbea3bf5d9d6ea52255db"
+  integrity sha512-gUlLgK0j3D7/zNKd3gH1EUYqMbplHxtATeaOyp5s2xHHmSBisiOd/RZygStv2/ClWvGtdXNix0/pnYhMyWrFAw==
+  dependencies:
+    react-form-validator-core "0.6.2"
 
 react-modal@^3.1.7:
   version "3.8.1"

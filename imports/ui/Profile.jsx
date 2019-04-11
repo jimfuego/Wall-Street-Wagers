@@ -17,32 +17,50 @@ import {withRouter} from "react-router-dom";
 import Bio from "./Bio.jsx";
 import MenuBar from "./MenuBar.jsx";
 import { Button } from '@material-ui/core';
+import { Link } from 'react-router-dom'
+
 
 class Profile extends Component{
     constructor(props) {
     super(props);
+    //this.state={
+      //id: "",
+    //}
     this.onClick=this.onClick.bind(this);
   }
 
   onClick(event) {
     event.preventDefault();
+
+    //if(id="single")
      this.props.history.push("/bet");
    }
 
+  onButtonClick(event){
+     event.preventDefault();
+     this.props.history.push("/lobby");
+   }
+
+
 render(){
   return (
+    <div className="col s12 12"><MenuBar />
     <div className="container-fluid" role="main">
-    <div className="col s12 12"><MenuBar /></div>
       <div className="row">
-      <h1 className="damn" text-align="center">Profile</h1>
           {/*<div className=" col s12 m7"><Gambler /></div>*/}
-          <div className="col s12 m5"><PredictionStats /></div>
+          <h1 className="damn" align="center">Your Profile</h1>
+          <div className="col s12 m6">Insert Profile Pic Here</div>
+          <div className="col s12 m6"><PredictionStats /></div>
         </div>
+         <div className="row">
+            <Link className="btn btn-primary btn-lg col s6 s6"  to="/bet">Single Player</Link>
+            <Link className="btn btn-primary btn-lg col s6 s6" to="/lobby">Multi-Player</Link>
+            <Link align="center" className="btn btn-primary btn-lg col s12 s12" to="/wager">See who challenged you</Link>
+          </div>
         <div className="row">
-          {/*<div className="col s12 m9"><Bio/></div>*/}
-          {/*<div className="achievements"><Achievements /></div>*/}
-          <Button variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onClick} >Start Betting!</Button>
+         <div className="achievements"><Achievements /></div>
         </div>
+    </div>
     </div>
   );
 }}

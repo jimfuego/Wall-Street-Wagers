@@ -19,8 +19,9 @@ import { withRouter } from "react-router-dom";
   render() {
     return(
     <div className="container-fluid" role="main">
-      <div className="col s12 12"><ButtonAppBar /></div>
-      <h1 className="fuckall">Beat Wall Street</h1>
+
+    <div className="liz"><ButtonAppBar />
+      <h1 className="fuckall" align="center">Beat Wall Street</h1>
         <div className="row-flex">
           <div className="column-flex">
           <Card className="HomeCard">
@@ -41,6 +42,7 @@ import { withRouter } from "react-router-dom";
         </div>
 
       </div>
+      </div>
     )
   }
 }
@@ -49,8 +51,6 @@ export default withTracker (() => {
     user: Meteor.user()
   }
 })(withRouter(Landing));
-
-
 
 /*export default withTracker(() => {
   //const handle = Meteor.subscribe("answer");
