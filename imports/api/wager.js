@@ -2,10 +2,9 @@ import { Mongo } from "meteor/mongo";
 import { Meteor } from "meteor/meteor";
 import { check } from "meteor/check";
 
-
 export const Wager = new Mongo.Collection("wager");
 
-//should fix null property of username 
+//should fix null property of username
 if (Meteor.isServer) {
   Meteor.publish("wager", function wagerPublish() {
     return Wager
@@ -14,8 +13,6 @@ if (Meteor.isServer) {
       });
   });
 }
-
-
 
 Meteor.methods({
 
@@ -26,10 +23,8 @@ Meteor.methods({
     check(inprogress, Boolean);
     check(gameended, Boolean);*/
 
-
     // check(highLow, String);
     // check(user, String);
-
 
     // Make sure the user is logged in before inserting a task
     if (! this.userId) {
@@ -45,16 +40,12 @@ Meteor.methods({
         accept:false,
         inprogress:false,
         gameended:false*/
-
       });
       //console.log(Meteor.user().username + "challenges you")
       return;
     }
-
-
   }
 });
-
 
   Meteor.methods({
     "wager.find"(){
@@ -80,10 +71,10 @@ Meteor.methods({
 
   Meteor.methods({
     "wager.deletechallenger"(challengee){
-   	check(challengee, String);
-    Wager.remove({
-      challenger: Meteor.user().username,
-      challengee: challengee
+      check(challengee, String);
+      Wager.remove({
+        challenger: Meteor.user().username,
+        challengee: challengee
     });
 
       //console.log(allusers)

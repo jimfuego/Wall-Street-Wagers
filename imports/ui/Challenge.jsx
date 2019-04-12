@@ -50,21 +50,10 @@ class Challenge extends Component {
     });
      //doesnt work
      //{this.renderUsers()}
-     Meteor.call("wager.insert",this.state.challengee,(err, res)=>{
-           if (err) {
-              alert("Error inserting challengee");
-              console.log(err);
-              return;
-            }
+    this.props.history.push("/multibetchallenger/"+ this.state.challengee);
 
-            else{
-            	//console.log(res + "has been inserted");
+     
 
-            }
-
-     });
-
-     this.props.history.push("/multibet");
 
  }
 
@@ -106,7 +95,7 @@ Challenge.propTypes = {
 export default withTracker (() => {
   return {
     challenger: Meteor.user(),
-    //challenger: Front.find({_id:{$ne:Meteor.userId()}},{sort:{'user': 1}}).fetch(),
+    challenger: Front.find({_id:{$ne:Meteor.userId()}},{sort:{'user': 1}}).fetch(),
 
   }
 })(withRouter(Challenge));

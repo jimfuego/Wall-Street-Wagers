@@ -87,6 +87,7 @@ class YourChallenges extends Component {
 
   renderChallenger() {
 
+  	//if the challenger exists and the (challenger make prediction button) has been clicked then render the card that says accept or decline 
   	if(this.state.challengerexists){
     return (this.props.challenger.map(m =>
     
@@ -96,12 +97,12 @@ class YourChallenges extends Component {
 
     	else {
     		return(
-    			<div>
-    			<h1 align="center">Go to lobby and challenge someone today</h1>
-    <Button id="lobby" align="center" variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onButtonClick}>Go to lobby</Button>
-	 <h2 align="center">or click to go to profile</h2>
-	<Button id="p" align="center" variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onClick}>Go to profile</Button>
-    		</div>);}
+     <div className="container-fluid" role="main">
+    <h1>Refresh to see new challenges or go to lobby and challenge someone</h1>
+    <Button id="lobby" variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onButtonClick}>Go to lobby</Button>
+	 <h2>Or click to go to profile</h2>
+	<Button id="p"  variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onClick}>Go to profile</Button>
+    </div>);}
   	
 	}
 

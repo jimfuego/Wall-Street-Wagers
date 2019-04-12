@@ -3,7 +3,7 @@ import { Meteor } from "meteor/meteor";
 import { check } from "meteor/check";
 
 export const Bets = new Mongo.Collection("bets");
-
+//process.env.API_KEY
 const PUBLIC_KEY = "AD7JAZ51CFHTA74D";
 const alpha = require('alphavantage')({ key: PUBLIC_KEY });
 //const alpha = require('alphavantage')({ key: process.env.API_KEY });
@@ -16,11 +16,9 @@ Meteor.publish("bets", function betsPublish() {
 //sets answer to game creator's preference
 // FIXME: remove user param
 Meteor.methods({
-  "bets.insert"(tickerSymbol)  {
+  async "bets.insert"(tickerSymbol, highLow)  {
     check(tickerSymbol, String);
-    // check(highLow, String);
-    // check(user, String);
-
+     check(highLow, String);
 
     // Make sure the user is logged in before inserting a task
     if (! this.userId) {
@@ -28,31 +26,54 @@ Meteor.methods({
       throw new Meteor.Error("not-authorized");
     }
 
-    //get info on tickerSymbol
-    // let apiResponse = JSON.parse(alpha.data.daily_adjusted(tickerSymbol, 1));
+    // get today's date
+    let d = new Date();
+    let weekday = d.getDay() + 1;
+    let dayOfMonth = d.getDate();
+    let year = d.getFullYear();
+    let month = d.getMonth() + 1;
+    let monthString = (month < 9) ? "0" + month : month;
+    let todaysDate = year + "-" + monthString + "-" + dayOfMonth;
 
-    alpha.data.daily_adjusted(tickerSymbol, 1).then(data => {
-      // let openingPrice = apiResponse[0].open;
+    // make sure this is not a duplicate bet
+    let queryResponse = Bets.findOne({ $and: [{ gambler: Meteor.user().username }, { tickerSymbol: tickerSymbol }]});
+    if(queryResponse != undefined){
+      console.log(queryResponse);
+      console.log("cant bet same tickersymbol same day");
+      return;
+    }
+
+    // get info on tickerSymbol
+    // let apiResponse = JSON.parse(alpha.data.daily_adjusted(tickerSymbol, 1));
+    return await alpha.data.daily_adjusted(tickerSymbol, 1).then(data => {
+
+      // attempt to parse
+      let justNYSEThings = data["Time Series (Daily)"];
+      let todaysData =  justNYSEThings[todaysDate];
+      let todaysOpening = todaysData["1. open"];
+      console.log("today's date: ", todaysDate);
+      console.log("today's data: ", justNYSEThings[todaysDate]);
+      console.log("Today's opening: ", todaysOpening);
+
+      // there ought to be some date around here somewhere
       if(data == undefined || data == null) {
         console.log("No stock data available for ", tickerSymbol);
-      }
-      let queryResponse = Bets.findOne({ $and: [{gambler: Meteor.user().username}, { tickerSymbol: tickerSymbol }]});
-      if(queryResponse != undefined){
-        console.log(queryResponse);
-        console.log("cant bet same tickersymbol same day");
-        return;
+        return "No stock data available for " + tickerSymbol + " on " + todaysDate;
       }
       else{
+        // insert bet
         Bets.insert({
-          tickerSymbol : tickerSymbol,
           gambler : Meteor.user().username,
-          highOrLow : "",
-          createdAt : Date.now()
+          tickerSymbol : tickerSymbol,
+          highOrLow : highLow,
+          createdAt : todaysDate,
+          openingPrice: todaysOpening
         });
-        console.log(Meteor.user().username + " predicted that " + tickerSymbol +
-        " will close (hihgLow)er than it's opening price of (openingPrice)");
-        console.log(data);
-        return data;
+        console.log("SUCCESS: " + Meteor.user().username + " predicted that " + tickerSymbol +
+        " will close " + highLow + "er than it's opening price of " + todaysOpening);
+        var result ="SUCCESS: " + Meteor.user().username + " predicted that " + tickerSymbol +
+        " will close " + highLow + "er than it's opening price of " + todaysOpening;
+        return result;
       }
     })
   }
@@ -91,6 +112,7 @@ Meteor.methods({
   }
 });
 
+// this does not belong here
 Meteor.methods({
   "bets.endGame" () {
     Bets.update({}, {
@@ -109,3 +131,34 @@ Meteor.methods({
     return (Bets.findOne({gameInProgress : true})!=undefined);
   }
 });
+
+//returns an array of dates to be used as keys to access JSON data
+//(work in priogress)
+// function getPastWeek(year, month, day) {
+//   let dates = new Array();
+//   for (let i = 0, j = 0; dates.length < 5; i++) {
+//     // if leap year && it's March
+//     if ((year % 4 == 0) && (month == 2)){
+//       // do leap year things, get crazy
+//     }
+//     // no leap year || not march
+//     else{
+//       // if month has 31 days
+//       if (month == 0 || month == 2 || month == 4 || month == 6 || month == 7 ||
+//           month == 9 || month == 11) {
+//           // if weekend keep rewinding
+//           if (day == 0 || day == 6){
+//           }
+//           // if weekday record and keep rewinding
+//           else{
+//           }
+//       }
+//       // if month has 31 days
+//       else if (month == 1 || month == 3 || month == 5 ||  month == 8 ||
+//                month == 10) {
+//
+//       }
+//     }
+//   }
+//   return dates;
+// }

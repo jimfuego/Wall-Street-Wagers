@@ -35,7 +35,7 @@ const styles = theme => ({
   },
 });
 
-class BetTab extends Component {
+class BetTabMultiplayer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -65,22 +65,52 @@ handleChange = event => {
   onClick(event){
     event.preventDefault();
 
-    Meteor.call("bets.insert", this.state.tickerSymbolInputInput, this.state.Bet, (err, res) => {
+    //2 player bets.insert ()
+
+    /*Meteor.call("bets.insert", this.state.tickerSymbolInputInput, this.state.Bet, (err, res) => {
       if(err){
         alert("Error inserting bet");
         console.log(err);
         return;
       }
       else if (res != undefined){
-        //console.log(res);
-        alert(res);
-      }
+        console.log(res);
+        alert("Stock price is (insert price of stock). Current price of stock is (insert current price of stock). Check again tommrow if you won/lost");
+        
         //should render accept or decline button on "yourchallenges" page
 
-        this.props.history.push("/checkbacktomorrow");
-      
-    }
-  )}
+        this.props.history.push("/profile");
+        //
+      }
+    }*/
+    Meteor.call("wager.insert",this.props.match.params.challengee,(err, res)=>{
+           if (err) {
+              alert("Error inserting challengee");
+              console.log(err);
+              return;
+            }
+
+            else{
+                 this.props.history.push("/winorlose");
+
+              //console.log(res + "has been inserted");
+
+            }
+
+     });
+  }
+
+  //wager db
+  //ticker symbol
+  //price point-challenger
+  //price point for challengee
+  //challenger username
+  //challengee username 
+  //state
+  //date created
+
+  //update price point for challengee after he accepts it
+   
 
   render() {
     const { classes } = this.props;
@@ -135,7 +165,7 @@ handleChange = event => {
     );
   }
 }
-BetTab.propTypes = {
+BetTabMultiplayer.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
@@ -143,4 +173,4 @@ export default withTracker (() => {
   return {
     user: Meteor.user()
   }
-})(withRouter(withStyles(styles)(BetTab)));
+})(withRouter(withStyles(styles)(BetTabMultiplayer)));

@@ -1,24 +1,25 @@
 import React, { Component } from "react";
+import Table from 'react-bootstrap/Table'
+//import Card from "@material-ui/core/Card";
+import { withTracker } from "meteor/react-meteor-data";
+import {withRouter} from "react-router-dom";
+import { Meteor } from "meteor/meteor";
 import ButtonAppBar from "./ButtonAppBar.jsx";
-import BetTab from "./Bet-tab.jsx";
-import LoginNavBar from "./LoginNavBar.jsx";
-import MenuBar from "./MenuBar.jsx";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
-import Typography from "@material-ui/core/Typography";
-import { withRouter } from "react-router-dom";
-import {Meteor} from "meteor/meteor";
-import { withTracker } from "meteor/react-meteor-data";
 
- class Bet extends Component {
+ class About extends Component {
+
   render() {
     return(
-      <div className="container-fluid" role="main">
-      <div className="col s12 12"><MenuBar/></div>
-      <h1 className="seeb" align="center" >Single Player Bet</h1>
+    	<div className="container-fluid" role="main">
+
+    	<div className="">
+    	<h1>About Wall Street Wagers</h1>
+
+      <h1 className="fuckall" align="center">Beat Wall Street</h1>
         <div className="row-flex">
           <div className="column-flex">
           <Card className="HomeCard">
@@ -27,26 +28,27 @@ import { withTracker } from "meteor/react-meteor-data";
             title="Profile Picture"
             component="img"
             alt="User Profile Picture"
-            className="mediabet"
-            image="stock.jpeg"
+            className="media"
+            image="ace-action-adult-1688506.jpg"
             />
             <CardContent>
-          <Typography component="p">
-          </Typography>
             </CardContent>
           </CardActionArea>
         </Card>
         </div>
-            <div className="column-flex"><BetTab /></div>
+            <div className="column-flex"></div>
+			Wall-Street-Wagers is a game that allows users to bet against the stock market
         </div>
 
       </div>
-    )
+      	</div>
+    );
   }
 }
+
 
 export default withTracker (() => {
   return {
     user: Meteor.user()
   }
-})(withRouter(Bet));
+})(withRouter(About));

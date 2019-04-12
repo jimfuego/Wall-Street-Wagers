@@ -23,11 +23,13 @@ const styles = theme => ({
 class HighLow extends React.Component {
   state = {
     Bet: '',
-    open: false
+    open: false,
+    value: ""
   };
 
   handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
+    
+    this.setState({ value: event.target.value });
   };
 
   handleClose = () => {
@@ -56,12 +58,8 @@ class HighLow extends React.Component {
               id: 'demo-controlled-open-select',
             }}
             >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value={10}>Low</MenuItem>
-            <MenuItem value={20}>Same</MenuItem>
-            <MenuItem value={30}>High</MenuItem>
+            <MenuItem value="low">Low</MenuItem>
+            <MenuItem value="high">High</MenuItem>
           </Select>
         </FormControl>
       </form>

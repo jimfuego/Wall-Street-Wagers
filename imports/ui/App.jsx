@@ -14,13 +14,17 @@ import { withTracker } from "meteor/react-meteor-data";
 import { Meteor } from "meteor/meteor";
 import { Redirect } from "react-router-dom";
 import Profile from "./Profile.jsx";
-import LobbyMultiPlayer from "./LobbyMultiPlayer.jsx"
-import YourChallenges from "./YourChallenges.jsx"
-import MultiBet from "./MultiBet.jsx"
+import LobbyMultiPlayer from "./LobbyMultiPlayer.jsx";
+import YourChallenges from "./YourChallenges.jsx";
+import MultiBetChallengee from "./MultiBetChallengee.jsx";
 import NoChallenge from "./NoChallenge.jsx";
-import Game from "./Game.jsx"
-import Rank from "./Rank.jsx"
-import OnLogin from "./OnLogin.jsx"
+import Game from "./Game.jsx";
+import Rank from "./Rank.jsx";
+import MultiBetChallenger from "./MultiBetChallenger.jsx";
+import About from "./About.jsx";
+import CheckBackTommorow from "./CheckBackTommorow.jsx";
+
+
 
 
 
@@ -120,11 +124,13 @@ function PublicRoute({ component: Component, ...rest }) {
             <Route exact path="/profile" component={Profile}/>
             <Route exact path="/lobby" component={LobbyMultiPlayer}/>
             <Route exact path="/wager" component={YourChallenges}/>
-            <Route exact path="/multibet" component={MultiBet}/>
+            <Route exact path="/multibetchallengee" component={MultiBetChallengee}/>
+            <Route exact path="/multibetchallenger/:challengee" component={MultiBetChallenger}/>
             <Route exact path="/nochallenge" component={NoChallenge}/>
             <Route exact path="/winorlose" component={Game}/>
             <Route exact path="/rank" component={Rank}/>
-            <Route exact path="/onlogin" component={OnLogin}/>
+            <Route exact path="/about" component={About}/>
+            <Route exact path="/checkbacktomorrow" component={CheckBackTommorow}/>
 
           </Switch>
           <div></div>
