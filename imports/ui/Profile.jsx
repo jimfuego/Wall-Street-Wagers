@@ -58,7 +58,7 @@ render(){
             <Link align="center" className="btn btn-primary btn-lg col s12 s12" to="/wager">See who challenged you</Link>
           </div>
         <div className="row">
-         <div className="achievements"><Achievements /></div>
+         {/*<div className="achievements"><Achievements /></div>*/}
         </div>
     </div>
     </div>
