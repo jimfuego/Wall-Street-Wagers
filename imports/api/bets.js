@@ -4,10 +4,8 @@ import { check } from "meteor/check";
 
 export const Bets = new Mongo.Collection("bets");
 
-const PUBLIC_KEY = "AD7JAZ51CFHTA74D";
+const PUBLIC_KEY = process.env.API_KEY;
 const alpha = require('alphavantage')({ key: PUBLIC_KEY });
-// const PUBLIC_KEY = process.env.API_KEY;
-// const alpha = require('alphavantage')({ key: PUBLIC_KEY });
 
 //publish
 if (Meteor.isServer) {
