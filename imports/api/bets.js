@@ -4,10 +4,10 @@ import { check } from "meteor/check";
 
 export const Bets = new Mongo.Collection("bets");
 
-// const PUBLIC_KEY = "";
-// const alpha = require('alphavantage')({ key: PUBLIC_KEY });
-const PUBLIC_KEY = process.env.API_KEY;
+const PUBLIC_KEY = "AD7JAZ51CFHTA74D";
 const alpha = require('alphavantage')({ key: PUBLIC_KEY });
+// const PUBLIC_KEY = process.env.API_KEY;
+// const alpha = require('alphavantage')({ key: PUBLIC_KEY });
 
 //publish
 if (Meteor.isServer) {
@@ -32,7 +32,7 @@ Meteor.methods({
     // get today's date
     let d = new Date();
     let weekday = d.getDay() + 1;
-    let dayOfMonth = d.getDate() - 1;
+    let dayOfMonth = d.getDate() - 1 //FIXME don't -1
     let year = d.getFullYear();
     let month = d.getMonth() + 1;
     let monthString = (month < 9) ? "0" + month : month;

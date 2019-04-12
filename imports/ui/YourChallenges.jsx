@@ -97,10 +97,10 @@ class YourChallenges extends Component {
 
     	else {
     		return(
-     <div className="container-fluid" role="main">
-    <h1>Refresh to see new challenges or go to lobby and challenge someone</h1>
+     <div className="container-fluid" >
+    <h1 align="center">Refresh to see new challenges or go to lobby and challenge someone</h1>
     <Button id="lobby" variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onButtonClick}>Go to lobby</Button>
-	 <h2>Or click to go to profile</h2>
+	 <h2 align="center">Or click to go to profile</h2>
 	<Button id="p"  variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onClick}>Go to profile</Button>
     </div>);}
 

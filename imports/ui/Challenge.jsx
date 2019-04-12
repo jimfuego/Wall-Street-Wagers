@@ -69,7 +69,7 @@ class Challenge extends Component {
 
   render() {
   	return (
-  		<div className="container-fluid" role="main">
+  		<div className="container-fluid">
   	 	<div>
 	      	<Grid container justify="center" style={{ marginTop: '10px' }}>
 	        <Button variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onClick}>Challenge</Button>

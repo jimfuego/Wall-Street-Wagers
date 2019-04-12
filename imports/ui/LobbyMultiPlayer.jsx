@@ -96,7 +96,7 @@ import MenuBar from "./MenuBar.jsx";
 	<Button id="accept" align="center" variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onClick}>Go back to profile</Button>
 	</div>
         <div className="render" align="center"></div>
-        <h2 align="center">Users online</h2>
+        <h2 align="center">Other users online</h2>
         {this.renderUsers()}
       </div>
     </div>
