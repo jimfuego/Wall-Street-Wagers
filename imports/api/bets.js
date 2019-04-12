@@ -3,7 +3,7 @@ import { Meteor } from "meteor/meteor";
 import { check } from "meteor/check";
 
 export const Bets = new Mongo.Collection("bets");
-//process.env.API_KEY
+
 // const PUBLIC_KEY = "";
 // const alpha = require('alphavantage')({ key: PUBLIC_KEY });
 const alpha = require('alphavantage')({ key: process.env.API_KEY });
