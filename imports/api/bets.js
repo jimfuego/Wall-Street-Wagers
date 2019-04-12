@@ -9,10 +9,13 @@ const alpha = require('alphavantage')({ key: PUBLIC_KEY });
 //const alpha = require('alphavantage')({ key: process.env.API_KEY });
 
 //publish
+if (Meteor.isServer) {
+  
 Meteor.publish("bets", function betsPublish() {
   return (Bets.find({}));
 });
 
+}
 //sets answer to game creator's preference
 // FIXME: remove user param
 Meteor.methods({
