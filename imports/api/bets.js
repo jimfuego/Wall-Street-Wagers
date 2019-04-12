@@ -32,7 +32,7 @@ Meteor.methods({
     // get today's date
     let d = new Date();
     let weekday = d.getDay() + 1;
-    let dayOfMonth = d.getDate();
+    let dayOfMonth = d.getDate() - 1;
     let year = d.getFullYear();
     let month = d.getMonth() + 1;
     let monthString = (month < 9) ? "0" + month : month;
@@ -54,10 +54,10 @@ Meteor.methods({
       // attempt to parse
       let justNYSEThings = data["Time Series (Daily)"];
       console.log("Just NYSE: ", justNYSEThings);
+      console.log("Today's date:", todaysDate);
       let todaysData =  justNYSEThings[todaysDate];
       console.log("Today: ", todaysData);
       let todaysOpening = todaysData["1. open"];
-
 
       // there ought to be some date around here somewhere
       if(data == undefined || data == null) {
