@@ -11,7 +11,6 @@ const alpha = require('alphavantage')({ key: PUBLIC_KEY });
 
 //publish
 if (Meteor.isServer) {
-
 Meteor.publish("bets", function betsPublish() {
   return (Bets.find({}));
 });

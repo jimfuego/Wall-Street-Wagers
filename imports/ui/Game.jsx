@@ -22,8 +22,8 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import MenuBar from "./MenuBar.jsx";
 import {Front} from "../api/minimongo.js";
-import Table from 'react-bootstrap/Table'
-import {Bets} from "../api/bets.js";
+import Table from 'react-bootstrap/Table';
+// import {Bets} from "../api/bets.js";
 
 class Game extends Component{
 
@@ -128,7 +128,7 @@ class Game extends Component{
 
 export default withTracker (() => {
 	//const handle = Meteor.subscribe("loggedin");
-	const handle = Meteor.subscribe("bets");
+	// const handle = Meteor.subscribe("bets");
 
 	//const handle = Meteor.subscribe("userPresence");
 
@@ -137,7 +137,7 @@ export default withTracker (() => {
   // usera: Front.find({_id:{$ne:Meteor.userId()}},{sort:{'user': 1}}).fetch(),
    //userPresence: Presences.find({}).fetch(),
 
-   challenger: Bets.find({}).fetch(),
+   //challenger: Bets.find({}).fetch(),
    ready : handle.ready()
 
   }
