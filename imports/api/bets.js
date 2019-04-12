@@ -50,14 +50,14 @@ Meteor.methods({
     // let apiResponse = JSON.parse(alpha.data.daily_adjusted(tickerSymbol, 1));
     return await alpha.data.daily_adjusted(tickerSymbol, 1).then(data => {
 
-      console.log(data);
+      console.log("Data", data);
       // attempt to parse
       let justNYSEThings = data["Time Series (Daily)"];
+      console.log("Just NYSE: ", justNYSEThings);
       let todaysData =  justNYSEThings[todaysDate];
+      console.log("Today: ", todaysData);
       let todaysOpening = todaysData["1. open"];
-      console.log("today's date: ", todaysDate);
-      console.log("today's data: ", justNYSEThings[todaysDate]);
-      console.log("Today's opening: ", todaysOpening);
+
 
       // there ought to be some date around here somewhere
       if(data == undefined || data == null) {
