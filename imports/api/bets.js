@@ -50,6 +50,7 @@ Meteor.methods({
     // let apiResponse = JSON.parse(alpha.data.daily_adjusted(tickerSymbol, 1));
     return await alpha.data.daily_adjusted(tickerSymbol, 1).then(data => {
 
+      console.log(data);
       // attempt to parse
       let justNYSEThings = data["Time Series (Daily)"];
       let todaysData =  justNYSEThings[todaysDate];
