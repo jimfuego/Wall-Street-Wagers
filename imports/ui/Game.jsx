@@ -94,7 +94,7 @@ class Game extends Component{
     return(
     	<div className="container-fluid" role="main">
       <div className="col s12 12"><MenuBar /></div>
-    <h2 align="center">You Lose</h2>
+    <h1 align="center">You Lose</h1>
       <Table responsive striped bordered hover variant="dark">
   <thead>
     <tr>
@@ -117,6 +117,11 @@ class Game extends Component{
     );
   }
 }
+
+
+
+
+
 
 export default withTracker (() => {
 	const handle = Meteor.subscribe("loggedin");

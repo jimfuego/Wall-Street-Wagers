@@ -15,16 +15,9 @@ if (Meteor.isServer) {
 }
 
 Meteor.methods({
-
-  "wager.insert"(challengee){
+  "wager.insert"(challengerPrediction, challengee){
+    check(challengerPrediction, Number);
     check(challengee, String);
-    /*check(state, String);
-    check(accept, false);
-    check(inprogress, Boolean);
-    check(gameended, Boolean);*/
-
-    // check(highLow, String);
-    // check(user, String);
 
     // Make sure the user is logged in before inserting a task
     if (! this.userId) {
@@ -35,11 +28,10 @@ Meteor.methods({
     else {
       Wager.insert({
         challenger: Meteor.user().username,
+        challengerPrediction: challengerPrediction,
         challengee: challengee,
-        /*state:"",
-        accept:false,
-        inprogress:false,
-        gameended:false*/
+        challengeePrediction:0,
+        accepted: false
       });
       //console.log(Meteor.user().username + "challenges you")
       return;

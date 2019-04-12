@@ -57,7 +57,7 @@ class AcceptorDecline extends Component {
         }
 
       });
-      this.props.history.push("/multibet");
+      this.props.history.push("/multibetchallengee");
 
 
   }

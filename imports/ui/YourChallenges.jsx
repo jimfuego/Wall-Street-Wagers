@@ -55,47 +55,55 @@ class YourChallenges extends Component {
    }*/
 
    componentDidMount(){
-     Meteor.call("wager.findmychallenges", (err,res)=> {
-       if (err) {
-         alert("There was an error finding challenges");
-         console.log(err);
-         return;
-       }
-       else{
-         if(res.length > 0) {
-           this.setState({
-             challengerexists:true
-           })
-         }
-       }
-     });
+   		 Meteor.call("wager.findmychallenges", (err,res)=> {
+   		 	if (err) {
+            alert("There was an error finding challenges");
+            console.log(err);
+            return;
+          }
+   			else{
+   				if(res.length > 0) {
+   					this.setState({
+   						challengerexists:true
+   					})
+   				}
+   			}
+
+   		});
    }
 
    onClick(event) {
     event.preventDefault();
+
     //if(id="single")
      this.props.history.push("/profile");
    }
-
    onButtonClick(event){
-     event.preventDefault();
+   	event.preventDefault();
+
      this.props.history.push("/lobby");
+
    }
 
   renderChallenger() {
-    if(this.state.challengerexists){
-      return (this.props.challenger.map(m =>
+
+  	//if the challenger exists and the (challenger make prediction button) has been clicked then render the card that says accept or decline
+  	if(this.state.challengerexists){
+    return (this.props.challenger.map(m =>
+
       (<div className="" key={m._id}> {m.challenger}
-        <AcceptorDecline/>
+		<AcceptorDecline/>
       </div>)));}
-      else {
-        return(
-          <div>
-            <h1 align="center">Go to lobby and challenge someone today</h1>
-            <Button id="lobby" align="center" variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onButtonClick}>Go to lobby</Button>
-            <h2 align="center">or click to go to profile</h2>
-            <Button id="p" align="center" variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onClick}>Go to profile</Button>
-          </div>);}
+
+    	else {
+    		return(
+     <div className="container-fluid" role="main">
+    <h1>Refresh to see new challenges or go to lobby and challenge someone</h1>
+    <Button id="lobby" variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onButtonClick}>Go to lobby</Button>
+	 <h2>Or click to go to profile</h2>
+	<Button id="p"  variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onClick}>Go to profile</Button>
+    </div>);}
+
 	}
 
 
@@ -116,22 +124,23 @@ class YourChallenges extends Component {
 
   render() {
     return(
-      /*if there are challenges render this page else render NoChallenge page*/
+    	/*if there are challenges render this page else render NoChallenge page*/
       <div className="container-fluid" role="main">
-        <div className="yourChallenges" >
-          <div className="col s12 12">
-            <MenuBar />
-          </div>
-          {this.state.challengerexists? <h1 align="center">You have been Wagered</h1>:<div></div>}
-        <div className="body">
-          <div className="row">
-            <div className="col s12 m6"> {this.renderChallenger()} </div>
-          </div>
-        </div>
-      </div>
-      </div>
+      <div className="yourChallenges" >
+      <div className="col s12 12"><MenuBar /></div>
 
-);
+   		{this.state.challengerexists? <h1 align="center">You have been Wagered</h1>:<div></div>}
+
+
+   		<div className="body">
+   			 <div className="row">
+          	<div className="col s12 m6"> {this.renderChallenger()} </div>
+   			</div>
+    	</div>
+    	</div>
+    	</div>
+
+    	);
 }
 }
 
@@ -143,7 +152,7 @@ export default withTracker (() => {
 	const handle = Meteor.subscribe("wager");
 
   return {
-    challenger: Wager.find({}).fetch(),
+  	challenger: Wager.find({}).fetch(),
     user: Meteor.user(),
     ready : handle.ready()
   }

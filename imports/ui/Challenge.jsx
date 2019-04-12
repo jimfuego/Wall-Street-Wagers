@@ -50,17 +50,11 @@ class Challenge extends Component {
     });
      //doesnt work
      //{this.renderUsers()}
-     Meteor.call("wager.insert",this.state.challengee,(err, res)=>{
-       if (err) {
-         alert("Error inserting challengee");
-         console.log(err);
-         return;
-       }
-       else{
-         //console.log(res + "has been inserted");
-       }
-     });
-     this.props.history.push("/multibet");
+    this.props.history.push("/multibetchallenger/"+ this.state.challengee);
+
+
+
+
  }
 
    onChange(evt) {
@@ -71,19 +65,23 @@ class Challenge extends Component {
 
   }
 
-//render challenger on seperate wager page
+  	//render challenger on seperate wager page
 
   render() {
-    return (
-      <div className="container-fluid" role="main">
-        <div>
-          <Grid container justify="center" style={{ marginTop: '10px' }}>
-            <Button variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onClick}>Challenge</Button>
-          </Grid>
-        </div>
-      </div>
-    );
+  	return (
+  		<div className="container-fluid" role="main">
+  	 	<div>
+	      	<Grid container justify="center" style={{ marginTop: '10px' }}>
+	        <Button variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onClick}>Challenge</Button>
+	      	</Grid>
+    	</div>
+
+  		</div>
+
+  	);
+
   }
+
 }
 
 Challenge.propTypes = {
@@ -97,7 +95,7 @@ Challenge.propTypes = {
 export default withTracker (() => {
   return {
     challenger: Meteor.user(),
-    //challenger: Front.find({_id:{$ne:Meteor.userId()}},{sort:{'user': 1}}).fetch(),
+    challenger: Front.find({_id:{$ne:Meteor.userId()}},{sort:{'user': 1}}).fetch(),
 
   }
 })(withRouter(Challenge));

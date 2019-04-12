@@ -4,6 +4,8 @@ import { check } from "meteor/check";
 
 export const Bets = new Mongo.Collection("bets");
 //process.env.API_KEY
+
+// const alpha = require('alphavantage')({ key: PUBLIC_KEY });
 const alpha = require('alphavantage')({ key: process.env.API_KEY });
 
 //publish
@@ -14,9 +16,9 @@ Meteor.publish("bets", function betsPublish() {
 //sets answer to game creator's preference
 // FIXME: remove user param
 Meteor.methods({
-  "bets.insert"(tickerSymbol, highLow)  {
+  async "bets.insert"(tickerSymbol, highLow)  {
     check(tickerSymbol, String);
-    // check(highLow, String);
+     check(highLow, String);
 
     // Make sure the user is logged in before inserting a task
     if (! this.userId) {
@@ -43,7 +45,7 @@ Meteor.methods({
 
     // get info on tickerSymbol
     // let apiResponse = JSON.parse(alpha.data.daily_adjusted(tickerSymbol, 1));
-    alpha.data.daily_adjusted(tickerSymbol, 1).then(data => {
+    return await alpha.data.daily_adjusted(tickerSymbol, 1).then(data => {
 
       // attempt to parse
       let justNYSEThings = data["Time Series (Daily)"];
@@ -69,8 +71,9 @@ Meteor.methods({
         });
         console.log("SUCCESS: " + Meteor.user().username + " predicted that " + tickerSymbol +
         " will close " + highLow + "er than it's opening price of " + todaysOpening);
-        return "SUCCESS: " + Meteor.user().username + " predicted that " + tickerSymbol +
+        var result ="SUCCESS: " + Meteor.user().username + " predicted that " + tickerSymbol +
         " will close " + highLow + "er than it's opening price of " + todaysOpening;
+        return result;
       }
     })
   }
