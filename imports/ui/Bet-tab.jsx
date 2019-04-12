@@ -13,7 +13,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select'
-
+import CheckBackTomorrow from "./CheckBackTomorrow.jsx";
 
 const styles = theme => ({
     height: 3,
@@ -44,7 +44,8 @@ class BetTab extends Component {
       priceUsd: "",
       highLowInput: "",
       value:"",
-      Bet:""
+      Bet:"",
+      message:""
     };
     this.onClick=this.onClick.bind(this);
     this.onChange=this.onChange.bind(this);
@@ -73,11 +74,14 @@ handleChange = event => {
       }
       else if (res != undefined){
         //console.log(res);
-        alert(res);
+        this.setState({
+            message: res
+        })
+        //alert(res);
       }
         //should render accept or decline button on "yourchallenges" page
 
-        this.props.history.push("/checkbacktomorrow");
+        //this.props.history.push("/checkbacktomorrow");
 
     }
   )}
@@ -85,7 +89,8 @@ handleChange = event => {
   render() {
     const { classes } = this.props;
     return (
-      <div className="BetClass">
+      this.state.message == "" ?
+      (<div className="BetClass">
           <Grid container spacing={8} alignItems="flex-end">
             <Grid item>
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/><path fill="none" d="M0 0h24v24H0z"/></svg></Grid>
@@ -131,7 +136,9 @@ handleChange = event => {
           <Grid container justify="center" style={{ marginTop: '10px' }}>
             <Button variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onClick}>Make Prediction!</Button>
           </Grid>
-      </div>
+      </div>) :
+      <h3>{this.state.message} <CheckBackTomorrow/></h3>
+
     );
   }
 }

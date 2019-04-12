@@ -23,8 +23,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import MenuBar from "./MenuBar.jsx";
 import {Front} from "../api/minimongo.js";
 import Table from 'react-bootstrap/Table'
-
-
+import {Bets} from "../api/bets.js";
 
 class Game extends Component{
 
@@ -32,7 +31,10 @@ class Game extends Component{
     super(props);
 
     this.state = {
-      bet: "",
+      gambler: "",
+      tickersymbol: "",
+
+
     };
     //this.handleChange = this.handleChange.bind(this);
     //this.onClick = this.onClick.bind(this);
@@ -92,23 +94,24 @@ class Game extends Component{
 
      render() {
     return(
-    	<div className="container-fluid" role="main">
+    <div className="container-fluid" role="main">
       <div className="col s12 12"><MenuBar /></div>
+
     <h1 align="center">You Lose</h1>
       <Table responsive striped bordered hover variant="dark">
   <thead>
     <tr>
       <th>Stock Name</th>
-      <th>Stock Price</th>
+      <th>Stock Opening Price today </th>
       <th>Your bet</th>
-      <th>User 2 bet</th>
+      <th>Stock Opening Price next day</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>MSFT</td>
       <td>180</td>
-      <td>160</td>
+      <td>High</td>
       <td>150</td>
     </tr>
   </tbody>
@@ -124,7 +127,8 @@ class Game extends Component{
 
 
 export default withTracker (() => {
-	const handle = Meteor.subscribe("loggedin");
+	//const handle = Meteor.subscribe("loggedin");
+	const handle = Meteor.subscribe("bets");
 
 	//const handle = Meteor.subscribe("userPresence");
 
@@ -132,6 +136,8 @@ export default withTracker (() => {
     users: Meteor.user(),
   // usera: Front.find({_id:{$ne:Meteor.userId()}},{sort:{'user': 1}}).fetch(),
    //userPresence: Presences.find({}).fetch(),
+
+   challenger: Bets.find({}).fetch(),
    ready : handle.ready()
 
   }

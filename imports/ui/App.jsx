@@ -22,7 +22,7 @@ import Game from "./Game.jsx";
 import Rank from "./Rank.jsx";
 import MultiBetChallenger from "./MultiBetChallenger.jsx";
 import About from "./About.jsx";
-import CheckBackTommorow from "./CheckBackTommorow.jsx";
+import {CheckBackTomorrow} from "./CheckBackTomorrow.jsx";
 
 
 
@@ -130,12 +130,9 @@ function PublicRoute({ component: Component, ...rest }) {
             <Route exact path="/winorlose" component={Game}/>
             <Route exact path="/rank" component={Rank}/>
             <Route exact path="/about" component={About}/>
-            <Route exact path="/checkbacktomorrow" component={CheckBackTommorow}/>
-
+            <Route exact path="/checkbacktomorrow" component={CheckBackTomorrow}/>
           </Switch>
           <div></div>
-
-
         </div>
       </Router>
     );

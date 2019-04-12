@@ -35,7 +35,7 @@ class CheckBackTommorow extends Component {
   render() {
     return(
     	<div>
-      <h1>Congrats on submitting your bet. Check back tomorrow to see if you beat the stock market</h1>
+      <h3>Congrats on submitting your bet. Check back tomorrow to see if you beat the stock market</h3>
 		<Button id="p"  variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onClick}>Go to profile</Button>
 		</div>
 
