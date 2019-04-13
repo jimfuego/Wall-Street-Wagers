@@ -138,7 +138,11 @@ function PublicRoute({ component: Component, ...rest }) {
     );
   }
 }
+// 1. Consider adding one more router for 404 not found page.
+// 2. It seems there are a lot of unused code in app.js. I think you should remove it to make this file clean and simple since app.js is the entry point.
 
+
+// It looks like you tracker Meteor.userId() here, but you never use it in your App component.
 export default withTracker(() => {
   return {
     user: Meteor.userId()
