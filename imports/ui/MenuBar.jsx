@@ -81,7 +81,7 @@ class MenuAppBar extends Component {
   };
 
 
-// There is a menu button in the menubar, but it triggers nothing. It can be confuseing.
+// There is a menu button in the menubar, but it triggers nothing. It can be confusing.
   render() {
     const { classes } = this.props;
     const { auth, anchorEl } = this.state;
