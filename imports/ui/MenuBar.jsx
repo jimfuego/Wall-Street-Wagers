@@ -79,6 +79,9 @@ class MenuAppBar extends Component {
     //Meteor.setTimeout(function(){ Router.go('/'); }, 10);
 
   };
+
+
+// There is a menu button in the menubar, but it triggers nothing. It can be confuseing.
   render() {
     const { classes } = this.props;
     const { auth, anchorEl } = this.state;
