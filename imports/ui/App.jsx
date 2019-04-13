@@ -24,7 +24,12 @@ import MultiBetChallenger from "./MultiBetChallenger.jsx";
 import About from "./About.jsx";
 import {CheckBackTomorrow} from "./CheckBackTomorrow.jsx";
 
+// Consider adding some validations for browsering pages via url.
 
+// If I am not logged in, I can still visit all your authticate pages by entering cooresponding url in the address bar. 
+// e.g. I can visit profile page by entering link "https://wall-street-wager.herokuapp.com/profile" and challenge page "https://wall-street-wager.herokuapp.com/multibetchallenger/john".
+
+// If I am logged in, I still have chance to visit the landing page, which I should not have.
 
 
 
