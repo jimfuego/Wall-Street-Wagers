@@ -28,7 +28,7 @@ class LoginTab extends Component {
     super(props);
 
     this.state = {
-      email: "",
+      username: "",
       password: "",
       errors: {}
     };
@@ -36,8 +36,8 @@ class LoginTab extends Component {
     this.onClick = this.onClick.bind(this);
 }
 
-handleChange(event) {
-    this.setState({email: event.target.email}, {password: event.target.password});
+  handleChange(event) {
+    this.setState({username: event.target.username}, {password: event.target.password});
   }
 
   routeChange(){
@@ -47,7 +47,7 @@ handleChange(event) {
 
   onClick(event) {
     //alert("A name was submitted: " + this.state.value);
-    event.preventDefault();
+    event.persist();
     /*const userData = {
       email: this.state.email,
       password: this.state.password
@@ -91,6 +91,12 @@ handleChange(event) {
 
 }
 
+  componentDidMount() {
+        ValidatorForm.addValidationRule('isTruthy', value => value);
+    }
+
+
+
   /*componentDidMount() {
     Tracker.autorun((c) => {
       var userId = Meteor.userId();
@@ -115,14 +121,26 @@ handleChange(event) {
       //<Paper className={classes.padding}>
         //<div className={classes.margin}>
         <div className="LoginClass">
-
+            <ValidatorForm
+                ref="form"
+                //onChange={this.handleChange}
+                onSubmit={this.onClick}
+                onError={errors => console.log(errors)}
+            >
           <Grid container spacing={8} alignItems="flex-end">
             <Grid item>
               <Face />
             </Grid>
             <Grid item md={true} sm={true} xs={true}>
-              <TextField  id="username" label="Username" ref={input=> this.email=input} type="email" fullWidth autoFocus required />
-
+              <TextValidator 
+              id="username" 
+              //onChange={this.handleChange}
+              name="username"
+              label="Username" 
+              ref={input=> this.username=input} 
+              type="username" 
+              errorMessages={['this field is required']} 
+              fullWidth autoFocus required />
             </Grid>
           </Grid>
           <Grid container spacing={8} alignItems="flex-end">
@@ -130,7 +148,14 @@ handleChange(event) {
               <Fingerprint />
             </Grid>
             <Grid item md={true} sm={true} xs={true}>
-              <TextField  id="password" label="Password" ref={input=> this.password=input} type="password" fullWidth required />
+              <TextValidator
+                    id="password"
+                    label="Password"
+                    name="password"
+                    ref={input=> this.password=input}
+                    type="password"
+                    errorMessages={['this field is required']}
+                    fullWidth autoFocus required/>
             </Grid>
           </Grid>
           <Grid container alignItems="center" justify="space-between">
@@ -146,8 +171,10 @@ handleChange(event) {
             </Grid>
           </Grid>
           <Grid container justify="center" style={{ marginTop: '10px' }}>
-            <Button variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onClick} >Login</Button>
+            <Button type="submit" variant="outlined" color="primary" style={{ textTransform: "none" }}  >Login</Button>
           </Grid>
+          </ValidatorForm>
+
         </div>
      // </Paper>
     );

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+ import React, { Component } from "react";
 import LoginTab from "./Login-tab.jsx";
 import ButtonAppBar from "./ButtonAppBar.jsx";
 import Card from "@material-ui/core/Card";
@@ -51,8 +51,6 @@ export default withTracker (() => {
     user: Meteor.user()
   }
 })(withRouter(Landing));
-
-
 
 /*export default withTracker(() => {
   //const handle = Meteor.subscribe("answer");

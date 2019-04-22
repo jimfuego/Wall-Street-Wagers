@@ -22,22 +22,11 @@ import { Link } from 'react-router-dom'
 
 
 class Rank extends Component{
-
-
   /*render() {
   	return(
- 
-
-
   		);
-
-
   }*/
-
-
 }
-
-
 export default withTracker (() => {
   return {
     user: Meteor.user()

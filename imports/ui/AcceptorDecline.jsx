@@ -18,48 +18,35 @@ class AcceptorDecline extends Component {
 
 	constructor(props) {
     super(props);
-
-    this.state = {
-
-      challenger:"",
+    this.state={
+      tickerSymbolInputInput:""
     }
-      //sendComponent: false,
-      //challenger:"",
-      //challengee:props.user
-     // currentRoomId: Session.get('currentRoomId')
-   // };
     this.onClick = this.onClick.bind(this);
     this.buttonClicked = this.buttonClicked.bind(this);
 
 }
 
 
-
-  /*renderUsers() {
-        this.props.challenger.map(m =>
-			<div className="" key={m._id}>{m.user} 
-         </div>
-
-		);    
-  }*/
-
     //accept
     onClick(event) {
       event.preventDefault();
-        Meteor.call("wager.deletechallenger",this.state.challenger, (err,res)=> {
-        if (err) {
-            alert("There was an deleting challenger");
-            console.log(err);
-            return;
-          }
-        else{
-          //console.log("Challenger has been deleted");
-        }
-
-      });
-      this.props.history.push("/multibetchallengee");
+      this.setState({
+    });
 
 
+    this.props.history.push({
+    pathname: "/multibetchallengee/"+ this.props.challenger[0].challenger,
+    state: { thechallenger: this.props.challenger[0].challenger,
+            tickerSymbolInputInput: this.props.challenger[0].tickerSymbolInputInput}});
+  }
+
+
+
+     onChange(evt) {
+    console.log(Meteor.user().username, evt.target.value);
+    this.setState({
+      challengee: evt.target.value
+    });
   }
     //decline
     buttonClicked(event){
@@ -79,15 +66,8 @@ class AcceptorDecline extends Component {
 
 
     }
-
-   /*onChange(evt) {
-    console.log(Meteor.user().username, evt.target.value);
-    this.setState({
-      challenger: evt.target.value
-    });
-
-  }*/
   render() {
+    console.log("This.props" , this.props)
     return(
       /*if there are challenges render this page else render NoChallenge page*/
       <div className="container-fluid" role="main">

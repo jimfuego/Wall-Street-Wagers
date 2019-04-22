@@ -23,6 +23,7 @@ import Rank from "./Rank.jsx";
 import MultiBetChallenger from "./MultiBetChallenger.jsx";
 import About from "./About.jsx";
 import CheckBackTommorow from "./CheckBackTommorow.jsx";
+import ReactGA from 'react-ga';
 
 
 
@@ -86,6 +87,12 @@ function PublicRoute({ component: Component, ...rest }) {
   constructor(props) {
     super(props);
 
+
+  }
+
+   initializeReactGA() {
+    ReactGA.initialize('UA-138690564-1');
+    ReactGA.pageview('/homepage');
   }
   render() {
     return (
@@ -124,7 +131,7 @@ function PublicRoute({ component: Component, ...rest }) {
             <Route exact path="/profile" component={Profile}/>
             <Route exact path="/lobby" component={LobbyMultiPlayer}/>
             <Route exact path="/wager" component={YourChallenges}/>
-            <Route exact path="/multibetchallengee" component={MultiBetChallengee}/>
+            <Route exact path="/multibetchallengee/:challenger" component={MultiBetChallengee}/>
             <Route exact path="/multibetchallenger/:challengee" component={MultiBetChallenger}/>
             <Route exact path="/nochallenge" component={NoChallenge}/>
             <Route exact path="/winorlose" component={Game}/>

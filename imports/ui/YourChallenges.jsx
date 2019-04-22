@@ -19,21 +19,25 @@ import MenuBar from "./MenuBar.jsx";
 import { Wager } from "../api/wager.js";
 import AcceptorDecline from "./AcceptorDecline.jsx";
 import NoChallenge from "./NoChallenge.jsx";
+import classNames from 'classnames';
 
 
-
-
-
-
+const styles = {
+  root: {
+    fontFamily: '"Montserrat", sans-serif',
+  }
+}
 
 class YourChallenges extends Component {
+
 
   constructor(props) {
     super(props);
     
     this.state = {
       challenger: "",
-      challengerexists:false
+      challengerexists:false,
+
     };
     this.onClick=this.onClick.bind(this);
     this.onButtonClick=this.onButtonClick.bind(this);
@@ -64,7 +68,8 @@ class YourChallenges extends Component {
    			else{
    				if(res.length > 0) {
    					this.setState({
-   						challengerexists:true
+   						challengerexists:true,
+
    					})
    				}
    			}
@@ -86,21 +91,24 @@ class YourChallenges extends Component {
    }
 
   renderChallenger() {
+    const { classes, children, className, ...other } = this.props;
 
   	//if the challenger exists and the (challenger make prediction button) has been clicked then render the card that says accept or decline 
   	if(this.state.challengerexists){
     return (this.props.challenger.map(m =>
     
       (<div className="" key={m._id}> {m.challenger}
-		<AcceptorDecline/>
+
+		<AcceptorDecline challenger={m}/>
+
       </div>)));}
 
     	else {
     		return(
-     <div className="container-fluid" role="main">
-    <h1>Refresh to see new challenges or go to lobby and challenge someone</h1>
+     <div className="container-fluid">
+    <h1 className={classNames(classes.root, className)}>Refresh to see new challenges or go to lobby and challenge someone</h1>
     <Button id="lobby" variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onButtonClick}>Go to lobby</Button>
-	 <h2>Or click to go to profile</h2>
+	 <h2 className={classNames(classes.root, className)}>Or click to go to profile</h2>
 	<Button id="p"  variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onClick}>Go to profile</Button>
     </div>);}
   	
@@ -156,4 +164,4 @@ export default withTracker (() => {
     user: Meteor.user(),
     ready : handle.ready()
   }
-})(withRouter(YourChallenges));
+})(withRouter(withStyles(styles)(YourChallenges)));

@@ -91,7 +91,7 @@ class MenuAppBar extends Component {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" color="inherit" className={classes.grow}>
-              Wall-Street-Wagers
+              <Link to="/profile">Wall-Street-Wagers</Link>
             </Typography>
             <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="hamburger">
           {Meteor.user()? Meteor.user().username : ""}

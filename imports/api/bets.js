@@ -31,8 +31,8 @@ Meteor.methods({
 
     // get today's date
     let d = new Date();
-    let weekday = d.getDay() + 1;
-    let dayOfMonth = d.getDate();
+    let weekday = d.getDay()+1;
+    let dayOfMonth = d.getDate()+1;
     let year = d.getFullYear();
     let month = d.getMonth() + 1;
     let monthString = (month < 9) ? "0" + month : month;

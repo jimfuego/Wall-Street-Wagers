@@ -16,7 +16,7 @@ if (Meteor.isServer) {
 
 Meteor.methods({
 
-  "wager.insert"(challengee){
+  "wager.insert"(challengee,tickerSymbolInputInput){
     check(challengee, String);
     /*check(state, String);
     check(accept, false);
@@ -36,6 +36,7 @@ Meteor.methods({
       Wager.insert({
         challenger: Meteor.user().username,
         challengee: challengee,
+        tickerSymbolInputInput:tickerSymbolInputInput
         /*state:"",
         accept:false,
         inprogress:false,
@@ -69,6 +70,10 @@ Meteor.methods({
 });
 
 
+
+
+
+
   Meteor.methods({
     "wager.deletechallenger"(challengee){
       check(challengee, String);
@@ -82,17 +87,3 @@ Meteor.methods({
   }
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-

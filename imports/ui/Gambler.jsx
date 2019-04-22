@@ -14,11 +14,6 @@ import { withTracker } from "meteor/react-meteor-data";
 import { Meteor } from "meteor/meteor";
 import { Route, Redirect, Router, withRouter } from 'react-router-dom';
 
-
-
-
-
-
 const styles = {
   card: {
     maxWidth: 345,
@@ -59,13 +54,9 @@ function Gambler() {
 
       </CardActionArea>
       <CardActions>
-
       </CardActions>
     </Card>
-
     </div>
-
-
   );
 }
 

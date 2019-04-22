@@ -43,13 +43,8 @@ Meteor.methods({
       return;
     }
 
-
   }
-
-
-
 });
-
 
 Meteor.methods({
     "null.find"(){
@@ -100,6 +95,3 @@ Meteor.methods({
     return Accounts.findOne({ userName : user }, { _id: 0, username: 0, password: 0, profile: 0, wins: 0});
   }
 });*/
-
-
-

@@ -22,12 +22,18 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import MenuBar from "./MenuBar.jsx";
 import {Front} from "../api/minimongo.js";
-import Table from 'react-bootstrap/Table'
-import {Bets} from "../api/bets.js";
+import Table from 'react-bootstrap/Table';
+import classNames from 'classnames';
 
 
+const styles = {
+  root: {
+    fontFamily: '"Montserrat", sans-serif',
+  }
+}
 
 class Game extends Component{
+
 
     constructor(props) {
     super(props);
@@ -95,26 +101,34 @@ class Game extends Component{
    }*/
 
      render() {
+      console.log(this.props)
+    const { classes, children, className, ...other } = this.props;
+
     return(
     <div className="container-fluid" role="main">
       <div className="col s12 12"><MenuBar /></div>
     
-    <h1 align="center">You Lose</h1>
+    {/*show you lose or win after other users input*/}
+    <h1 align="center">Waiting for other users input</h1>
       <Table responsive striped bordered hover variant="dark">
-  <thead>
+  <thead className="heading">
     <tr>
       <th>Stock Name</th>
       <th>Stock Opening Price today </th>
       <th>Your bet</th>
-      <th>Stock Opening Price next day</th>
+      <th>Other users bet</th>
+      <th>Stock Price Next Day</th>
+
     </tr>
   </thead>
-  <tbody>
-    <tr>
-      <td>MSFT</td>
-      <td>180</td>
-      <td>High</td>
-      <td>150</td>
+  <tbody className="footing">
+    <tr className={classNames(classes.root, className)}>
+      <td>(show stock name)</td>
+      <td>(show stock opening price)</td>
+      <td>(show your bet)</td>
+      <td>(expected to render after other user bet)</td>
+      <td>(expected to render upon market open)</td>
+
     </tr>
   </tbody>
 </Table>
@@ -130,17 +144,14 @@ class Game extends Component{
 
 export default withTracker (() => {
 	//const handle = Meteor.subscribe("loggedin");
-	const handle = Meteor.subscribe("bets");
 
 	//const handle = Meteor.subscribe("userPresence");
 
   return {
-    users: Meteor.user(),
+    user: Meteor.user(),
   // usera: Front.find({_id:{$ne:Meteor.userId()}},{sort:{'user': 1}}).fetch(),
    //userPresence: Presences.find({}).fetch(),
 
-   challenger: Bets.find({}).fetch(),
-   ready : handle.ready()
 
   }
-})(withRouter(Game));
+})(withRouter(withStyles(styles)(Game)));

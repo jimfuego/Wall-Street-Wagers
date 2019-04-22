@@ -5,8 +5,6 @@ import { withTracker } from "meteor/react-meteor-data";
 import {withRouter} from "react-router-dom";
 import { Meteor } from "meteor/meteor";
 
-
-
  class PredictionStats extends Component {
     constructor(props) {
     super(props);
@@ -18,8 +16,6 @@ import { Meteor } from "meteor/meteor";
       BetsPlaced: "",
     };
   }
-
-  
 
    /*componentDidMount(){
     axios
@@ -35,6 +31,25 @@ import { Meteor } from "meteor/meteor";
 
 }*/
 
+  componentDidMount(){
+    Meteor.call("user.insert",this.state.Win,this.state.GamesPlayed, this.state.Streak, this.state.BetsPlaced, (err,res) =>{
+      if(err){
+        console.log("User profile cannot be inserted")
+        return;
+      }
+
+      //console.log("User profile was inserted")
+      this.setState({
+        Win: "",
+        Gamesplayed: "",
+        Streak: "",
+        BetsPlaced: "",
+      });
+
+    });
+
+    }
+
   render() {
     return(
     	<div>
@@ -45,19 +60,18 @@ import { Meteor } from "meteor/meteor";
     <tbody>
       <tr>
       <td>Win%</td>
-      <td>100</td>
+      <td>{this.state.Win}</td>
       </tr>
       <tr>
       <td>Number of Games Played</td>
-      <td>100</td>
+      <td>{this.state.GamesPlayed}</td>
       </tr>
       <tr>
-      <td>Current Streak</td>
-      <td>5 in a row</td>
+
       </tr>
       <tr>
       <td>Total bets placed</td>
-      <td>300</td>
+      <td>{this.state.BetsPlaces}</td>
       </tr>
       </tbody>
       </Table>
@@ -67,7 +81,11 @@ import { Meteor } from "meteor/meteor";
 }
 
 export default withTracker (() => {
+    const handle = Meteor.subscribe("user");
+
   return {
-    user: Meteor.user()
+    user: Meteor.user(),
+    ready : handle.ready()
+
   }
 })(withRouter(PredictionStats));
