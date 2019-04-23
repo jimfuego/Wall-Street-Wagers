@@ -45,7 +45,7 @@ const styles = {
     this.state={
    
     tickerSymbolInputInput:""
-   
+
     }
    // this.onClick = this.onClick.bind(this);
     //this.buttonClicked = this.buttonClicked.bind(this);
@@ -56,7 +56,7 @@ const styles = {
   render() {
     //console.log(this.props)
     const { classes, children, className, ...other } = this.props;
-    console.log(this.props.location.state._id)
+    console.log(this.props.location.state.statechange)
     return(
       <div className="container-fluid" role="main">
       <div className="col s12 12"><MenuBar/></div>

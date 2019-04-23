@@ -80,14 +80,12 @@ handleChange = event => {
         console.log(err);
         return;
       }
-      else if (res != undefined){
-        //console.log(res);
-        this.setState({
-            message: res
-        })
+      else{
+        this.props.history.push("/winorlose");
+
         //alert(res);
       }
-      
+
         //should render accept or decline button on "yourchallenges" page
 
         //this.props.history.push("/checkbacktomorrow");

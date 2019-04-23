@@ -19,8 +19,9 @@ class AcceptorDecline extends Component {
 	constructor(props) {
     super(props);
     this.state={
-      tickerSymbolInputInput:""
-      
+      tickerSymbolInputInput:"",
+      statechange:"AcceptedChallenge",
+      id:""
     }
     this.onClick = this.onClick.bind(this);
     this.buttonClicked = this.buttonClicked.bind(this);
@@ -31,16 +32,30 @@ class AcceptorDecline extends Component {
     //accept
     onClick(event) {
       event.preventDefault();
-      this.setState({
+      Meteor.call("wager.updatechallengeestate",this.state.statechange,this.props.challenger[0]._id, (err, res)=>{
+           if (err) {
+              alert("Error inserting challengee");
+              console.log(err);
+              return;
+            }
 
-    });
+            else{
+                this.props.history.push({
+                pathname: "/multibetchallengee/"+ this.props.challenger[0].challenger,
+                state: { thechallenger: this.props.challenger[0].challenger,
+                        tickerSymbolInputInput: this.props.challenger[0].tickerSymbolInputInput,
+                        _id:this.props.challenger[0]._id,
+                        statechange:this.props.challenger[0].state}});
+
+              //console.log(res + "has been inserted");
+
+            }
+
+     });
 
 
-    this.props.history.push({
-    pathname: "/multibetchallengee/"+ this.props.challenger[0].challenger,
-    state: { thechallenger: this.props.challenger[0].challenger,
-            tickerSymbolInputInput: this.props.challenger[0].tickerSymbolInputInput,
-            _id:this.props.challenger[0]._id}});
+
+
   }
 
 

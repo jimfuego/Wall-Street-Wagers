@@ -90,10 +90,10 @@ function PublicRoute({ component: Component, ...rest }) {
 
   }
 
-   initializeReactGA() {
+   /*initializeReactGA() {
     ReactGA.initialize('UA-138690564-1');
     ReactGA.pageview('/homepage');
-  }
+  }*/
   render() {
     return (
       /*<MuiThemeProvider>

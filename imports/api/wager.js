@@ -18,7 +18,7 @@ if (Meteor.isServer) {
 
 Meteor.methods({
 
-  "wager.insert"(challengee,tickerSymbolInputInput,challengerbet){
+  "wager.insert"(challengee,tickerSymbolInputInput,challengerbet,state){
     check(challengee, String);
     check(challengerbet, String);
     /*check(state, String);
@@ -41,6 +41,7 @@ Meteor.methods({
         challengee: challengee,
         tickerSymbolInputInput:tickerSymbolInputInput,
         challengerbet : challengerbet,
+        statechange:state
 
         /*state:"",
         accept:false,
@@ -86,9 +87,8 @@ Meteor.methods({
           $set:
           {
             challengeebet : challengeebet}
-       
     });
- 
+
 
   }
 
@@ -96,7 +96,24 @@ Meteor.methods({
 });
 
 
+Meteor.methods({
 
+  "wager.updatechallengeestate"(challengeestate,id){
+     check(challengeestate, String);
+    //Wager.find({_id:this.userId})
+      Wager.update({
+        _id:id},
+        {
+          $set:
+          {
+            statechange : challengeestate}
+    });
+
+
+  }
+
+
+});
 
 
   Meteor.methods({

@@ -44,7 +44,8 @@ class BetTabMultiplayer extends Component {
       priceUsd: "",
       highLowInput: "",
       value:"",
-      Bet:""
+      Bet:"",
+      statechange:"initialized"
     };
     this.onClick=this.onClick.bind(this);
     this.onChange=this.onChange.bind(this);
@@ -85,7 +86,7 @@ handleChange = event => {
         //
       }
     }*/
-    Meteor.call("wager.insert",this.props.match.params.challengee, this.state.tickerSymbolInputInput,this.state.Bet, (err, res)=>{
+    Meteor.call("wager.insert",this.props.match.params.challengee, this.state.tickerSymbolInputInput,this.state.Bet, this.state.statechange, (err, res)=>{
            if (err) {
               alert("Error inserting challengee");
               console.log(err);
@@ -93,17 +94,20 @@ handleChange = event => {
             }
 
             else{
-                 this.props.history.push("/winorlose");
+                  this.props.history.push({
+                  pathname: "/multibetchallengee/"+ this.props.history.location.state.thechallengee,
+                  state: { tickerSymbolInputInput: this.state.tickerSymbolInputInput}});
+                 
 
               //console.log(res + "has been inserted");
 
             }
+            this.props.history.push("/winorlose");
+
 
      });
 
-    this.props.history.push({
-    pathname: "/multibetchallengee/"+ this.props.challenger[0].challenger,
-    state: { tickerSymbolInputInput: this.state.tickerSymbolInputInput}});
+
   }
   
 
@@ -121,6 +125,7 @@ handleChange = event => {
 
   render() {
     const { classes } = this.props;
+    console.log(this.props)
     return (
       <div className="BetClass">
           <Grid container spacing={8} alignItems="flex-end">
