@@ -20,6 +20,7 @@ class AcceptorDecline extends Component {
     super(props);
     this.state={
       tickerSymbolInputInput:""
+      
     }
     this.onClick = this.onClick.bind(this);
     this.buttonClicked = this.buttonClicked.bind(this);
@@ -31,13 +32,15 @@ class AcceptorDecline extends Component {
     onClick(event) {
       event.preventDefault();
       this.setState({
+
     });
 
 
     this.props.history.push({
     pathname: "/multibetchallengee/"+ this.props.challenger[0].challenger,
     state: { thechallenger: this.props.challenger[0].challenger,
-            tickerSymbolInputInput: this.props.challenger[0].tickerSymbolInputInput}});
+            tickerSymbolInputInput: this.props.challenger[0].tickerSymbolInputInput,
+            _id:this.props.challenger[0]._id}});
   }
 
 

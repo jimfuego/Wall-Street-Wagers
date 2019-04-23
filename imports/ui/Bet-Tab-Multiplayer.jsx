@@ -85,7 +85,7 @@ handleChange = event => {
         //
       }
     }*/
-    Meteor.call("wager.insert",this.props.match.params.challengee, this.state.tickerSymbolInputInput, (err, res)=>{
+    Meteor.call("wager.insert",this.props.match.params.challengee, this.state.tickerSymbolInputInput,this.state.Bet, (err, res)=>{
            if (err) {
               alert("Error inserting challengee");
               console.log(err);

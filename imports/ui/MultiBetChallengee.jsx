@@ -56,9 +56,8 @@ const styles = {
   render() {
     //console.log(this.props)
     const { classes, children, className, ...other } = this.props;
-
+    console.log(this.props.location.state._id)
     return(
-
       <div className="container-fluid" role="main">
       <div className="col s12 12"><MenuBar/></div>
       <h1 className="seeb" align="center">Multi Player Bet</h1>

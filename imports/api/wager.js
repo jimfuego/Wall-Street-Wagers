@@ -7,8 +7,10 @@ export const Wager = new Mongo.Collection("wager");
 //should fix null property of username
 if (Meteor.isServer) {
   Meteor.publish("wager", function wagerPublish() {
+    //this.userID
     return Wager
-      .find({challengee: Meteor.user().username}, {
+      .find({challengee: Meteor.user().username,
+           }, {
         // FIXME: don't limit or sort... maybe sort
       });
   });
@@ -16,8 +18,9 @@ if (Meteor.isServer) {
 
 Meteor.methods({
 
-  "wager.insert"(challengee,tickerSymbolInputInput){
+  "wager.insert"(challengee,tickerSymbolInputInput,challengerbet){
     check(challengee, String);
+    check(challengerbet, String);
     /*check(state, String);
     check(accept, false);
     check(inprogress, Boolean);
@@ -36,7 +39,9 @@ Meteor.methods({
       Wager.insert({
         challenger: Meteor.user().username,
         challengee: challengee,
-        tickerSymbolInputInput:tickerSymbolInputInput
+        tickerSymbolInputInput:tickerSymbolInputInput,
+        challengerbet : challengerbet,
+
         /*state:"",
         accept:false,
         inprogress:false,
@@ -69,6 +74,26 @@ Meteor.methods({
 
 });
 
+
+Meteor.methods({
+
+  "wager.insertchallengeebet"(challengeebet,id){
+     check(challengeebet, String);
+    //Wager.find({_id:this.userId})
+      Wager.update({
+        _id:id},
+        {
+          $set:
+          {
+            challengeebet : challengeebet}
+       
+    });
+ 
+
+  }
+
+
+});
 
 
 

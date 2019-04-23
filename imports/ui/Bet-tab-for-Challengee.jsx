@@ -51,7 +51,8 @@ class BetTabForChallengee extends Component {
       highLowInput: "",
       value:"",
       Bet:"",
-      message:""
+      message:"",
+      id:""
     };
     this.onClick=this.onClick.bind(this);
     this.onChange=this.onChange.bind(this);
@@ -71,8 +72,9 @@ handleChange = event => {
 
   onClick(event){
     event.preventDefault();
+    //console.log(this.props.location.state._id)
 
-    Meteor.call("bets.insert", this.state.tickerSymbolInputInput, this.state.Bet, (err, res) => {
+    Meteor.call("wager.insertchallengeebet", this.state.Bet,this.props.location.state._id, (err, res) => {
       if(err){
         alert("Error inserting bet");
         console.log(err);
@@ -85,6 +87,7 @@ handleChange = event => {
         })
         //alert(res);
       }
+      
         //should render accept or decline button on "yourchallenges" page
 
         //this.props.history.push("/checkbacktomorrow");
