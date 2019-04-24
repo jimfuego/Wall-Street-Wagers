@@ -116,6 +116,20 @@ Meteor.methods({
 });
 
 
+Meteor.methods({
+
+"wager.fetchthisdatabasemayne"(id,challengerbet,challengeebet){
+  let databasedeets=Wager.find({_id:id,challengerbet:challengerbet,challengeebet:challengeebet}).fetch();
+  return databasedeets;
+
+  }
+  
+  });
+
+
+
+
+
   Meteor.methods({
     "wager.deletechallenger"(challengee){
       check(challengee, String);

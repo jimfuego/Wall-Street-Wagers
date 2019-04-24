@@ -100,10 +100,28 @@ class Game extends Component{
 
    }*/
 
+   componentDidUpdate(){
+    console.log("id", this.props.location.state._id, "challengerbet", this.props.location.state.challengerbet,  "challengeebet",this.props.location.state.challengeebet)
+     Meteor.call("wager.fetchthisdatabasemayne", this.props.location.state._id,this.props.location.state.challengerbet,this.props.location.state.challengeebet,(err,res) => {
+           if (err) {
+              alert("Error fetching db");
+              console.log(err);
+              return;
+            }
+
+            else {
+              console.log("Id found"+ res)
+            }
+
+
+     });
+
+   }
+
      render() {
       console.log(this.props)
     const { classes, children, className, ...other } = this.props;
-
+    //if(Meteor.user.username())
     return(
     <div className="container-fluid" role="main">
       <div className="col s12 12"><MenuBar /></div>
@@ -116,17 +134,18 @@ class Game extends Component{
       <th>Stock Name</th>
       <th>Stock Opening Price today </th>
       <th>Your bet</th>
-      <th>Other users bet</th>
+      <th>Other user bet</th>
       <th>Stock Price Next Day</th>
 
     </tr>
   </thead>
+
   <tbody className="footing">
     <tr className={classNames(classes.root, className)}>
-      <td>(show stock name)</td>
+      <td>{this.props.location.state.tickerSymbolInputInput}</td>
       <td>(show stock opening price)</td>
-      <td>(show your bet)</td>
-      <td>(expected to render after other user bet)</td>
+      <td>{this.props.location.state.challengerbet}</td>
+      <td>{this.props.location.state.challengeebet}</td>
       <td>(expected to render upon market open)</td>
 
     </tr>

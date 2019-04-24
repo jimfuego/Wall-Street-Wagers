@@ -102,13 +102,22 @@ handleChange = event => {
               //console.log(res + "has been inserted");
 
             }
-            this.props.history.push("/winorlose");
+           /* this.props.history.push("/winorlose")
+
+            });*/
+                 this.props.history.push({
+          pathname: "/winorlose",
+          state: { _id:this.props.location.state._id,
+                   tickerSymbolInputInput: this.state.tickerSymbolInputInput,
+                   challengerbet:this.state.Bet}});
+         });
 
 
-     });
+     
 
 
-  }
+  
+}
   
 
   //wager db
@@ -125,7 +134,7 @@ handleChange = event => {
 
   render() {
     const { classes } = this.props;
-    console.log(this.props)
+    console.log("Is this undefined" , this.props)
     return (
       <div className="BetClass">
           <Grid container spacing={8} alignItems="flex-end">

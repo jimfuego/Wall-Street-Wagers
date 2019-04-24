@@ -73,10 +73,17 @@ const styles = {
       pathname: "/multibetchallengee/"+ this.state.challenger,
       state: { tickerSymbol: ""}});
 
- }
+    /*this.props.history.push({
+          pathname: "/winorlose/"+ this.props.location.state.thechallenger,
+          state: { tickerSymbolInputInput: ""}});*/
+
+    }
+
+
 
   render() {
     const { classes, children, className, ...other } = this.props;
+    console.log("THis is from MultibetChallenger", this.props)
 
     return(
       <div className="container-fluid" role="main">

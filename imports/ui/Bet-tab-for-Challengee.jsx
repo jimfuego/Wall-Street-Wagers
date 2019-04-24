@@ -81,19 +81,27 @@ handleChange = event => {
         return;
       }
       else{
-        this.props.history.push("/winorlose");
+      // this.props.history.push("/winorlose")
+        this.props.history.push({
+          pathname: "/winorlose",
+          state: { _id:this.props.location.state._id,
+                   challengeebet:this.state.Bet}});
+      }
+
+    //}
 
         //alert(res);
-      }
+      });
 
         //should render accept or decline button on "yourchallenges" page
 
         //this.props.history.push("/checkbacktomorrow");
       
     }
-  )}
+ 
 
   render() {
+    console.log(this.props)
     const { classes } = this.props;
     return (
       <div className="BetClass">
