@@ -82,67 +82,67 @@ function PublicRoute({ component: Component, ...rest }) {
 }*/
 
 //Main class
- class App extends Component {
-  constructor(props) {
-    super(props);
+class App extends Component {
+    constructor(props) {
+        super(props);
 
-  }
-  render() {
-    return (
-      /*<MuiThemeProvider>
-        // <RaisedButton label="Oh yeah, button"/>
-        <div className="container">
-          <div className="row">
-            <div className="col s12 12"><ButtonAppBar /></div>
-          </div>
-        </div>
-        <div className="container">
-          <div className="row">
-            <div className="col s12 m7"><Gambler /></div>
-            <div className="col s12 m5"><PredictionStats /></div>
-          </div>
-          <div className="row">
-            <div className="col s12 m12"><Achievements /></div>
-          </div>
-          <div className="row">
-            <div className="col s12 m12"><Landing /></div>
-          </div>
-          <div className="row">
-            <div className="col s12 m12"><Registration /></div>
-          </div>
-          <div className="row">
-            <div className="col s12 m12"><Bet /></div>
-          </div>
-        </div>
-      </MuiThemeProvider>*/
-      <Router>
-        <div>
-          <Switch>
-            <Route exact path="/" component={Landing} />
-            <Route exact path="/register" component={Registration}/>
-            <Route exact path="/bet" component={Bet}/>
-            <Route exact path="/profile" component={Profile}/>
-            <Route exact path="/lobby" component={LobbyMultiPlayer}/>
-            <Route exact path="/wager" component={YourChallenges}/>
-            <Route exact path="/multibetchallengee" component={MultiBetChallengee}/>
-            <Route exact path="/multibetchallenger/:challengee" component={MultiBetChallenger}/>
-            <Route exact path="/nochallenge" component={NoChallenge}/>
-            <Route exact path="/winorlose" component={Game}/>
-            <Route exact path="/rank" component={Rank}/>
-            <Route exact path="/about" component={About}/>
-            <Route exact path="/checkbacktomorrow" component={CheckBackTomorrow}/>
-          </Switch>
-          <div></div>
-        </div>
-      </Router>
-    );
-  }
+    }
+    render() {
+        return (
+            /*<MuiThemeProvider>
+              // <RaisedButton label="Oh yeah, button"/>
+              <div className="container">
+                <div className="row">
+                  <div className="col s12 12"><ButtonAppBar /></div>
+                </div>
+              </div>
+              <div className="container">
+                <div className="row">
+                  <div className="col s12 m7"><Gambler /></div>
+                  <div className="col s12 m5"><PredictionStats /></div>
+                </div>
+                <div className="row">
+                  <div className="col s12 m12"><Achievements /></div>
+                </div>
+                <div className="row">
+                  <div className="col s12 m12"><Landing /></div>
+                </div>
+                <div className="row">
+                  <div className="col s12 m12"><Registration /></div>
+                </div>
+                <div className="row">
+                  <div className="col s12 m12"><Bet /></div>
+                </div>
+              </div>
+            </MuiThemeProvider>*/
+            <Router>
+                <div>
+                    <Switch>
+                        <Route exact path="/" component={Landing} />
+                        <Route exact path="/register" component={Registration}/>
+                        <Route exact path="/bet" component={Bet}/>
+                        <Route exact path="/profile" component={Profile}/>
+                        <Route exact path="/lobby" component={LobbyMultiPlayer}/>
+                        <Route exact path="/wager" component={YourChallenges}/>
+                        <Route exact path="/multibetchallengee" component={MultiBetChallengee}/>
+                        <Route exact path="/multibetchallenger/:challengee" component={MultiBetChallenger}/>
+                        <Route exact path="/nochallenge" component={NoChallenge}/>
+                        <Route exact path="/winorlose" component={Game}/>
+                        <Route exact path="/rank" component={Rank}/>
+                        <Route exact path="/about" component={About}/>
+                        <Route exact path="/checkbacktomorrow" component={CheckBackTomorrow}/>
+                    </Switch>
+                    <div></div>
+                </div>
+            </Router>
+        );
+    }
 }
 
 export default withTracker(() => {
-  return {
-    user: Meteor.userId()
-  };
+    return {
+        user: Meteor.userId()
+    };
 })(App);
 
 // export default withTracker(() => {

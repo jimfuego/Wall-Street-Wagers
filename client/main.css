@@ -1,15 +1,15 @@
 body {
   padding: 10px;
   font-family: 'Monoton', cursive;
-  font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 .prediction {
 
-	height: 1000%;
+  height: 1000%;
 }
 
 .achieveheading{
-	text-align: center;
+  text-align: center;
 }
 
 /* Create two equal columns that floats next to each other */
@@ -21,14 +21,14 @@ body {
 }
 
 .media{
-float: left;
+  float: left;
   width: 100%;
   padding: 0px;
   height: 850px;
 }
 
 .mediabet{
-float: left;
+  float: left;
   width: 100%;
   padding: 0px;
   height: 700px;
@@ -43,27 +43,27 @@ float: left;
 }
 
 .stregis{
-    text-align: center;
+      text-align: center;
 
 }
 
 .fuckall{
-  text-align: center;
+    text-align: center;
 }
 
 .damn{
-    text-align: center;
+      text-align: center;
 
 }
 
 .seeb{
-    text-align: center;
+      text-align: center;
 
 }
 
 .BetClass{
 
-	 margin-top:350px;
+  margin-top:350px;
 }
 
 /* Clear floats after the columns */

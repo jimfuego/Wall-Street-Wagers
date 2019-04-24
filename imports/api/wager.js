@@ -8,9 +8,9 @@ export const Wager = new Mongo.Collection("wager");
 if (Meteor.isServer) {
   Meteor.publish("wager", function wagerPublish() {
     return Wager
-      .find({challengee: Meteor.user().username}, {
-        // FIXME: don't limit or sort... maybe sort
-      });
+        .find({challengee: Meteor.user().username}, {
+          // FIXME: don't limit or sort... maybe sort
+        });
   });
 }
 
@@ -39,37 +39,37 @@ Meteor.methods({
   }
 });
 
-  Meteor.methods({
-    "wager.find"(){
-      let challenger=Wager.find({});
-      return challenger;
-      //console.log(allusers)
+Meteor.methods({
+  "wager.find"(){
+    let challenger=Wager.find({});
+    return challenger;
+    //console.log(allusers)
     //return Front.find({});
   }
 
 });
 
 //should fix null property
-    Meteor.methods({
-    "wager.findmychallenges"(){
-      let challenger=Wager.find({challengee:Meteor.user().username}).fetch();
-      return challenger;
-      //console.log(allusers)
+Meteor.methods({
+  "wager.findmychallenges"(){
+    let challenger=Wager.find({challengee:Meteor.user().username}).fetch();
+    return challenger;
+    //console.log(allusers)
     //return Front.find({});
   }
 
 });
 
 
-  Meteor.methods({
-    "wager.deletechallenger"(challengee){
-      check(challengee, String);
-      Wager.remove({
-        challenger: Meteor.user().username,
-        challengee: challengee
+Meteor.methods({
+  "wager.deletechallenger"(challengee){
+    check(challengee, String);
+    Wager.remove({
+      challenger: Meteor.user().username,
+      challengee: challengee
     });
 
-      //console.log(allusers)
+    //console.log(allusers)
     //return Front.find({});
   }
 

@@ -14,35 +14,35 @@ import { withRouter } from "react-router-dom";
 
 
 
- class Landing extends Component {
+class Landing extends Component {
   //{Meteor.userId()?  (<Redirect to="/otherusers"/>) : (<Redirect to="/creategame"/>): this.state.component}
   render() {
     return(
-    <div className="container-fluid" role="main">
+        <div className="container-fluid" role="main">
 
-    <div className="liz"><ButtonAppBar />
-      <h1 className="fuckall" align="center">Beat Wall Street</h1>
-        <div className="row-flex">
-          <div className="column-flex">
-          <Card className="HomeCard">
-          <CardActionArea>
-            <CardMedia
-            title="Profile Picture"
-            component="img"
-            alt="User Profile Picture"
-            className="media"
-            image="ace-action-adult-1688506.jpg"
-            />
-            <CardContent>
-            </CardContent>
-          </CardActionArea>
-        </Card>
-        </div>
-            <div className="column-flex"><LoginTab /></div>
-        </div>
+          <div className="liz"><ButtonAppBar />
+            <h1 className="fuckall" align="center">Beat Wall Street</h1>
+            <div className="row-flex">
+              <div className="column-flex">
+                <Card className="HomeCard">
+                  <CardActionArea>
+                    <CardMedia
+                        title="Profile Picture"
+                        component="img"
+                        alt="User Profile Picture"
+                        className="media"
+                        image="ace-action-adult-1688506.jpg"
+                    />
+                    <CardContent>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              </div>
+              <div className="column-flex"><LoginTab /></div>
+            </div>
 
-      </div>
-      </div>
+          </div>
+        </div>
     )
   }
 }

@@ -26,37 +26,37 @@ const styles = {
 function Gambler() {
   // const { classes } = props;
   return(
-    <div>
+      <div>
 
-    <Card className="TheCard">
-      <CardActionArea>
-        <CardMedia
-          title="Profile Picture"
-          component="img"
-          alt="User Profile Picture"
-          className="{classes.media}"
-          image="ace-action-adult-1688506.jpg"
-        />
-        <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
-            Gambler Name (prop)
-          </Typography>
-          <Typography component="p">
-              Gamblers are often interesting folk, and this is where they
-              are intended to elaborate...
-          </Typography>
-          <Typography gutterBottom variant="h5" component="h2">
-          </Typography>
-          <Typography component="p">
+        <Card className="TheCard">
+          <CardActionArea>
+            <CardMedia
+                title="Profile Picture"
+                component="img"
+                alt="User Profile Picture"
+                className="{classes.media}"
+                image="ace-action-adult-1688506.jpg"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="h2">
+                Gambler Name (prop)
+              </Typography>
+              <Typography component="p">
+                Gamblers are often interesting folk, and this is where they
+                are intended to elaborate...
+              </Typography>
+              <Typography gutterBottom variant="h5" component="h2">
+              </Typography>
+              <Typography component="p">
 
-          </Typography>
-        </CardContent>
+              </Typography>
+            </CardContent>
 
-      </CardActionArea>
-      <CardActions>
-      </CardActions>
-    </Card>
-    </div>
+          </CardActionArea>
+          <CardActions>
+          </CardActions>
+        </Card>
+      </div>
   );
 }
 

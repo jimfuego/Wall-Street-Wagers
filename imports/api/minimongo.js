@@ -15,9 +15,9 @@ Meteor.publish('null', function (){
 if (Meteor.isServer) {
   Meteor.publish("loggedin", function guessesPublish() {
     return Front
-      .find({}, {
-        // FIXME: don't limit or sort... maybe sort
-      });
+        .find({}, {
+          // FIXME: don't limit or sort... maybe sort
+        });
   });
 }
 Meteor.methods({
@@ -47,10 +47,10 @@ Meteor.methods({
 
 
 Meteor.methods({
-    "null.find"(){
-      let allusers=Front.find({});
-      return allusers;
-      //console.log(allusers)
+  "null.find"(){
+    let allusers=Front.find({});
+    return allusers;
+    //console.log(allusers)
     //return Front.find({});
   }
 
@@ -58,7 +58,7 @@ Meteor.methods({
 
 Meteor.methods({
   "null.deleteAll"() {
-        //check(user, String);
+    //check(user, String);
     Front.remove({
       user: Meteor.user().username
     });

@@ -4,7 +4,7 @@ import { check } from "meteor/check";
 
 export const Bets = new Mongo.Collection("bets");
 
-const PUBLIC_KEY = process.env.API_KEY;
+const PUBLIC_KEY = process.env.API_it KEY;
 const alpha = require('alphavantage')({ key: PUBLIC_KEY });
 
 //publish

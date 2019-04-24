@@ -16,94 +16,94 @@ import { Wager } from "../api/wager.js"
 
 class AcceptorDecline extends Component {
 
-	constructor(props) {
-    super(props);
+    constructor(props) {
+        super(props);
 
-    this.state = {
+        this.state = {
 
-      challenger:"",
+            challenger:"",
+        }
+        //sendComponent: false,
+        //challenger:"",
+        //challengee:props.user
+        // currentRoomId: Session.get('currentRoomId')
+        // };
+        this.onClick = this.onClick.bind(this);
+        this.buttonClicked = this.buttonClicked.bind(this);
+
     }
-      //sendComponent: false,
-      //challenger:"",
-      //challengee:props.user
-     // currentRoomId: Session.get('currentRoomId')
-   // };
-    this.onClick = this.onClick.bind(this);
-    this.buttonClicked = this.buttonClicked.bind(this);
-
-}
 
 
 
-  /*renderUsers() {
-        this.props.challenger.map(m =>
-			<div className="" key={m._id}>{m.user}
-         </div>
+    /*renderUsers() {
+          this.props.challenger.map(m =>
+              <div className="" key={m._id}>{m.user}
+           </div>
 
-		);
-  }*/
+          );
+    }*/
 
     //accept
     onClick(event) {
-      event.preventDefault();
+        event.preventDefault();
         Meteor.call("wager.deletechallenger",this.state.challenger, (err,res)=> {
-        if (err) {
-            alert("There was an deleting challenger");
-            console.log(err);
-            return;
-          }
-        else{
-          //console.log("Challenger has been deleted");
-        }
+            if (err) {
+                alert("There was an deleting challenger");
+                console.log(err);
+                return;
+            }
+            else{
+                //console.log("Challenger has been deleted");
+            }
 
-      });
-      this.props.history.push("/multibetchallengee");
+        });
+        this.props.history.push("/multibetchallengee");
 
 
-  }
+    }
     //decline
     buttonClicked(event){
-      event.preventDefault();
-    Meteor.call("wager.deletechallenger",this.state.challenger,(err,res)=> {
-        if (err) {
-            alert("There was an deleting challenger");
-            console.log(err);
-            return;
-          }
-        else{
-         // console.log("Challenger has been deleted");
-        }
+        event.preventDefault();
+        Meteor.call("wager.deletechallenger",this.state.challenger,(err,res)=> {
+            if (err) {
+                alert("There was an deleting challenger");
+                console.log(err);
+                return;
+            }
+            else{
+                // console.log("Challenger has been deleted");
+            }
 
-      });
-      this.props.history.push("/profile");
+        });
+        this.props.history.push("/profile");
 
 
     }
 
-   /*onChange(evt) {
-    console.log(Meteor.user().username, evt.target.value);
-    this.setState({
-      challenger: evt.target.value
-    });
+    /*onChange(evt) {
+     console.log(Meteor.user().username, evt.target.value);
+     this.setState({
+       challenger: evt.target.value
+     });
 
-  }*/
-  render() {
-    return(
-      /*if there are challenges render this page else render NoChallenge page*/
-      <div className="container-fluid" role="main">
-      <div className="yourChallenges" >
-      <div className="body">
-         <div className="row">
-            <div className="col s12 m6">Youve been challenged by </div>
-          <Button id="accept" variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onClick}>Accept</Button>
-          <Button id="decline" variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.buttonClicked}>Decline</Button>
-        </div>
-      </div>
-      </div>
-      </div>
+   }*/
+    render() {
+        return(
+            /*if there are challenges render this page else render NoChallenge page*/
+            <div className="container-fluid" role="main">
+                <div className="yourChallenges" >
+                    <div className="body">
+                        <div className="row">
+                            <div className="col s12 m6">Youve been challenged by </div>
+                            <Button id="accept" variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onClick}>Accept</Button>
+                            <Button id="decline" variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.buttonClicked}>Decline</Button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-      );
-}
+        );
+    }
 }
 
 
@@ -117,14 +117,14 @@ class AcceptorDecline extends Component {
   }
 })(withRouter(AcceptorDecline));*/
 AcceptorDecline.propTypes = {
-  challenger: PropTypes.arrayOf(PropTypes.object).isRequired
+    challenger: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 export default withTracker (() => {
-  const handle = Meteor.subscribe("wager");
+    const handle = Meteor.subscribe("wager");
 
-  return {
-    challenger: Wager.find({}).fetch(),
-    user: Meteor.user(),
-    ready : handle.ready()
-  }
+    return {
+        challenger: Wager.find({}).fetch(),
+        user: Meteor.user(),
+        ready : handle.ready()
+    }
 })(withRouter(AcceptorDecline));

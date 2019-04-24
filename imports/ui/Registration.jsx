@@ -10,33 +10,33 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import MenuBar from "./MenuBar.jsx";
 
- class Registration extends Component {
+class Registration extends Component {
   render() {
     return(
-      <div className="container-fluid" role="main">
-      <div className="col s12 12"><MenuBar /></div>
-      <h1 className="stregis" text-align="center">Register</h1>
-        <div className="row">
-        </div>
-        <Card className="TheCard">
-          <CardActionArea>
-            <CardMedia
-            title="Profile Picture"
-            component="img"
-            alt="User Profile Picture"
-            className="{classes.media}"
-            image="ace-action-adult-1688506.jpg"
-            />
-            <CardContent>
-              <div className="container">
-                <div className="row">
-                  <div className="col s12 m12"><RegisterTab /></div>
+        <div className="container-fluid" role="main">
+          <div className="col s12 12"><MenuBar /></div>
+          <h1 className="stregis" text-align="center">Register</h1>
+          <div className="row">
+          </div>
+          <Card className="TheCard">
+            <CardActionArea>
+              <CardMedia
+                  title="Profile Picture"
+                  component="img"
+                  alt="User Profile Picture"
+                  className="{classes.media}"
+                  image="ace-action-adult-1688506.jpg"
+              />
+              <CardContent>
+                <div className="container">
+                  <div className="row">
+                    <div className="col s12 m12"><RegisterTab /></div>
+                  </div>
                 </div>
-              </div>
-            </CardContent>
-          </CardActionArea>
-        </Card>
-      </div>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        </div>
     )
   }
 }

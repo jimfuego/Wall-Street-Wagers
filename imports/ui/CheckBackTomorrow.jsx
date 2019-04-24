@@ -16,32 +16,32 @@ import {Front} from "../api/minimongo.js";
 class CheckBackTommorow extends Component {
 
 
- constructor(props) {
-    super(props);
+    constructor(props) {
+        super(props);
 
-    this.onClick=this.onClick.bind(this);
+        this.onClick=this.onClick.bind(this);
 
-	}
+    }
 
-	onClick(event) {
-    event.preventDefault();
+    onClick(event) {
+        event.preventDefault();
 
-    //if(id="single")
-     this.props.history.push("/profile");
-   }
+        //if(id="single")
+        this.props.history.push("/profile");
+    }
 
 
 
-  render() {
-    return(
-    	<div>
-      <h3>Congrats on submitting your bet. Check back tomorrow to see if you beat the stock market</h3>
-		<Button id="p"  variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onClick}>Go to profile</Button>
-		</div>
+    render() {
+        return(
+            <div>
+                <h3>Congrats on submitting your bet. Check back tomorrow to see if you beat the stock market</h3>
+                <Button id="p"  variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onClick}>Go to profile</Button>
+            </div>
 
-      );
+        );
 
-  }
+    }
 
 
 
@@ -52,9 +52,9 @@ class CheckBackTommorow extends Component {
 
 
 export default withTracker (() => {
-  return {
-   // challenger: Meteor.user(),
-   // challenger: Front.find({_id:{$ne:Meteor.userId()}},{sort:{'user': 1}}).fetch(),
+    return {
+        // challenger: Meteor.user(),
+        // challenger: Front.find({_id:{$ne:Meteor.userId()}},{sort:{'user': 1}}).fetch(),
 
-  }
+    }
 })(withRouter(CheckBackTommorow))

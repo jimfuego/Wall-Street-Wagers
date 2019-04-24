@@ -33,6 +33,11 @@ const styles = theme => ({
     margin: theme.spacing.unit,
     minWidth: 120,
   },
+
+
+    fontFamily: 'Lobster', cursive,
+
+
 });
 
 class BetTab extends Component {
@@ -137,7 +142,7 @@ handleChange = event => {
             <Button variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onClick}>Make Prediction!</Button>
           </Grid>
       </div>) :
-      <h3>{this.state.message} <CheckBackTomorrow/></h3>
+      <h2>{this.state.message} <CheckBackTomorrow/></h2>
 
     );
   }
