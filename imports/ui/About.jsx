@@ -10,38 +10,38 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 
- class About extends Component {
+class About extends Component {
 
   render() {
     return(
-    	<div className="container-fluid" role="main">
+        <div className="container-fluid" role="main">
 
-    	<div className="">
-    	<h1>About Wall Street Wagers</h1>
+          <div className="">
+            <h1>About Wall Street Wagers</h1>
 
-      <h1 className="fuckall" align="center">Beat Wall Street</h1>
-        <div className="row-flex">
-          <div className="column-flex">
-          <Card className="HomeCard">
-          <CardActionArea>
-            <CardMedia
-            title="Profile Picture"
-            component="img"
-            alt="User Profile Picture"
-            className="media"
-            image="ace-action-adult-1688506.jpg"
-            />
-            <CardContent>
-            </CardContent>
-          </CardActionArea>
-        </Card>
+            <h1 className="fuckall" align="center">Beat Wall Street</h1>
+            <div className="row-flex">
+              <div className="column-flex">
+                <Card className="HomeCard">
+                  <CardActionArea>
+                    <CardMedia
+                        title="Profile Picture"
+                        component="img"
+                        alt="User Profile Picture"
+                        className="media"
+                        image="ace-action-adult-1688506.jpg"
+                    />
+                    <CardContent>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              </div>
+              <div className="column-flex"></div>
+              Wall-Street-Wagers is a game that allows users to bet against the stock market
+            </div>
+
+          </div>
         </div>
-            <div className="column-flex"></div>
-			Wall-Street-Wagers is a game that allows users to bet against the stock market
-        </div>
-
-      </div>
-      	</div>
     );
   }
 }

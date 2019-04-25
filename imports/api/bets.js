@@ -4,14 +4,17 @@ import { check } from "meteor/check";
 
 export const Bets = new Mongo.Collection("bets");
 
-const PUBLIC_KEY = process.env.API_KEY;
+process.env.API_KEY
 const alpha = require('alphavantage')({ key: PUBLIC_KEY });
+
+//const alpha = require('alphavantage')({ key: process.env.API_KEY });
 
 //publish
 if (Meteor.isServer) {
-Meteor.publish("bets", function betsPublish() {
-  return (Bets.find({}));
-});
+
+  Meteor.publish("bets", function betsPublish() {
+    return (Bets.find({}));
+  });
 
 }
 //sets answer to game creator's preference
@@ -19,7 +22,7 @@ Meteor.publish("bets", function betsPublish() {
 Meteor.methods({
   async "bets.insert"(tickerSymbol, highLow)  {
     check(tickerSymbol, String);
-     check(highLow, String);
+    check(highLow, String);
 
     // Make sure the user is logged in before inserting a task
     if (! this.userId) {
@@ -29,8 +32,8 @@ Meteor.methods({
 
     // get today's date
     let d = new Date();
-    let weekday = d.getDay() + 1;
-    let dayOfMonth = d.getDate() - 1 //FIXME don't -1
+    let weekday = d.getDay()+1;
+    let dayOfMonth = d.getDate()+1;
     let year = d.getFullYear();
     let month = d.getMonth() + 1;
     let monthString = (month < 9) ? "0" + month : month;
@@ -48,14 +51,13 @@ Meteor.methods({
     // let apiResponse = JSON.parse(alpha.data.daily_adjusted(tickerSymbol, 1));
     return await alpha.data.daily_adjusted(tickerSymbol, 1).then(data => {
 
-      console.log("Data", data);
       // attempt to parse
       let justNYSEThings = data["Time Series (Daily)"];
-      console.log("Just NYSE: ", justNYSEThings);
-      console.log("Today's date:", todaysDate);
       let todaysData =  justNYSEThings[todaysDate];
-      console.log("Today: ", todaysData);
       let todaysOpening = todaysData["1. open"];
+      console.log("today's date: ", todaysDate);
+      console.log("today's data: ", justNYSEThings[todaysDate]);
+      console.log("Today's opening: ", todaysOpening);
 
       // there ought to be some date around here somewhere
       if(data == undefined || data == null) {
@@ -72,9 +74,9 @@ Meteor.methods({
           openingPrice: todaysOpening
         });
         console.log("SUCCESS: " + Meteor.user().username + " predicted that " + tickerSymbol +
-        " will close " + highLow + "er than it's opening price of " + todaysOpening);
+            " will close " + highLow + "er than it's opening price of " + todaysOpening);
         var result ="SUCCESS: " + Meteor.user().username + " predicted that " + tickerSymbol +
-        " will close " + highLow + "er than it's opening price of " + todaysOpening;
+            " will close " + highLow + "er than it's opening price of " + todaysOpening;
         return result;
       }
     })

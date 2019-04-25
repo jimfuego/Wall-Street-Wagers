@@ -42,9 +42,9 @@ Meteor.methods({
       //console.log(Meteor.user().username + "was inserted")
       return;
     }
+
   }
 });
-
 
 Meteor.methods({
   "null.find"(){
