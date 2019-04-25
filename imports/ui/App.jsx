@@ -22,7 +22,8 @@ import Game from "./Game.jsx";
 import Rank from "./Rank.jsx";
 import MultiBetChallenger from "./MultiBetChallenger.jsx";
 import About from "./About.jsx";
-import {CheckBackTomorrow} from "./CheckBackTomorrow.jsx";
+import CheckBackTommorow from "./CheckBackTommorow.jsx";
+import ReactGA from 'react-ga';
 
 
 
@@ -86,7 +87,13 @@ class App extends Component {
     constructor(props) {
         super(props);
 
+
     }
+
+    /*initializeReactGA() {
+     ReactGA.initialize('UA-138690564-1');
+     ReactGA.pageview('/homepage');
+   }*/
     render() {
         return (
             /*<MuiThemeProvider>
@@ -124,15 +131,18 @@ class App extends Component {
                         <Route exact path="/profile" component={Profile}/>
                         <Route exact path="/lobby" component={LobbyMultiPlayer}/>
                         <Route exact path="/wager" component={YourChallenges}/>
-                        <Route exact path="/multibetchallengee" component={MultiBetChallengee}/>
+                        <Route exact path="/multibetchallengee/:challenger" component={MultiBetChallengee}/>
                         <Route exact path="/multibetchallenger/:challengee" component={MultiBetChallenger}/>
                         <Route exact path="/nochallenge" component={NoChallenge}/>
                         <Route exact path="/winorlose" component={Game}/>
                         <Route exact path="/rank" component={Rank}/>
                         <Route exact path="/about" component={About}/>
-                        <Route exact path="/checkbacktomorrow" component={CheckBackTomorrow}/>
+                        <Route exact path="/checkbacktomorrow" component={CheckBackTommorow}/>
+
                     </Switch>
                     <div></div>
+
+
                 </div>
             </Router>
         );

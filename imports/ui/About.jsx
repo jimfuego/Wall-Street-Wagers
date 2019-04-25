@@ -15,10 +15,8 @@ class About extends Component {
   render() {
     return(
         <div className="container-fluid" role="main">
-
           <div className="">
             <h1>About Wall Street Wagers</h1>
-
             <h1 className="fuckall" align="center">Beat Wall Street</h1>
             <div className="row-flex">
               <div className="column-flex">
@@ -39,7 +37,6 @@ class About extends Component {
               <div className="column-flex"></div>
               Wall-Street-Wagers is a game that allows users to bet against the stock market
             </div>
-
           </div>
         </div>
     );
