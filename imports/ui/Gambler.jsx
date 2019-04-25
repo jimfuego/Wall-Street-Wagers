@@ -14,6 +14,7 @@ import { withTracker } from "meteor/react-meteor-data";
 import { Meteor } from "meteor/meteor";
 import { Route, Redirect, Router, withRouter } from 'react-router-dom';
 
+//not used 
 const styles = {
   card: {
     maxWidth: 345,

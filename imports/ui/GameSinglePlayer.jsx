@@ -25,8 +25,6 @@ import {Front} from "../api/minimongo.js";
 import Table from 'react-bootstrap/Table';
 import classNames from 'classnames';
 import BetTabForChallengee from "./Bet-tab-for-Challengee.jsx";
-import {Wager} from "../api/wager.js";
-
 
 
 //Hardest part. Rendering other users stats and checking if they win or lose
@@ -45,65 +43,13 @@ class Game extends Component{
     this.state = {
       gambler: "",
       tickersymbol: "",
-      challengerbet:"",
-      _id:""
+
 
     };
     //this.handleChange = this.handleChange.bind(this);
-    this.onClick = this.onClick.bind(this);
+    //this.onClick = this.onClick.bind(this);
 }
 
-//renderUsers() {
-    /*return this.props.usera.map(m =>
-      <div className="" key={m._id}>{m.user}
-	<Button onClick={this.onClick}/> 
-           {this.state.showComponent ?
-           <PromptLobbyUser /> :
-           null
-        }
-        <br>
-        </br>
-        </div>
-        );*/
-        //if (!Meteor.user()){
-       /*return this.props.usera.map(m =>
-			<div className="" key={m._id}>{m.user}           
-			{this.state.showComponent ?
-           <Challenge /> :
-           null
-        }
-         </div>
-		);*/
-
-		//}
-
-      
-  //}
-
-  /*onChange(evt) {
-    console.log("change", evt.target.value);
-    this.setState({
-      usera: evt.target.value
-    });
-  }
-
-  onClick(event) {
-    event.preventDefault();
-    this.setState({
-      showComponent: true,
-    });
-
-     this.props.history.push("/profile");
-
-   // <PromptLobbyUser/>;
-     //this.props.history.push("/bet");
-   }
-
-     onButtonClick(event){
-     event.preventDefault();
-     this.props.history.push("/lobby");
-
-   }*/
    onClick(event){
         event.preventDefault();
          this.props.history.push("/profile");
@@ -111,66 +57,38 @@ class Game extends Component{
 
    }
 
-  /* onButtonClick(){
-        event.preventDefault();
-         this.props.history.push("/ranking");
-   }*/
-  
-  /* componentDidUpdate(){
-    let that = this;
-    console.log("Check component did update")
-     Meteor.call("wager.fetchthisdatabasemayne", this.props.location.state._id,this.props.location.state.challengerbet,this.props.location.state.challengeebet,(err,res) => {
-         console.log(res)
+
+   componentDidUpdate(){
+     /*Meteor.call("wager.fetchthisdatabasemayne", this.props.location.state._id,this.props.location.state.challengerbet,this.props.location.state.challengeebet,(err,res) => {
            if (err) {
               alert("Error fetching db");
               console.log(err);
               return;
             }
-        });
-            //else {
-         // console.log("Id found"+ res)
-         
-         that.props.history.push({
+
+            else {
+          console.log("Id found"+ res)
+          console.log("Is this working");
+          this.props.history.push({
           pathname: "/multibetchallengee/"+ this.props.history.location.state.thechallengee,
           state: { _id:this.props.location.state._id,
                    challengerbet:this.props.history.location.state.challengerbet}});
-           console.log("Is this working");*/
           //           this.props.history.push({
           // pathname: "/bettabforchallengee",
           // state: { 
           //          challengerbet:this.props.history.location.state.challengerbet}});
-            //}
+            }
 
 
-     
+     });*/
 
 
-  // }
-
-   renderWagers(){
-  const { classes, children, className, ...other } = this.props;
-
-    return this.props.wagers.map(m =>
-     
-    <tr className={classNames(classes.root, className)}>
-      <td>{m.tickerSymbolInputInput}</td>
-      <td>(show stock opening price)</td>
-      <td>{m.challengerbet}</td>
-      <td>{m.challengeebet}</td>
-      <td>(expected to render upon market open)</td>
-      <td>(win/lose)</td>
-      <td>{m.challenger}</td>
-      <td>{m.challengee}</td>
-      </tr>
-
-
-      );
    }
 
 
 
      render() {
-     // console.log("Render game props", this.props)
+      //console.log("Render game props", this.props)
      //console.log("Important props", "challengerbet", this.props.location.state.challengerbet);
 
     const { classes, children, className, ...other } = this.props;
@@ -180,37 +98,31 @@ class Game extends Component{
       <div className="col s12 12"><MenuBar /></div>
     
     {/*show you lose or win after other users input*/}
-    <h1 align="center">GAMES IN PROGRESS/FINISHED</h1>
+    <h1 align="center">Waiting for other users input</h1>
       <Table responsive striped bordered hover variant="dark">
 
   <thead className="heading">
     <tr>
       <th>Stock Name</th>
       <th>Stock Opening Price today </th>
-      <th>Challenger Bet</th>
-      <th>Challengee Bet</th>
+      <th>Your Bet</th>
       <th>Stock Price Next Day</th>
-      <th>Status</th>
-      <th>Challenger Name</th>
-      <th>Challengee Name</th>
-
 
     </tr>
   </thead>
 
   <tbody className="footing">
-  {this.renderWagers()}
-   {/* <tr className={classNames(classes.root, className)}>
+    <tr className={classNames(classes.root, className)}>
+      <td>{}</td>
+      <td>(show stock opening price)</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>(expected to render upon market open)</td>
 
-    
-
-    </tr> */}
-
+    </tr>
   </tbody>
 </Table>
   <Button id="p"  variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onClick}>Back to profile</Button>
-  {/*<Button id="p"  variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onClick}>See your ranking</Button>*/}
-
       </div>
     );
   }
@@ -222,33 +134,14 @@ class Game extends Component{
 
 
 export default withTracker (() => {
-	const handle = Meteor.subscribe("wagerresults");
-  let wagers;
-  let wagerfindbyid;
+	//const handle = Meteor.subscribe("loggedin");
+
 	//const handle = Meteor.subscribe("userPresence");
-  if (Meteor.user()){
-    wagers=Wager.find({ $or: [ { challengee: Meteor.user().username }, { challenger: Meteor.user().username } ] } ).fetch()
-    
-    //wagers=Wager.find({ $and:[ { _id:Meteor.userId() [ { $or: [ { challengee: Meteor.user().username }, { challenger: Meteor.user().username } ] }]   }]} ).fetch()
 
-    wagerfindbyid=Wager.find({ _id:Meteor.userId()}).fetch();
-
-  }
-  else {
-    console.log("user is undefined")
-    wagers=[];
-    wagerfindbyid=[];
-
-  }
   return {
     user: Meteor.user(),
-
-    wagers:wagers,
-    wagerfindbyid:wagerfindbyid,
-
   // usera: Front.find({_id:{$ne:Meteor.userId()}},{sort:{'user': 1}}).fetch(),
    //userPresence: Presences.find({}).fetch(),
-   ready:handle.ready()
 
 
   }

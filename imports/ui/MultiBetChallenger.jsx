@@ -83,7 +83,7 @@ const styles = {
 
   render() {
     const { classes, children, className, ...other } = this.props;
-    console.log("THis is from MultibetChallenger", this.props)
+    console.log("This is from MultibetChallenger", this.props)
 
     return(
       <div className="container-fluid" role="main">

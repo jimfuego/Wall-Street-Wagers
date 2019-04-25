@@ -23,7 +23,11 @@ import Rank from "./Rank.jsx";
 import MultiBetChallenger from "./MultiBetChallenger.jsx";
 import About from "./About.jsx";
 import CheckBackTommorow from "./CheckBackTommorow.jsx";
-import ReactGA from 'react-ga';
+//import GameSinglePlayer from "./GameSinglePlayer.jsx";
+//import BetTabForChallengee from "./Bet-tab-for-challengee.jsx";
+//import Rank from "./Rank.jsx";
+
+//import ReactGA from 'react-ga';
 
 
 
@@ -138,6 +142,10 @@ function PublicRoute({ component: Component, ...rest }) {
             <Route exact path="/rank" component={Rank}/>
             <Route exact path="/about" component={About}/>
             <Route exact path="/checkbacktomorrow" component={CheckBackTommorow}/>
+          {/*<Route exact path="/gamesingleplayer" component={GameSinglePlayer}/>*/}
+           {/* <Route exact path="/ranking" component={Rank}/>*/}
+            {/*<Route exact path="/bettabforchallengee" component={BetTabForChallengee}/>*/}
+
 
           </Switch>
           <div></div>

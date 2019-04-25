@@ -20,7 +20,7 @@ import MenuBar from "./MenuBar.jsx";
 import { Button } from '@material-ui/core';
 import { Link } from 'react-router-dom'
 
-
+//include rankings if possible
 class Rank extends Component{
   /*render() {
   	return(

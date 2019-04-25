@@ -5,6 +5,7 @@ import { withRouter } from "react-router-dom";
 import { Button, withStyles } from '@material-ui/core';
 import classNames from 'classnames';
 
+//
 const styles = {
   root: {
     fontFamily: '"Montserrat", sans-serif',
@@ -26,6 +27,7 @@ class CheckBackTommorow extends Component {
 
   render() {
     const { classes, children, className, ...other } = this.props;
+   console.log("Render checkback tomorrow for single player", this.props)
 
     return(
       <div>

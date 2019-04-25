@@ -136,6 +136,7 @@ Meteor.methods({
   }
 });
 
+
 //returns an array of dates to be used as keys to access JSON data
 //(work in priogress)
 // function getPastWeek(year, month, day) {

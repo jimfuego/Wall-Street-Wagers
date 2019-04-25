@@ -96,7 +96,8 @@ handleChange = event => {
             else{
                   this.props.history.push({
                   pathname: "/multibetchallengee/"+ this.props.history.location.state.thechallengee,
-                  state: { tickerSymbolInputInput: this.state.tickerSymbolInputInput}});
+                  state: { tickerSymbolInputInput: this.state.tickerSymbolInputInput,
+                            statechange:this.state.statechange}});
                  
 
               //console.log(res + "has been inserted");
@@ -107,7 +108,7 @@ handleChange = event => {
             });*/
                  this.props.history.push({
           pathname: "/winorlose",
-          state: { _id:this.props.location.state._id,
+          state: { _id:this.props.location.state._id, //undefined
                    tickerSymbolInputInput: this.state.tickerSymbolInputInput,
                    challengerbet:this.state.Bet}});
          });
@@ -134,7 +135,7 @@ handleChange = event => {
 
   render() {
     const { classes } = this.props;
-    console.log("Is this undefined" , this.props)
+    console.log("Render props for Challenger before ticker symbol was inserted" , this.props)
     return (
       <div className="BetClass">
           <Grid container spacing={8} alignItems="flex-end">

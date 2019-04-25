@@ -47,17 +47,39 @@ const styles = {
     tickerSymbolInputInput:""
 
     }
+  }
    // this.onClick = this.onClick.bind(this);
     //this.buttonClicked = this.buttonClicked.bind(this);
+    componentDidMount(){
+     Meteor.call("wager.fetchthisdatabasemayne", this.props.location.state.challengerbet, (err,res) => {
+      console.log("Check challenger bet" + this.props.location.state.challengerbet)
+           if (err) {
+              alert("Error fetching db");
+              console.log(err);
+              return;
+            }
+
+            else {
+              console.log("Id found"+ res)
+            }
+
+
+     });
+
+      //    this.props.history.push({
+      // pathname: "/winorlose",
+      // state: { challenger: this.props.location.state.thechallenger,
+      //          challengee:this.props.location.state.challengee}});
 
   }
 
   
   render() {
-    //console.log(this.props)
+    console.log("what is challenger bet" + this.props.location.state.challengerbet)
+    //console.log("Render Multiplayer challengee props", this.props)
     const { classes, children, className, ...other } = this.props;
-    console.log(this.props.location.state.statechange)
-    console.log("What i want" , this.props);
+    //console.log(this.props.location.state.statechange)
+   // console.log("This is from multibetchallengee" , this.props);
     return(
       <div className="container-fluid" role="main">
       <div className="col s12 12"><MenuBar/></div>
@@ -86,7 +108,7 @@ const styles = {
           </CardActionArea>
         </Card>
         </div>
-            <div className="column-flex"><BetTabForChallengee /></div>
+            <div className="column-flex"><BetTabForChallengee/></div>
         </div>
 
       </div>

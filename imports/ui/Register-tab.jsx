@@ -62,7 +62,8 @@ class RegisterTab extends Component {
       profile: profile
       }, (err) => {
         if(err){
-          alert("Error inserting into Db");
+          alert("User already exists-Please login")
+        //  alert("Error inserting into Db");
           console.log(err);
           return;
         }

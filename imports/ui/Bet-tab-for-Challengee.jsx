@@ -17,6 +17,7 @@ import CheckBackTommorow from "./CheckBackTommorow.jsx";
 
 
 
+
 const styles = theme => ({
     height: 3,
 
@@ -52,7 +53,10 @@ class BetTabForChallengee extends Component {
       value:"",
       Bet:"",
       message:"",
-      id:""
+      id:"",
+      challengerbet:"",
+      challengeebet:"",
+      statechange:"Inprogress"
     };
     this.onClick=this.onClick.bind(this);
     this.onChange=this.onChange.bind(this);
@@ -85,8 +89,14 @@ handleChange = event => {
         this.props.history.push({
           pathname: "/winorlose",
           state: { _id:this.props.location.state._id,
-                   challengeebet:this.state.Bet}});
+                   challengeebet:this.state.Bet,
+                   tickerSymbolInputInput:this.props.location.state.tickerSymbolInputInput,
+                  challengerbet:this.props.location.state.challengerbet
+                  //statechange:this.state.statechange
+                }});
       }
+
+      //challengerbet:this.props.location.state.challengerbet
 
     //}
 
@@ -101,7 +111,9 @@ handleChange = event => {
  
 
   render() {
-    console.log(this.props)
+    console.log("Render props for Bet tab for challengee" , this.props)
+    console.log("what is challenger bet" + this.props.location.state.challengerbet)
+
     const { classes } = this.props;
     return (
       <div className="BetClass">

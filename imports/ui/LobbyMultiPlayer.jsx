@@ -95,6 +95,8 @@ class LobbyMultiPlayer extends Component {
  
   render(){
   //console.log(Presences.find({}));
+  console.log("Render lobby multiplayer props", this.props)
+
   return (
     <div className="lobbs" role="main">
         <div className="col s12 12"><MenuBar />

@@ -18,7 +18,7 @@ import classNames from 'classnames';
 
 
 
-
+//for multi bets 
 const styles = theme => ({
     height: 3,
 
@@ -53,7 +53,8 @@ class BetTab extends Component {
       highLowInput: "",
       value:"",
       Bet:"",
-      message:""
+      message:"",
+      statechange:""
     };
     this.onClick=this.onClick.bind(this);
     this.onChange=this.onChange.bind(this);
@@ -86,6 +87,10 @@ handleChange = event => {
             message: res
         })
         //alert(res);
+                          this.props.history.push({
+                  pathname: "/multibetchallengee/"+ this.props.history.location.state.thechallengee,
+                  state: { tickerSymbolInputInput: this.state.tickerSymbolInputInput,
+                            statechange:this.state.statechange}});
       }
         //should render accept or decline button on "yourchallenges" page
 
@@ -97,6 +102,7 @@ handleChange = event => {
   render() {
     const { classes, children, className, ...other } = this.props;
     //const { classes } = this.props;
+    console.log("Render Bet-tab for single player", this.props)
     return (
       <div className={classNames(classes.root, className)}>{this.state.message == "" ?
       (<div className="BetClass">

@@ -21,7 +21,8 @@ class AcceptorDecline extends Component {
     this.state={
       tickerSymbolInputInput:"",
       statechange:"AcceptedChallenge",
-      id:""
+      id:"",
+      thechallenger:""
     }
     this.onClick = this.onClick.bind(this);
     this.buttonClicked = this.buttonClicked.bind(this);
@@ -85,7 +86,7 @@ class AcceptorDecline extends Component {
 
     }
   render() {
-    console.log("This.props" , this.props)
+    console.log("This.props from Accept/Decline rendered by YourChallenges" , this.props)
     return(
       /*if there are challenges render this page else render NoChallenge page*/
       <div className="container-fluid" role="main">

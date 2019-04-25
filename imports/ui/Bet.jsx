@@ -13,8 +13,11 @@ import { withRouter } from "react-router-dom";
 import {Meteor} from "meteor/meteor";
 import { withTracker } from "meteor/react-meteor-data";
 
+//for single bets
  class Bet extends Component {
   render() {
+  console.log("Render Bet for single player ", this.props)
+
     return(
       <div className="container-fluid" role="main">
       <div className="col s12 12"><MenuBar/></div>

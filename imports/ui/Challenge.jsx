@@ -12,7 +12,7 @@ import { Grid, Button } from '@material-ui/core';
 import {Front} from "../api/minimongo.js";
 
 
-
+//challenge the challengee
 class Challenge extends Component {
 
 	constructor(props) {
@@ -69,6 +69,7 @@ class Challenge extends Component {
 
   render() {
    // console.log(this.props)
+   console.log("Render challenge for multi player", this.props)
   	return (
   		<div className="container-fluid" role="main">
   	 	<div>

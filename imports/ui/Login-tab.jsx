@@ -45,20 +45,11 @@ class LoginTab extends Component {
     this.props.history.push(path);
   }
 
+  
+
   onClick(event) {
     //alert("A name was submitted: " + this.state.value);
     event.persist();
-    /*const userData = {
-      email: this.state.email,
-      password: this.state.password
-    };*/
-     /*axios
-     //DONT FORGET************post to user collection
-    //.post('/api/users/login', userData)
-    .then(res =>this.props.history.push('/gambler'))
-    .catch(err =>console.log(err)
-    );
-  }*/
   let that = this;
   Meteor.loginWithPassword(document.getElementById("username").value, document.getElementById("password").value, function (err) {
     if (!err) {
@@ -79,9 +70,10 @@ class LoginTab extends Component {
        // that.props.history.push("/nochallenge");
 
 
+
     } else {
               //console.log('Check Username and Password')
-              alert("User profile does not exist-Must register")
+              alert("User profile does not exist-Must register or check your username/cpassword")
 
     }
   })

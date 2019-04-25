@@ -19,7 +19,7 @@ import MenuBar from "./MenuBar.jsx";
 import { Button } from '@material-ui/core';
 import { Link } from 'react-router-dom'
 
-
+// Work on profile if possible
 class Profile extends Component{
     constructor(props) {
     super(props);
@@ -56,6 +56,8 @@ render(){
             <Link className="btn btn-primary btn-lg col s6 s6"  to="/bet">Single Player</Link>
             <Link className="btn btn-primary btn-lg col s6 s6" to="/lobby">Multi-Player</Link>
             <Link align="center" className="btn btn-primary btn-lg col s12 s12" to="/wager">See who challenged you</Link>
+            <Link align="center" className="btn btn-primary btn-lg col s12 s12" to="/winorlose">Game</Link>
+
           </div>
         <div className="row">
          {/*<div className="achievements"><Achievements /></div>*/}

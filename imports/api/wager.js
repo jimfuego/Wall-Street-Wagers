@@ -14,6 +14,17 @@ if (Meteor.isServer) {
         // FIXME: don't limit or sort... maybe sort
       });
   });
+
+  Meteor.publish("wagerresults", function publishWagerResults() {
+    //this.userID
+    return Wager
+      //.find({ $or: [ { challengee: Meteor.user().username }, { challenger: Meteor.user().username } ] }
+      .find({})
+           
+        // FIXME: don't limit or sort... maybe sort
+      //);
+  });
+
 }
 
 Meteor.methods({
@@ -119,6 +130,9 @@ Meteor.methods({
 Meteor.methods({
 
 "wager.fetchthisdatabasemayne"(id,challengerbet,challengeebet){
+  console.log(id);
+  console.log(challengerbet);
+  console.log(challengeebet);
   let databasedeets=Wager.find({_id:id,challengerbet:challengerbet,challengeebet:challengeebet}).fetch();
   return databasedeets;
 

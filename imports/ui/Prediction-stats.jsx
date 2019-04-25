@@ -5,6 +5,7 @@ import { withTracker } from "meteor/react-meteor-data";
 import {withRouter} from "react-router-dom";
 import { Meteor } from "meteor/meteor";
 
+//work on prediction stats if possible
  class PredictionStats extends Component {
     constructor(props) {
     super(props);
@@ -16,22 +17,35 @@ import { Meteor } from "meteor/meteor";
       BetsPlaced: "",
     };
   }
+ 
+  /*componentDidMount(){
+    Meteor.call("user.insert",this.state.Win,this.state.GamesPlayed, this.state.BetsPlaced, (err,res) =>{
+      if(err){
+        console.log("User profile cannot be inserted")
+        return;
+      }
 
-   /*componentDidMount(){
-    axios
-    .get("/api/index/getUser")
-    .then(res => {
-        this.setState({StartBMI: parseInt((res.data.StartWeight)/parseInt(res.data.Height*res.data.Height)*703),
-                      CurrentBMI: parseInt((res.data.CurrentWeight)/parseInt(res.data.Height*res.data.Height)*703),
-                      StartCals: parseInt(res.data.StartCals),
-                      CurrentCals: parseInt(res.data.CurrentCals),
-                      StartWeight:parseInt(res.data.StartWeight),
-                      CurrentWeight: parseInt(res.data.CurrentWeight)});
-});
 
-}*/
+      console.log("User profile was inserted")
 
-  componentDidMount(){
+
+    });
+
+    Meteor.call("user.getWins", this.state.Win,(err,res) => {
+            if(err){
+        console.log("User profile cannot be inserted")
+        return;
+          }
+
+      this.setState({
+        Win: "",
+        Gamesplayed: "",
+        Streak: "",
+        BetsPlaced: "",
+      });
+
+   });*/
+   componentDidMount(){
     Meteor.call("user.insert",this.state.Win,this.state.GamesPlayed, this.state.Streak, this.state.BetsPlaced, (err,res) =>{
       if(err){
         console.log("User profile cannot be inserted")
@@ -47,8 +61,11 @@ import { Meteor } from "meteor/meteor";
       });
 
     });
+ 
 
-    }
+}
+
+
 
   render() {
     return(
