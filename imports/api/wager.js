@@ -127,6 +127,8 @@ Meteor.methods({
 });
 
 
+
+
 Meteor.methods({
 
 "wager.fetchthisdatabasemayne"(id,challengerbet,challengeebet){
