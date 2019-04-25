@@ -23,22 +23,30 @@ import CardMedia from "@material-ui/core/CardMedia";
 import MenuBar from "./MenuBar.jsx";
 import {Front} from "../api/minimongo.js";
 import Table from 'react-bootstrap/Table';
-// import {Bets} from "../api/bets.js";
+import classNames from 'classnames';
 
-class Game extends Component{
+
+const styles = {
+    root: {
+        fontFamily: '"Montserrat", sans-serif',
+    }
+}
+
+class Game extends Component {
+
 
     constructor(props) {
-    super(props);
+        super(props);
 
-    this.state = {
-      gambler: "",
-      tickersymbol: "",
+        this.state = {
+            gambler: "",
+            tickersymbol: "",
 
 
-    };
-    //this.handleChange = this.handleChange.bind(this);
-    //this.onClick = this.onClick.bind(this);
-}
+        };
+        //this.handleChange = this.handleChange.bind(this);
+        //this.onClick = this.onClick.bind(this);
+    }
 
 //renderUsers() {
     /*return this.props.usera.map(m =>
@@ -52,93 +60,106 @@ class Game extends Component{
         </br>
         </div>
         );*/
-        //if (!Meteor.user()){
-       /*return this.props.usera.map(m =>
-			<div className="" key={m._id}>{m.user}
-			{this.state.showComponent ?
-           <Challenge /> :
-           null
-        }
-         </div>
-		);*/
-
-		//}
-
-
-  //}
-
-  /*onChange(evt) {
-    console.log("change", evt.target.value);
-    this.setState({
-      usera: evt.target.value
-    });
-  }
-
-  onClick(event) {
-    event.preventDefault();
-    this.setState({
-      showComponent: true,
-    });
-
-     this.props.history.push("/profile");
-
-   // <PromptLobbyUser/>;
-     //this.props.history.push("/bet");
-   }
-
-     onButtonClick(event){
-     event.preventDefault();
-     this.props.history.push("/lobby");
-
-   }*/
-
-     render() {
-    return(
-    <div className="container-fluid" role="main">
-      <div className="col s12 12"><MenuBar /></div>
-
-    <h1 align="center">You Lose</h1>
-      <Table responsive striped bordered hover variant="dark">
-  <thead>
-    <tr>
-      <th>Stock Name</th>
-      <th>Stock Opening Price today </th>
-      <th>Your bet</th>
-      <th>Stock Opening Price next day</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>MSFT</td>
-      <td>180</td>
-      <td>High</td>
-      <td>150</td>
-    </tr>
-  </tbody>
-</Table>
+    //if (!Meteor.user()){
+    /*return this.props.usera.map(m =>
+         <div className="" key={m._id}>{m.user}
+         {this.state.showComponent ?
+        <Challenge /> :
+        null
+     }
       </div>
-    );
-  }
+     );*/
+
+    //}
+
+
+    //}
+
+    /*onChange(evt) {
+      console.log("change", evt.target.value);
+      this.setState({
+        usera: evt.target.value
+      });
+    }
+
+    onClick(event) {
+      event.preventDefault();
+      this.setState({
+        showComponent: true,
+      });
+
+       this.props.history.push("/profile");
+
+     // <PromptLobbyUser/>;
+       //this.props.history.push("/bet");
+     }
+
+       onButtonClick(event){
+       event.preventDefault();
+       this.props.history.push("/lobby");
+
+     }*/
+
+    componentDidUpdate() {
+        console.log("id", this.props.location.state._id, "challengerbet", this.props.location.state.challengerbet, "challengeebet", this.props.location.state.challengeebet)
+        Meteor.call("wager.fetchthisdatabasemayne", this.props.location.state._id, this.props.location.state.challengerbet, this.props.location.state.challengeebet, (err, res) => {
+            if (err) {
+                alert("Error fetching db");
+                console.log(err);
+                return;
+            } else {
+                console.log("Id found" + res)
+            }
+
+
+        });
+
+    }
+
+    render() {
+        console.log(this.props)
+        const {classes, children, className, ...other} = this.props;
+        //if(Meteor.user.username())
+        return (
+            <div className="container-fluid" role="main">
+                <div className="col s12 12"><MenuBar/></div>
+
+                {/*show you lose or win after other users input*/}
+                <h1 align="center">Waiting for other users input</h1>
+                <Table responsive striped bordered hover variant="dark">
+                    <thead className="heading">
+                    <tr>
+                        <th>Stock Name</th>
+                        <th>Stock Opening Price today</th>
+                        <th>Your bet</th>
+                        <th>Other user bet</th>
+                        <th>Stock Price Next Day</th>
+
+                    </tr>
+                    </thead>
+
+                    <tbody className="footing">
+                    <tr className={classNames(classes.root, className)}>
+                        <td>{this.props.location.state.tickerSymbolInputInput}</td>
+                        <td>(show stock opening price)</td>
+                        <td>{this.props.location.state.challengerbet}</td>
+                        <td>{this.props.location.state.challengeebet}</td>
+                        <td>(expected to render upon market open)</td>
+
+                    </tr>
+                    </tbody>
+                </Table>
+            </div>
+        );
+    }
 }
 
-
-
-
-
-
 export default withTracker (() => {
-	//const handle = Meteor.subscribe("loggedin");
-	// const handle = Meteor.subscribe("bets");
-
-	//const handle = Meteor.subscribe("userPresence");
-
-  return {
-    users: Meteor.user(),
-  // usera: Front.find({_id:{$ne:Meteor.userId()}},{sort:{'user': 1}}).fetch(),
-   //userPresence: Presences.find({}).fetch(),
-
-   //challenger: Bets.find({}).fetch(),
-   ready : handle.ready()
-
-  }
-})(withRouter(Game));
+    //const handle = Meteor.subscribe("loggedin");
+    //const handle = Meteor.subscribe("userPresence");
+    return {
+        user: Meteor.user(),
+        // usera: Front.find({_id:{$ne:Meteor.userId()}},{sort:{'user': 1}}).fetch(),
+        //userPresence: Presences.find({}).fetch(),
+    }
+})(withRouter(withStyles(styles)(Game)));

@@ -5,9 +5,15 @@ import "../imports/api/bets.js";
 import "../imports/api/market.js";
 import "../imports/api/users.js";
 import "../imports/api/minimongo.js";
+<<<<<<< HEAD
 import "../imports/api/wager.js";
+=======
+import "../imports/api/presences.js"
+import "../imports/api/wager.js"
+>>>>>>> origin/Sameshit
 
 import { DDPRateLimiter } from "meteor/ddp-rate-limiter";
+
 import { WebApp } from 'meteor/webapp';
 
 WebApp.addHtmlAttributeHook(() => ({ lang: 'en' }));

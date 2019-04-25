@@ -125,7 +125,7 @@ class App extends Component {
             <Router>
                 <div>
                     <Switch>
-                        <Route exact path="/" component={Landing} />
+                        <Route exact path="/" component={Landing}/>
                         <Route exact path="/register" component={Registration}/>
                         <Route exact path="/bet" component={Bet}/>
                         <Route exact path="/profile" component={Profile}/>

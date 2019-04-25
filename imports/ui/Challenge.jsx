@@ -50,10 +50,10 @@ class Challenge extends Component {
         });
         //doesnt work
         //{this.renderUsers()}
-        this.props.history.push("/multibetchallenger/"+ this.state.challengee);
 
-
-
+        this.props.history.push({
+            pathname: "/multibetchallenger/"+ this.state.challengee,
+            state: { thechallengee: this.state.challengee}});
 
     }
 
@@ -68,8 +68,9 @@ class Challenge extends Component {
     //render challenger on seperate wager page
 
     render() {
+        // console.log(this.props)
         return (
-            <div className="container-fluid">
+            <div className="container-fluid" role="main">
                 <div>
                     <Grid container justify="center" style={{ marginTop: '10px' }}>
                         <Button variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onClick}>Challenge</Button>
@@ -95,7 +96,7 @@ Challenge.propTypes = {
 export default withTracker (() => {
     return {
         challenger: Meteor.user(),
-        challenger: Front.find({_id:{$ne:Meteor.userId()}},{sort:{'user': 1}}).fetch(),
+        challengee: Front.find({_id:{$ne:Meteor.userId()}},{sort:{'user': 1}}).fetch(),
 
     }
 })(withRouter(Challenge));

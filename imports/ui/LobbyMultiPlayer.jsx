@@ -11,6 +11,8 @@ import InboxIcon from '@material-ui/icons/Inbox';
 import DraftsIcon from '@material-ui/icons/Drafts';
 import {Front} from "../api/minimongo.js";
 import MenuBar from "./MenuBar.jsx";
+import { Link } from 'react-router-dom';
+
 
 
 
@@ -22,7 +24,7 @@ class LobbyMultiPlayer extends Component {
         super(props);
         this.state = {
             showComponent: true,
-            usera:"",
+            usera: "",
             // currentRoomId: Session.get('currentRoomId')
         };
 
@@ -31,7 +33,7 @@ class LobbyMultiPlayer extends Component {
          currentRoomId: Session.get('currentRoomId')
            };
          }*/
-        this.onClick=this.onClick.bind(this);
+        this.onClick = this.onClick.bind(this);
 
     }
 
@@ -48,16 +50,17 @@ class LobbyMultiPlayer extends Component {
             </div>
             );*/
         //if (!Meteor.user()){
-        return this.props.usera.map(m =>{
-            if(Meteor.user() && m.user!=Meteor.user().username){
-                return(
+        return this.props.usera.map(m => {
+            if (Meteor.user() && m.user != Meteor.user().username) {
+                return (
 
                     <div className="" key={m._id}>{m.user}
                         {this.state.showComponent ?
-                            <Challenge user={m.user} /> :
+                            <Challenge user={m.user}/> :
                             null
                         }
-                    </div>);}
+                    </div>);
+            }
         });
 
         //}
@@ -84,41 +87,41 @@ class LobbyMultiPlayer extends Component {
         //this.props.history.push("/bet");
     }
 
+    /* onButtonClick(){
+       this.push("/wager");
+     }*/
 
-
-    render(){
+    render() {
         //console.log(Presences.find({}));
         return (
             <div className="lobbs" role="main">
-                <div className="col s12 12"><MenuBar />
-                    <h1 align="center" >LOBBY</h1>
+                <div className="col s12 12"><MenuBar/>
+                    <h1 align="center">LOBBY</h1>
                     <div className="format" align="center">
-                        <Button id="accept" align="center" variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onClick}>Go back to profile</Button>
+                        <Button id="backtoprofile" align="center" variant="outlined" color="primary"
+                                style={{textTransform: "none"}} onClick={this.onClick}>Go back to profile</Button>
+                        <Button id="seechallenges" align="center" variant="outlined" color="primary"
+                                style={{textTransform: "none"}}> <Link to="/wager" color="primary">See your
+                            challenges</Link> </Button>
+
                     </div>
                     <div className="render" align="center"></div>
-                    <h2 align="center">Other users online</h2>
+                    <h2 align="center">Users online</h2>
                     {this.renderUsers()}
                 </div>
             </div>
         );
-//}
     }
-
 }
-
 
 LobbyMultiPlayer.propTypes = {
     //userPresence: PropTypes.arrayOf(PropTypes.object).isRequired
     usera: PropTypes.arrayOf(PropTypes.object).isRequired
-
 };
-
 
 export default withTracker (() => {
     const handle = Meteor.subscribe("loggedin");
-
     //const handle = Meteor.subscribe("userPresence");
-
     return {
         users: Meteor.user(),
         usera: Front.find({_id:{$ne:Meteor.userId()}},{sort:{'user': 1}}).fetch(),

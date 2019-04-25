@@ -4,17 +4,14 @@ import { check } from "meteor/check";
 
 export const Bets = new Mongo.Collection("bets");
 
-process.env.API_KEY
-const alpha = require('alphavantage')({ key: PUBLIC_KEY });
-
-//const alpha = require('alphavantage')({ key: process.env.API_KEY });
+//process.env.API_KEY
+const alpha = require('alphavantage')({ key: process.env.API_KEY });
 
 //publish
 if (Meteor.isServer) {
-
-  Meteor.publish("bets", function betsPublish() {
-    return (Bets.find({}));
-  });
+Meteor.publish("bets", function betsPublish() {
+  return (Bets.find({}));
+});
 
 }
 //sets answer to game creator's preference
@@ -22,7 +19,7 @@ if (Meteor.isServer) {
 Meteor.methods({
   async "bets.insert"(tickerSymbol, highLow)  {
     check(tickerSymbol, String);
-    check(highLow, String);
+     check(highLow, String);
 
     // Make sure the user is logged in before inserting a task
     if (! this.userId) {
@@ -32,8 +29,8 @@ Meteor.methods({
 
     // get today's date
     let d = new Date();
-    let weekday = d.getDay()+1;
-    let dayOfMonth = d.getDate()+1;
+    let weekday = d.getDay() + 1;
+    let dayOfMonth = d.getDate();
     let year = d.getFullYear();
     let month = d.getMonth() + 1;
     let monthString = (month < 9) ? "0" + month : month;
@@ -50,7 +47,6 @@ Meteor.methods({
     // get info on tickerSymbol
     // let apiResponse = JSON.parse(alpha.data.daily_adjusted(tickerSymbol, 1));
     return await alpha.data.daily_adjusted(tickerSymbol, 1).then(data => {
-
       // attempt to parse
       let justNYSEThings = data["Time Series (Daily)"];
       let todaysData =  justNYSEThings[todaysDate];
@@ -74,9 +70,9 @@ Meteor.methods({
           openingPrice: todaysOpening
         });
         console.log("SUCCESS: " + Meteor.user().username + " predicted that " + tickerSymbol +
-            " will close " + highLow + "er than it's opening price of " + todaysOpening);
+        " will close " + highLow + "er than it's opening price of " + todaysOpening);
         var result ="SUCCESS: " + Meteor.user().username + " predicted that " + tickerSymbol +
-            " will close " + highLow + "er than it's opening price of " + todaysOpening;
+        " will close " + highLow + "er than it's opening price of " + todaysOpening;
         return result;
       }
     })

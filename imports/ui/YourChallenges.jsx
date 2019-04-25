@@ -158,7 +158,6 @@ YourChallenges.propTypes = {
 
 export default withTracker (() => {
     const handle = Meteor.subscribe("wager");
-
     return {
         challenger: Wager.find({}).fetch(),
         user: Meteor.user(),

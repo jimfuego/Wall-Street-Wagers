@@ -21,3 +21,8 @@ accounts-base
 accounts-password
 ddp-rate-limiter
 tracker
+momentjs:moment
+tmeasday:presence
+check
+session
+konecty:user-presence

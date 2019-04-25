@@ -28,7 +28,7 @@ class LoginTab extends Component {
         super(props);
 
         this.state = {
-            email: "",
+            username: "",
             password: "",
             errors: {}
         };
@@ -37,17 +37,17 @@ class LoginTab extends Component {
     }
 
     handleChange(event) {
-        this.setState({email: event.target.email}, {password: event.target.password});
+        this.setState({username: event.target.username}, {password: event.target.password});
     }
 
-    routeChange(){
+    routeChange() {
         let path = '/register';
         this.props.history.push(path);
     }
 
     onClick(event) {
         //alert("A name was submitted: " + this.state.value);
-        event.preventDefault();
+        event.persist();
         /*const userData = {
           email: this.state.email,
           password: this.state.password
@@ -64,7 +64,7 @@ class LoginTab extends Component {
             if (!err) {
                 Meteor.call("null.insert",
                     document.getElementById("username").value,
-                    (err,res) => {
+                    (err, res) => {
                         if (err) {
                             alert("Error inserting into Database")
                             return;
@@ -87,9 +87,12 @@ class LoginTab extends Component {
         })
 
 
-
-
     }
+
+    componentDidMount() {
+        ValidatorForm.addValidationRule('isTruthy', value => value);
+    }
+
 
     /*componentDidMount() {
       Tracker.autorun((c) => {
@@ -110,44 +113,67 @@ class LoginTab extends Component {
 
 
     render() {
-        const { classes } = this.props;
+        const {classes} = this.props;
         return (
             //<Paper className={classes.padding}>
             //<div className={classes.margin}>
             <div className="LoginClass">
+                <ValidatorForm
+                    ref="form"
+                    //onChange={this.handleChange}
+                    onSubmit={this.onClick}
+                    onError={errors => console.log(errors)}
+                >
+                    <Grid container spacing={8} alignItems="flex-end">
+                        <Grid item>
+                            <Face/>
+                        </Grid>
+                        <Grid item md={true} sm={true} xs={true}>
+                            <TextValidator
+                                id="username"
+                                //onChange={this.handleChange}
+                                name="username"
+                                label="Username"
+                                ref={input => this.username = input}
+                                type="username"
+                                errorMessages={['this field is required']}
+                                fullWidth autoFocus required/>
+                        </Grid>
+                    </Grid>
+                    <Grid container spacing={8} alignItems="flex-end">
+                        <Grid item>
+                            <Fingerprint/>
+                        </Grid>
+                        <Grid item md={true} sm={true} xs={true}>
+                            <TextValidator
+                                id="password"
+                                label="Password"
+                                name="password"
+                                ref={input => this.password = input}
+                                type="password"
+                                errorMessages={['this field is required']}
+                                fullWidth autoFocus required/>
+                        </Grid>
+                    </Grid>
+                    <Grid container alignItems="center" justify="space-between">
+                        <Grid item>
+                            <FormControlLabel control={
+                                <Checkbox
+                                    color="primary"
+                                />
+                            } label="Remember me"/>
+                        </Grid>
+                        <Grid item>
+                            <Button disableFocusRipple disableRipple style={{textTransform: "none"}} variant="text"
+                                    color="primary" onClick={this.routeChange.bind(this)}>Register</Button>
+                        </Grid>
+                    </Grid>
+                    <Grid container justify="center" style={{marginTop: '10px'}}>
+                        <Button type="submit" variant="outlined" color="primary"
+                                style={{textTransform: "none"}}>Login</Button>
+                    </Grid>
+                </ValidatorForm>
 
-                <Grid container spacing={8} alignItems="flex-end">
-                    <Grid item>
-                        <Face />
-                    </Grid>
-                    <Grid item md={true} sm={true} xs={true}>
-                        <TextField  id="username" label="Username" ref={input=> this.email=input} type="email" fullWidth autoFocus required />
-
-                    </Grid>
-                </Grid>
-                <Grid container spacing={8} alignItems="flex-end">
-                    <Grid item>
-                        <Fingerprint />
-                    </Grid>
-                    <Grid item md={true} sm={true} xs={true}>
-                        <TextField  id="password" label="Password" ref={input=> this.password=input} type="password" fullWidth required />
-                    </Grid>
-                </Grid>
-                <Grid container alignItems="center" justify="space-between">
-                    <Grid item>
-                        <FormControlLabel control={
-                            <Checkbox
-                                color="primary"
-                            />
-                        } label="Remember me" />
-                    </Grid>
-                    <Grid item>
-                        <Button disableFocusRipple disableRipple style={{ textTransform: "none" }} variant="text" color="primary" onClick={this.routeChange.bind(this)} >Register</Button>
-                    </Grid>
-                </Grid>
-                <Grid container justify="center" style={{ marginTop: '10px' }}>
-                    <Button variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onClick} >Login</Button>
-                </Grid>
             </div>
             // </Paper>
         );

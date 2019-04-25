@@ -26,22 +26,20 @@ const styles = {
 };
 
 function ButtonAppBar(props) {
-  const { classes } = props;
+  const {classes} = props;
   return (
-    <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" color="inherit" className={classes.grow}>
-            Wall-Street-Wagers
-          </Typography>
-
-        </Toolbar>
-
-      </AppBar>
-    </div>
+      <div className={classes.root}>
+        <AppBar position="static">
+          <Toolbar>
+            <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
+              <MenuIcon/>
+            </IconButton>
+            <Typography variant="h6" color="inherit" className={classes.grow}>
+              Wall-Street-Wagers
+            </Typography>
+          </Toolbar>
+        </AppBar>
+      </div>
   );
 }
 

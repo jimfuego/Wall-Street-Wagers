@@ -29,40 +29,40 @@ class HighLow extends React.Component {
 
   handleChange = event => {
 
-    this.setState({ value: event.target.value });
+    this.setState({value: event.target.value});
   };
 
   handleClose = () => {
-    this.setState({ open: false });
+    this.setState({open: false});
   };
 
   handleOpen = () => {
-    this.setState({ open: true });
+    this.setState({open: true});
   };
 
   render() {
-    const { classes } = this.props;
+    const {classes} = this.props;
 
     return (
-      <form autoComplete="off">
-        <FormControl className={classes.formControl}>
-          <InputLabel htmlFor="demo-controlled-open-select">Price Point</InputLabel>
-          <Select
-            open={this.state.open}
-            onClose={this.handleClose}
-            onOpen={this.handleOpen}
-            value={this.state.Bet}
-            onChange={this.handleChange}
-            inputProps={{
-              name: 'Bet',
-              id: 'demo-controlled-open-select',
-            }}
+        <form autoComplete="off">
+          <FormControl className={classes.formControl}>
+            <InputLabel htmlFor="demo-controlled-open-select">Price Point</InputLabel>
+            <Select
+                open={this.state.open}
+                onClose={this.handleClose}
+                onOpen={this.handleOpen}
+                value={this.state.Bet}
+                onChange={this.handleChange}
+                inputProps={{
+                  name: 'Bet',
+                  id: 'demo-controlled-open-select',
+                }}
             >
-            <MenuItem value="low">Low</MenuItem>
-            <MenuItem value="high">High</MenuItem>
-          </Select>
-        </FormControl>
-      </form>
+              <MenuItem value="low">Low</MenuItem>
+              <MenuItem value="high">High</MenuItem>
+            </Select>
+          </FormControl>
+        </form>
     );
   }
 }

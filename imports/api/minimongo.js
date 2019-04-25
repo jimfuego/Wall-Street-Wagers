@@ -7,7 +7,11 @@ import { check } from "meteor/check";
 export const Front = new Mongo.Collection("loggedin");
 
 /*if(Meteor.isServer){
+<<<<<<< HEAD
 Meteor.publish('null', function (){
+=======
+Meteor.publish('null', function (){ 
+>>>>>>> origin/Sameshit
   return Meteor.users.find({});
 })
 }*/
@@ -15,9 +19,15 @@ Meteor.publish('null', function (){
 if (Meteor.isServer) {
   Meteor.publish("loggedin", function guessesPublish() {
     return Front
+<<<<<<< HEAD
         .find({}, {
           // FIXME: don't limit or sort... maybe sort
         });
+=======
+      .find({}, {
+        // FIXME: don't limit or sort... maybe sort
+      });
+>>>>>>> origin/Sameshit
   });
 }
 Meteor.methods({
@@ -36,13 +46,19 @@ Meteor.methods({
 
     else {
       Front.insert({
+<<<<<<< HEAD
         user: Meteor.user().username
 
+=======
+        user: Meteor.user().username 
+        
+>>>>>>> origin/Sameshit
       });
       //console.log(Meteor.user().username + "was inserted")
       return;
     }
 
+<<<<<<< HEAD
   }
 });
 
@@ -59,6 +75,29 @@ Meteor.methods({
 Meteor.methods({
   "null.deleteAll"() {
     //check(user, String);
+=======
+
+  }
+
+
+
+});
+
+
+Meteor.methods({
+    "null.find"(){
+      let allusers=Front.find({});
+      return allusers;
+      //console.log(allusers)
+    //return Front.find({});
+  }
+
+}); 
+
+Meteor.methods({
+  "null.deleteAll"() {
+        //check(user, String);
+>>>>>>> origin/Sameshit
     Front.remove({
       user: Meteor.user().username
     });
@@ -95,3 +134,9 @@ Meteor.methods({
     return Accounts.findOne({ userName : user }, { _id: 0, username: 0, password: 0, profile: 0, wins: 0});
   }
 });*/
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> origin/Sameshit
