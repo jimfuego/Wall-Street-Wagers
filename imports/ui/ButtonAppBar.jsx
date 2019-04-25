@@ -11,7 +11,6 @@ import { Meteor } from "meteor/meteor";
 import { Route, Redirect, Router, withRouter } from 'react-router-dom';
 import { withTracker } from "meteor/react-meteor-data";
 
-
 const styles = {
   root: {
     flexGrow: 1,

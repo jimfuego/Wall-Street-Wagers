@@ -76,13 +76,9 @@ class Challenge extends Component {
                         <Button variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onClick}>Challenge</Button>
                     </Grid>
                 </div>
-
             </div>
-
         );
-
     }
-
 }
 
 Challenge.propTypes = {

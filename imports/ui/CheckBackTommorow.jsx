@@ -11,16 +11,10 @@ import PropTypes from "prop-types";
 import { Grid, Button } from '@material-ui/core';
 import {Front} from "../api/minimongo.js";
 
-
-
 class CheckBackTommorow extends Component {
-
-
  constructor(props) {
     super(props);
-
     this.onClick=this.onClick.bind(this);
-
 	}
 	
 	onClick(event) {

@@ -25,13 +25,6 @@ import About from "./About.jsx";
 import CheckBackTommorow from "./CheckBackTommorow.jsx";
 import ReactGA from 'react-ga';
 
-
-
-
-
-
-
-
 // import { Meteor } from "meteor/meteor";
 // import { withTracker } from "meteor/react-meteor-data";
 
@@ -86,8 +79,6 @@ function PublicRoute({ component: Component, ...rest }) {
 class App extends Component {
     constructor(props) {
         super(props);
-
-
     }
 
     /*initializeReactGA() {
@@ -138,11 +129,8 @@ class App extends Component {
                         <Route exact path="/rank" component={Rank}/>
                         <Route exact path="/about" component={About}/>
                         <Route exact path="/checkbacktomorrow" component={CheckBackTommorow}/>
-
                     </Switch>
                     <div></div>
-
-
                 </div>
             </Router>
         );
