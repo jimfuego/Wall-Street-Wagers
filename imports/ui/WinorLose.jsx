@@ -1,1 +1,0 @@
-//should render win statement on winner page else lose statement

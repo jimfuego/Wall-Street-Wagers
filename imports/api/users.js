@@ -32,3 +32,9 @@ Meteor.methods({
     return Accounts.findOne({ userName : user }, { _id: 0, username: 0, password: 0, profile: 0, wins: 0});
   }
 });
+
+/*Meteor.methods({
+  "user.getWins"(win,gamesPlayed,BetsPlaced)  {
+
+  }
+});*/

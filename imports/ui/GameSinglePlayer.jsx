@@ -47,13 +47,31 @@ class Game extends Component{
 
     };
     //this.handleChange = this.handleChange.bind(this);
-    //this.onClick = this.onClick.bind(this);
+    this.onClick = this.onClick.bind(this);
 }
 
    onClick(event){
         event.preventDefault();
          this.props.history.push("/profile");
 
+
+   }
+
+  renderBets(){
+  const { classes, children, className, ...other } = this.props;
+    
+    return this.props.bets.map(m =>
+     
+    <tr className={classNames(classes.root, className)}>
+      <td>{m.tickerSymbol}</td>
+      <td>{m.openingPrice}</td>
+      <td>{m.highorLow}</td>
+      <td></td>
+      </tr>
+
+
+      );
+      
 
    }
 
@@ -106,20 +124,13 @@ class Game extends Component{
       <th>Stock Name</th>
       <th>Stock Opening Price today </th>
       <th>Your Bet</th>
-      <th>Stock Price Next Day</th>
+      <th>Stock Closing Price</th>
 
     </tr>
   </thead>
 
   <tbody className="footing">
-    <tr className={classNames(classes.root, className)}>
-      <td>{}</td>
-      <td>(show stock opening price)</td>
-      <td>{}</td>
-      <td>{}</td>
-      <td>(expected to render upon market open)</td>
-
-    </tr>
+  {this.renderBets()}
   </tbody>
 </Table>
   <Button id="p"  variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onClick}>Back to profile</Button>

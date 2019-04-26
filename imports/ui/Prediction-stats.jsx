@@ -11,27 +11,30 @@ import { Meteor } from "meteor/meteor";
     super(props);
 
     this.state = {
-      Win: "",
+      wins: "",
       Gamesplayed: "",
       Streak: "",
       BetsPlaced: "",
+      username:""
     };
   }
  
   /*componentDidMount(){
-    Meteor.call("user.insert",this.state.Win,this.state.GamesPlayed, this.state.BetsPlaced, (err,res) =>{
+    Meteor.call(,this.user.username, this.user.password, (err,res) =>{
       if(err){
         console.log("User profile cannot be inserted")
         return;
       }
 
 
-      console.log("User profile was inserted")
+      console.log(res)
 
 
     });
 
-    Meteor.call("user.getWins", this.state.Win,(err,res) => {
+  }*/
+
+   /* Meteor.call("user.getWins", this.state.Win,(err,res) => {
             if(err){
         console.log("User profile cannot be inserted")
         return;
@@ -45,8 +48,8 @@ import { Meteor } from "meteor/meteor";
       });
 
    });*/
-   componentDidMount(){
-    Meteor.call("user.insert",this.state.Win,this.state.GamesPlayed, this.state.Streak, this.state.BetsPlaced, (err,res) =>{
+   /*componentDidMount(){
+    Meteor.call("users.insert",this.state.Win,this.state.GamesPlayed, this.state.Streak, this.state.BetsPlaced, (err,res) =>{
       if(err){
         console.log("User profile cannot be inserted")
         return;
@@ -61,13 +64,16 @@ import { Meteor } from "meteor/meteor";
       });
 
     });
- 
 
-}
+
+  
+
+}*/
 
 
 
   render() {
+    console.log(this.props)
     return(
     	<div>
       <h2>Prediction Stats</h2>
@@ -76,20 +82,10 @@ import { Meteor } from "meteor/meteor";
     </thead>
     <tbody>
       <tr>
-      <td>Win%</td>
-      <td>{this.state.Win}</td>
+      <td>Wins</td>
+      <td>{Meteor.user() ? Meteor.user().profile.wins : 0}</td>
       </tr>
-      <tr>
-      <td>Number of Games Played</td>
-      <td>{this.state.GamesPlayed}</td>
-      </tr>
-      <tr>
 
-      </tr>
-      <tr>
-      <td>Total bets placed</td>
-      <td>{this.state.BetsPlaces}</td>
-      </tr>
       </tbody>
       </Table>
       </div>

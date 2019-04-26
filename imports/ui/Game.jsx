@@ -26,6 +26,8 @@ import Table from 'react-bootstrap/Table';
 import classNames from 'classnames';
 import BetTabForChallengee from "./Bet-tab-for-Challengee.jsx";
 import {Wager} from "../api/wager.js";
+import NoGamesInProgress from "./NoGamesInProgress.jsx"
+
 
 
 
@@ -149,22 +151,23 @@ class Game extends Component{
 
    renderWagers(){
   const { classes, children, className, ...other } = this.props;
-
+    
     return this.props.wagers.map(m =>
      
     <tr className={classNames(classes.root, className)}>
       <td>{m.tickerSymbolInputInput}</td>
-      <td>(show stock opening price)</td>
+      <td>{m.openingPrice}</td>
       <td>{m.challengerbet}</td>
       <td>{m.challengeebet}</td>
-      <td>(expected to render upon market open)</td>
-      <td>(win/lose)</td>
+      <td>{m.statechange}</td>
       <td>{m.challenger}</td>
       <td>{m.challengee}</td>
       </tr>
 
 
       );
+      
+
    }
 
 
@@ -174,13 +177,19 @@ class Game extends Component{
      //console.log("Important props", "challengerbet", this.props.location.state.challengerbet);
 
     const { classes, children, className, ...other } = this.props;
-    //if(Meteor.user.username())
-    return(
+
+    //check method
+    /*if(Meteor.call("wager.size",(err)=>{
+      if(err){
+        console.log("Error grabbing collection size")
+      }
+    })!=0){*/
+          return(
     <div className="container-fluid" role="main">
       <div className="col s12 12"><MenuBar /></div>
     
     {/*show you lose or win after other users input*/}
-    <h1 align="center">GAMES IN PROGRESS/FINISHED</h1>
+    <h1 align="center">GAMES IN PROGRESS</h1>
       <Table responsive striped bordered hover variant="dark">
 
   <thead className="heading">
@@ -189,22 +198,14 @@ class Game extends Component{
       <th>Stock Opening Price today </th>
       <th>Challenger Bet</th>
       <th>Challengee Bet</th>
-      <th>Stock Price Next Day</th>
       <th>Status</th>
       <th>Challenger Name</th>
       <th>Challengee Name</th>
-
-
     </tr>
   </thead>
 
   <tbody className="footing">
   {this.renderWagers()}
-   {/* <tr className={classNames(classes.root, className)}>
-
-    
-
-    </tr> */}
 
   </tbody>
 </Table>
@@ -213,8 +214,13 @@ class Game extends Component{
 
       </div>
     );
+    }
+
+      /*}else {
+        return <NoGamesInProgress/>
+      }*/
   }
-}
+
 
 
 

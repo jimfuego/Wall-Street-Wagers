@@ -78,7 +78,7 @@ handleChange = event => {
     event.preventDefault();
     //console.log(this.props.location.state._id)
 
-    Meteor.call("wager.insertchallengeebet", this.state.Bet,this.props.location.state._id, (err, res) => {
+    Meteor.call("wager.insertchallengeebet", this.state.Bet,this.props.location.state._id,this.state.statechange, (err, res) => {
       if(err){
         alert("Error inserting bet");
         console.log(err);
@@ -91,9 +91,8 @@ handleChange = event => {
           state: { _id:this.props.location.state._id,
                    challengeebet:this.state.Bet,
                    tickerSymbolInputInput:this.props.location.state.tickerSymbolInputInput,
-                  challengerbet:this.props.location.state.challengerbet
-                  //statechange:this.state.statechange
-                }});
+                   challengerbet:this.props.location.state.challengerbet,
+                   statechange:this.state.statechange}});
       }
 
       //challengerbet:this.props.location.state.challengerbet

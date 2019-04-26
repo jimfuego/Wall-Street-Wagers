@@ -59,7 +59,7 @@ class RegisterTab extends Component {
     Accounts.createUser({
       username: document.getElementById("username").value,
       password: document.getElementById("password").value,
-      profile: profile
+      profile: profile,
       }, (err) => {
         if(err){
           alert("User already exists-Please login")

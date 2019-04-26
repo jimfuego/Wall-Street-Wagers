@@ -23,7 +23,9 @@ import Rank from "./Rank.jsx";
 import MultiBetChallenger from "./MultiBetChallenger.jsx";
 import About from "./About.jsx";
 import CheckBackTommorow from "./CheckBackTommorow.jsx";
-//import GameSinglePlayer from "./GameSinglePlayer.jsx";
+import WinorLoseSinglePlayer from "./WinorLoseSinglePlayer.jsx";
+
+import GameSinglePlayer from "./GameSinglePlayer.jsx";
 //import BetTabForChallengee from "./Bet-tab-for-challengee.jsx";
 //import Rank from "./Rank.jsx";
 
@@ -142,6 +144,8 @@ function PublicRoute({ component: Component, ...rest }) {
             <Route exact path="/rank" component={Rank}/>
             <Route exact path="/about" component={About}/>
             <Route exact path="/checkbacktomorrow" component={CheckBackTommorow}/>
+            {/*<Route exact path="/winorlosesingleplayer" component={WinorLoseSinglePlayer}/>*/}
+
           {/*<Route exact path="/gamesingleplayer" component={GameSinglePlayer}/>*/}
            {/* <Route exact path="/ranking" component={Rank}/>*/}
             {/*<Route exact path="/bettabforchallengee" component={BetTabForChallengee}/>*/}

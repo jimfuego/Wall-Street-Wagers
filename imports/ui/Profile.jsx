@@ -49,14 +49,14 @@ render(){
       <div className="row">
           {/*<div className=" col s12 m7"><Gambler /></div>*/}
           <h1 className="damn" align="center">Your Profile</h1>
-          <div className="col s12 m6">Insert Profile Pic Here</div>
           <div className="col s12 m6"><PredictionStats /></div>
         </div>
          <div className="row">
             <Link className="btn btn-primary btn-lg col s6 s6"  to="/bet">Single Player</Link>
             <Link className="btn btn-primary btn-lg col s6 s6" to="/lobby">Multi-Player</Link>
+            <Link className="btn btn-primary btn-lg col s12 s12" to="/winorlose">Multiplayer Games in Progress</Link>
             <Link align="center" className="btn btn-primary btn-lg col s12 s12" to="/wager">See who challenged you</Link>
-            <Link align="center" className="btn btn-primary btn-lg col s12 s12" to="/winorlose">Game</Link>
+
 
           </div>
         <div className="row">

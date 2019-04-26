@@ -15,6 +15,8 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select'
 import CheckBackTommorow from "./CheckBackTommorow.jsx";
 import classNames from 'classnames';
+import { Link } from 'react-router-dom';
+
 
 
 
@@ -87,10 +89,10 @@ handleChange = event => {
             message: res
         })
         //alert(res);
-                          this.props.history.push({
+                        /*  this.props.history.push({
                   pathname: "/multibetchallengee/"+ this.props.history.location.state.thechallengee,
                   state: { tickerSymbolInputInput: this.state.tickerSymbolInputInput,
-                            statechange:this.state.statechange}});
+                            statechange:this.state.statechange}});*/
       }
         //should render accept or decline button on "yourchallenges" page
 
@@ -98,6 +100,7 @@ handleChange = event => {
       
     }
   )}
+
 
   render() {
     const { classes, children, className, ...other } = this.props;
@@ -135,7 +138,7 @@ handleChange = event => {
               id: 'demo-controlled-open-select',
             }}
             >
-            <MenuItem value="low">Low</MenuItem>
+           <MenuItem value="low">Low</MenuItem>
             <MenuItem value="high">High</MenuItem>
           </Select>
         </FormControl>
@@ -145,8 +148,14 @@ handleChange = event => {
             <Button variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onClick} >Make Prediction!</Button>
           </Grid>
       </div>) :
-      <h3>{this.state.message} <CheckBackTommorow/></h3>}</div>
-      
+      <div>
+      <h3>{this.state.message} <CheckBackTommorow/></h3>
+
+            </div>}
+            <div>
+            {/*<Grid container justify="center" style={{ marginTop: '10px' }}>
+            <Link className="btn btn-primary btn-lg col s6 s6" to="/gamesingleplayer" color="primary">See how you are doing</Link></Grid>*/}</div>
+</div>
     );
   }
 }
