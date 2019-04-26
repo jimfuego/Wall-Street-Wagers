@@ -4,7 +4,8 @@ import { check } from "meteor/check";
 
 export const Wager = new Mongo.Collection("wager");
 
-const alpha = require('alphavantage')({ key: process.env.API_KEY });
+const KEY = process.env.API_KEY;
+const alpha = require('alphavantage')({ key: KEY });
 
 //should fix null property of username
 if (Meteor.isServer) {
