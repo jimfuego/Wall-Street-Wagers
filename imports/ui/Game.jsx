@@ -156,7 +156,7 @@ class Game extends Component{
 
             <tr className={classNames(classes.root, className)}>
                 <td>{m.tickerSymbolInputInput}</td>
-                <td>{m.openingPrice}</td>
+                {/*<td>{m.openingPrice}</td>*/}
                 <td>{m.challengerbet}</td>
                 <td>{m.challengeebet}</td>
                 <td>{m.statechange}</td>
@@ -195,7 +195,7 @@ class Game extends Component{
                     <thead className="heading">
                     <tr>
                         <th>Stock Name</th>
-                        <th>Stock Opening Price today </th>
+                        {/*<th>Stock Opening Price today </th>*/}
                         <th>Challenger Bet</th>
                         <th>Challengee Bet</th>
                         <th>Status</th>
@@ -220,12 +220,6 @@ class Game extends Component{
       return <NoGamesInProgress/>
     }*/
 }
-
-
-
-
-
-
 
 export default withTracker (() => {
     const handle = Meteor.subscribe("wagerresults");

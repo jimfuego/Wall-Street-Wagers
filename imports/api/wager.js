@@ -4,8 +4,8 @@ import { check } from "meteor/check";
 
 export const Wager = new Mongo.Collection("wager");
 
- const PUBLIC_KEY = process.env.WAGER_KEY;
- const alpha = require('alphavantage')({ key: PUBLIC_KEY });
+ // const PUBLIC_KEY = process.env.WAGER_KEY;
+ // const alpha = require('alphavantage')({ key: PUBLIC_KEY });
 
 //should fix null property of username
 if (Meteor.isServer) {
@@ -64,32 +64,41 @@ Meteor.methods({
                 return;
             }
 
-            return await alpha.data.daily_adjusted(tickerSymbolInputInput, 1).then(data => {
-                // attempt to parse
-                let justNYSEThings = data["Time Series (Daily)"];
-                let todaysData = justNYSEThings[todaysDate];
-                let todaysOpening = todaysData["1. open"];
-                console.log("today's date: ", todaysDate);
-                console.log("today's data: ", justNYSEThings[todaysDate]);
-                console.log("Today's opening: ", todaysOpening);
-
-                // there ought to be some date around here somewhere
-                if (data == undefined || data == null) {
-                    console.log("No stock data available for ", tickerSymbolInputInput);
-                    return "No stock data available for " + tickerSymbolInputInput + " on " + todaysDate;
-                } else {
-                    Wager.insert({
-                        challenger: Meteor.user().username,
-                        challengee: challengee,
-                        tickerSymbolInputInput: tickerSymbolInputInput,
-                        challengerbet: challengerbet,
-                        statechange: state,
-                        createdAt: todaysDate,
-                        openingPrice: todaysOpening
-                    });
-                    return todaysOpening;
-                }
+            Wager.insert({
+                challenger: Meteor.user().username,
+                challengee: challengee,
+                tickerSymbolInputInput: tickerSymbolInputInput,
+                challengerbet: challengerbet,
+                statechange: state,
+                createdAt: todaysDate
             });
+
+            // return await alpha.data.daily_adjusted(tickerSymbolInputInput, 1).then(data => {
+            //     // attempt to parse
+            //     let justNYSEThings = data["Time Series (Daily)"];
+            //     let todaysData = justNYSEThings[todaysDate];
+            //     let todaysOpening = todaysData["1. open"];
+            //     console.log("today's date: ", todaysDate);
+            //     console.log("today's data: ", justNYSEThings[todaysDate]);
+            //     console.log("Today's opening: ", todaysOpening);
+            //
+            //     // there ought to be some date around here somewhere
+            //     if (data == undefined || data == null) {
+            //         console.log("No stock data available for ", tickerSymbolInputInput);
+            //         return "No stock data available for " + tickerSymbolInputInput + " on " + todaysDate;
+            //     } else {
+            //         Wager.insert({
+            //             challenger: Meteor.user().username,
+            //             challengee: challengee,
+            //             tickerSymbolInputInput: tickerSymbolInputInput,
+            //             challengerbet: challengerbet,
+            //             statechange: state,
+            //             createdAt: todaysDate,
+            //             openingPrice: todaysOpening
+            //         });
+            //         return todaysOpening;
+            //     }
+            // });
         }
     }
 });
