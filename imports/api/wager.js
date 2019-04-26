@@ -32,7 +32,7 @@ if (Meteor.isServer) {
 Meteor.methods({
     async "wager.insert"(challengee, tickerSymbolInputInput, challengerbet, state) {
         check(challengee, String);
-        check(challengerbet, Number);
+        // check(challengerbet, Number);
 
         // Make sure the user is logged in before inserting a task
         if (!this.userId) {
@@ -52,7 +52,6 @@ Meteor.methods({
             let queryResponse = Wager.findOne({
                 $and: [
                     {challenger: Meteor.user().username},
-                    {challengee: challengee},
                     {tickerSymbolInputInput: tickerSymbolInputInput}
                 ]
             });

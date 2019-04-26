@@ -2,45 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ebeed04b-8f14-4ff0-8bb3-41caad8ca2bd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/imports/ui/Bet-tab-for-Challengee.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/imports/ui/GameSinglePlayer.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/imports/ui/NoGamesInProgress.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/imports/ui/WinorLoseSinglePlayer.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/imports/api/bets.js" beforeDir="false" afterPath="$PROJECT_DIR$/imports/api/bets.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/api/cron-job.js" beforeDir="false" afterPath="$PROJECT_DIR$/imports/api/cron-job.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/imports/api/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/imports/api/users.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/imports/api/wager.js" beforeDir="false" afterPath="$PROJECT_DIR$/imports/api/wager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/About.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/About.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/AcceptorDecline.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/AcceptorDecline.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/Achievements.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/Achievements.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/App.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/imports/ui/Bet-Tab-Multiplayer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/Bet-Tab-Multiplayer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/Bet-tab.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/Bet-tab.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/Bet.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/Bet.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/Bio.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/Bio.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/ButtonAppBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/ButtonAppBar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/Challenge.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/Challenge.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/CheckBackTommorow.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/CheckBackTommorow.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/CheckBackTomorrow.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/CheckBackTomorrow.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/Gambler.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/Gambler.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/Game.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/Game.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/LobbyMultiPlayer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/LobbyMultiPlayer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/Login-tab.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/Login-tab.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/LoginNavBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/LoginNavBar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/MenuBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/MenuBar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/MultiBetChallengee.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/MultiBetChallengee.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/MultiBetChallenger.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/MultiBetChallenger.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/NoChallenge.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/NoChallenge.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/OnLogin.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/OnLogin.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/Prediction-stats.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/Prediction-stats.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/Profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/Profile.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/Register-tab.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/Register-tab.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/Registration.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/Registration.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/RenderSingleBet.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/RenderSingleBet.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -54,49 +20,43 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imports/ui/Prediction-stats.jsx">
+        <entry file="file://$PROJECT_DIR$/imports/api/bets.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
+            <state relative-caret-position="113">
+              <caret line="33" column="31" lean-forward="true" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
               <folding>
-                <element signature="e#0#41#0" expanded="true" />
+                <element signature="e#0#37#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imports/ui/Profile.jsx">
+        <entry file="file://$PROJECT_DIR$/imports/ui/MultiBetChallenger.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+            <state relative-caret-position="-1580">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imports/ui/Rank.jsx">
+        <entry file="file://$PROJECT_DIR$/no-commit.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="34" selection-start-line="34" selection-end-line="34" />
+            <state>
+              <caret selection-end-line="1" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/imports/ui/RenderSingleBet.jsx">
+        <entry file="file://$PROJECT_DIR$/imports/api/wager.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-457">
-              <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imports/ui/Registration.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+            <state relative-caret-position="144">
+              <caret line="47" column="40" lean-forward="true" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
+              <folding>
+                <element signature="e#0#37#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -113,43 +73,24 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imports/ui/MultiBetChallenger.jsx">
+        <entry file="file://$PROJECT_DIR$/imports/ui/Bet-Tab-Multiplayer.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imports/ui/NoChallenge.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="-1895">
+              <caret line="90" column="29" selection-start-line="90" selection-end-line="91" />
               <folding>
-                <element signature="e#0#46#0" expanded="true" />
+                <element signature="e#0#34#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imports/ui/NoGamesInProgress.jsx">
+        <entry file="file://$PROJECT_DIR$/imports/api/users.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-110">
+            <state relative-caret-position="63">
+              <caret line="3" column="22" lean-forward="true" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
               <folding>
-                <element signature="e#0#46#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imports/ui/OnLogin.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
-              <caret line="40" column="45" selection-start-line="40" selection-start-column="45" selection-end-line="40" selection-end-column="45" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
+                <element signature="e#0#39#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -182,16 +123,10 @@
         <option value="$PROJECT_DIR$/imports/ui/HighLow.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/Landing.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/Rank.jsx" />
-        <option value="$PROJECT_DIR$/imports/ui/YourChallenges.jsx" />
         <option value="$PROJECT_DIR$/imports/api/minimongo.js" />
         <option value="$PROJECT_DIR$/client/main.html" />
-        <option value="$PROJECT_DIR$/imports/api/cron-job.js" />
         <option value="$PROJECT_DIR$/server/main.js" />
-        <option value="$PROJECT_DIR$/imports/api/bets.js" />
-        <option value="$PROJECT_DIR$/imports/api/users.js" />
-        <option value="$PROJECT_DIR$/imports/api/wager.js" />
         <option value="$PROJECT_DIR$/imports/ui/Register-tab.jsx" />
-        <option value="$PROJECT_DIR$/imports/ui/WinorLoseSinglePlayer.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/AcceptorDecline.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/About.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/Achievements.jsx" />
@@ -199,7 +134,6 @@
         <option value="$PROJECT_DIR$/imports/ui/Bet.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/Bet-tab.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/Bet-tab-for-Challengee.jsx" />
-        <option value="$PROJECT_DIR$/imports/ui/Bet-Tab-Multiplayer.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/Bio.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/ButtonAppBar.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/Challenge.jsx" />
@@ -221,13 +155,21 @@
         <option value="$PROJECT_DIR$/imports/ui/Profile.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/Registration.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/RenderSingleBet.jsx" />
+        <option value="$PROJECT_DIR$/imports/ui/WinorLoseSinglePlayer.jsx" />
+        <option value="$PROJECT_DIR$/imports/ui/YourChallenges.jsx" />
+        <option value="$PROJECT_DIR$/imports/api/cron-job.js" />
+        <option value="$PROJECT_DIR$/no-commit.txt" />
+        <option value="$PROJECT_DIR$/imports/api/users.js" />
+        <option value="$PROJECT_DIR$/imports/ui/Bet-Tab-Multiplayer.jsx" />
+        <option value="$PROJECT_DIR$/imports/api/bets.js" />
+        <option value="$PROJECT_DIR$/imports/api/wager.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="720" />
-    <option name="y" value="23" />
-    <option name="width" value="720" />
+    <option name="x" value="654" />
+    <option name="y" value="490" />
+    <option name="width" value="1440" />
     <option name="height" value="877" />
   </component>
   <component name="ProjectView">
@@ -251,6 +193,12 @@
               <item name="Wall-Street-Wagers" type="b2602c69:ProjectViewProjectNode" />
               <item name="Wall-Street-Wagers" type="462c0819:PsiDirectoryNode" />
               <item name="imports" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Wall-Street-Wagers" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Wall-Street-Wagers" type="462c0819:PsiDirectoryNode" />
+              <item name="imports" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Wall-Street-Wagers" type="b2602c69:ProjectViewProjectNode" />
@@ -331,12 +279,12 @@
       <updated>1556116686483</updated>
       <workItem from="1556116688031" duration="3383000" />
       <workItem from="1556171000846" duration="5726000" />
-      <workItem from="1556222386404" duration="24689000" />
+      <workItem from="1556222386404" duration="26618000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33798000" />
+    <option name="totallyTimeSpent" value="35727000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -348,16 +296,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="720" y="23" width="720" height="877" extended-state="0" />
+    <frame x="244" y="23" width="1440" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21888413" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22551093" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32899868" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32769832" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -424,13 +372,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/no-commit.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" lean-forward="true" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/imports/ui/HighLow.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="776">
@@ -467,20 +408,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/YourChallenges.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/api/cron-job.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="34" lean-forward="true" selection-start-line="1" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="744">
@@ -491,52 +418,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/api/bets.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-377">
-          <caret line="100" column="3" lean-forward="true" selection-start-line="100" selection-start-column="3" selection-end-line="100" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/api/users.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/api/wager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="203" column="29" selection-start-line="203" selection-start-column="29" selection-end-line="203" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/imports/ui/Register-tab.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="667">
           <caret line="138" selection-start-line="138" selection-end-line="138" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/WinorLoseSinglePlayer.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="667">
-          <caret line="62" column="38" selection-start-line="62" selection-start-column="38" selection-end-line="62" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -593,13 +480,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
           <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/Bet-Tab-Multiplayer.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -705,19 +585,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/MultiBetChallengee.jsx">
+    <entry file="file://$PROJECT_DIR$/imports/ui/RenderSingleBet.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-585">
+          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/WinorLoseSinglePlayer.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <folding>
-            <element signature="e#0#54#0" expanded="true" />
+            <element signature="e#0#46#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/MultiBetChallenger.jsx">
+    <entry file="file://$PROJECT_DIR$/imports/ui/YourChallenges.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="1638">
+          <caret line="78" column="4" selection-start-line="78" selection-start-column="4" selection-end-line="78" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/Registration.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/Rank.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/Profile.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/Prediction-stats.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -749,41 +670,69 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/Prediction-stats.jsx">
+    <entry file="file://$PROJECT_DIR$/imports/api/cron-job.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/no-commit.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
+        <state>
+          <caret selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/api/users.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" column="22" lean-forward="true" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/Profile.jsx">
+    <entry file="file://$PROJECT_DIR$/imports/ui/MultiBetChallengee.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+        <state>
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/Rank.jsx">
+    <entry file="file://$PROJECT_DIR$/imports/ui/MultiBetChallenger.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        <state relative-caret-position="-1580">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/Registration.jsx">
+    <entry file="file://$PROJECT_DIR$/imports/ui/Bet-Tab-Multiplayer.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+        <state relative-caret-position="-1895">
+          <caret line="90" column="29" selection-start-line="90" selection-end-line="91" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/RenderSingleBet.jsx">
+    <entry file="file://$PROJECT_DIR$/imports/api/bets.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-457">
-          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+        <state relative-caret-position="113">
+          <caret line="33" column="31" lean-forward="true" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/api/wager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="47" column="40" lean-forward="true" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
