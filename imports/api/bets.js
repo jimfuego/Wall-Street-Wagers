@@ -3,8 +3,9 @@ import { Meteor } from "meteor/meteor";
 import { check } from "meteor/check";
 
 export const Bets = new Mongo.Collection("bets");
-const KEY = process.env.API_KEY;
-const alpha = require('alphavantage')({ key: KEY });
+
+const PUBLIC_KEY = process.env.API_KEY;
+const alpha = require('alphavantage')({ key: PUBLIC_KEY });
 
 //publish
 if (Meteor.isServer) {
