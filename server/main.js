@@ -9,7 +9,6 @@ import "../imports/api/presences.js"
 import "../imports/api/wager.js"
 import { CronJob } from 'cron';
 
-
 import { DDPRateLimiter } from "meteor/ddp-rate-limiter";
 
 import { WebApp } from 'meteor/webapp';
@@ -35,22 +34,26 @@ if (Meteor.isServer) {
 
 Meteor.startup(() => {
     new CronJob({
-        cronTime: '* * * * * *',
+        cronTime: '30 * * * * *',
         // use this wrapper if you want to work with mongo:
         onTick: Meteor.bindEnvironment(() => {
             // stuff happens
             const d = new Date();
-            console.log('At One Second:', d);
+            console.log('Thirty-second tick:', d);
             //eval single-player bets
             Meteor.call("bets.evaluateAll", (err) => {
                 if (err) {
-                    console.log(err);
+                    console.log("error evaluating single-player bets.js: ", err);
+                } else {
+                    console.log("Probably evaluated single-player bets");
                 }
             });
             //eval multi-player bets
             Meteor.call("wager.evaluateAll", (err) => {
                 if (err) {
-                    console.log(err);
+                    console.log("error evaluating multi-player wager.js: ", err);
+                } else {
+                    console.log("Probably evaluated multi-player bets");
                 }
             });
         }),

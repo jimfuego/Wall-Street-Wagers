@@ -4,7 +4,9 @@ import { Meteor } from "meteor/meteor";
 import React, { Component } from 'react';
 import {withRouter} from "react-router-dom";
 
-class NoChallenge extends Component {
+
+class WinorLoseSinglePlayer extends Component {
+
     constructor(props) {
         super(props);
         this.onClick = this.onClick.bind(this);
@@ -12,14 +14,14 @@ class NoChallenge extends Component {
 
     onClick(event) {
         event.preventDefault();
+        //if(id="single")
         this.props.history.push("/profile");
     }
 
     render() {
         return (
             <div className="container-fluid" role="main">
-                <h1 align="center">Go to lobby and challenge someone today</h1>
-                <h2 align="center">or click to go to profile</h2>
+                <h1 align="center">You beat the market today</h1>
                 <Button id="accept" align="center" variant="outlined" color="primary" style={{textTransform: "none"}}
                         onClick={this.onClick}>Go to profile</Button>
             </div>
@@ -27,8 +29,9 @@ class NoChallenge extends Component {
     }
 }
 
-  export default withTracker (() => {
+
+export default withTracker (() => {
     return {
-    user: Meteor.user()
-  };
-})(withRouter(NoChallenge));
+        user: Meteor.user()
+    };
+})(withRouter(WinorLoseSinglePlayer));

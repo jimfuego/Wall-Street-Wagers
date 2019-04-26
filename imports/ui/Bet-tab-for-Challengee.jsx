@@ -1,9 +1,9 @@
 import { Component } from 'react';
 import React from 'react';
-import { withStyles, Grid, TextField, Button } from '@material-ui/core';
+import { Paper, withStyles, Grid, TextField, Button } from '@material-ui/core';
 import { withTracker } from "meteor/react-meteor-data";
 import PropTypes from "prop-types";
-import { withRouter } from 'react-router-dom';
+import { Route, Redirect, Router, withRouter } from 'react-router-dom';
 import { Meteor } from "meteor/meteor";
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -26,9 +26,12 @@ const styles = theme => ({
         margin: theme.spacing.unit,
         minWidth: 120,
     },
+    root: {
+        fontFamily: '"Montserrat", sans-serif',
+    }
 });
 
-class BetTabMultiplayer extends Component {
+class BetTabForChallengee extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -38,15 +41,19 @@ class BetTabMultiplayer extends Component {
             highLowInput: "",
             value: "",
             Bet: "",
-            statechange: "initialized"
+            message: "",
+            id: "",
+            challengerbet: "",
+            challengeebet: "",
+            statechange: "Inprogress"
         };
         this.onClick = this.onClick.bind(this);
         this.onChange = this.onChange.bind(this);
     }
 
-    handleChange(event){
-        this.setState({ Bet: event.target.value });
-    }
+    handleChange = event => {
+        this.setState({Bet: event.target.value});
+    };
 
     onChange(event) {
         console.log("change", event.target.value);
@@ -57,51 +64,35 @@ class BetTabMultiplayer extends Component {
 
     onClick(event) {
         event.preventDefault();
-        Meteor.call("wager.insert", this.props.match.params.challengee, this.state.tickerSymbolInputInput, this.state.Bet, this.state.statechange, (err, res) => {
+        Meteor.call("wager.insertchallengeebet", this.state.Bet, this.props.location.state._id, this.state.statechange, (err, res) => {
             if (err) {
-                alert("Error inserting challengee");
+                alert("Error inserting bet");
                 console.log(err);
                 return;
             } else {
                 this.props.history.push({
-                    pathname: "/multibetchallengee/" + this.props.history.location.state.thechallengee,
+                    pathname: "/winorlose",
                     state: {
-                        tickerSymbolInputInput: this.state.tickerSymbolInputInput,
+                        _id: this.props.location.state._id,
+                        challengeebet: this.state.Bet,
+                        tickerSymbolInputInput: this.props.location.state.tickerSymbolInputInput,
+                        challengerbet: this.props.location.state.challengerbet,
                         statechange: this.state.statechange
                     }
                 });
             }
-            this.props.history.push({
-                pathname: "/winorlose",
-                state: {
-                    _id: this.props.location.state._id, //undefined
-                    tickerSymbolInputInput: this.state.tickerSymbolInputInput,
-                    challengerbet: this.state.Bet
-                }
-            });
         });
     }
 
+
     render() {
-        const { classes } = this.props;
-        console.log("Render props for Challenger before ticker symbol was inserted" , this.props)
+        console.log("Render props for Bet tab for challengee", this.props)
+        console.log("what is challenger bet" + this.props.location.state.challengerbet)
+        const {classes} = this.props;
         return (
             <div className="BetClass">
-                <Grid container spacing={8} alignItems="flex-end">
-                    <Grid item>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/><path fill="none" d="M0 0h24v24H0z"/></svg></Grid>
-                    <Grid item md={true} sm={true} xs={true}>
-                        <TextField
-                            id="ticker"
-                            label="TickerSymbol"
-                            type="text"
-                            onChange={this.onChange.bind(this)}
-                            fullWidth autoFocus required />
-                    </Grid>
-                </Grid>
-                <Grid container spacing={8} alignItems="flex-end">
-                </Grid>
-                <Grid container justify="center" style={{ marginTop: '10px' }}>
+                <Grid container spacing={8} alignItems="flex-end"> </Grid>
+                <Grid container justify="center" style={{marginTop: '10px'}}>
                     <FormControl className={classes.formControl}>
                         <InputLabel htmlFor="demo-controlled-open-select">Price Point</InputLabel>
                         <Select
@@ -119,15 +110,18 @@ class BetTabMultiplayer extends Component {
                             <MenuItem value="high">High</MenuItem>
                         </Select>
                     </FormControl>
+
                 </Grid>
-                <Grid container justify="center" style={{ marginTop: '10px' }}>
-                    <Button variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onClick}>Make Prediction!</Button>
+                <Grid container justify="center" style={{marginTop: '10px'}}>
+                    <Button variant="outlined" color="primary" style={{textTransform: "none"}} onClick={this.onClick}>Make
+                        Prediction!</Button>
                 </Grid>
             </div>
+
         );
     }
 }
-BetTabMultiplayer.propTypes = {
+BetTabForChallengee.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
@@ -135,4 +129,4 @@ export default withTracker (() => {
     return {
         user: Meteor.user()
     }
-})(withRouter(withStyles(styles)(BetTabMultiplayer)));
+})(withRouter(withStyles(styles)(BetTabForChallengee)));

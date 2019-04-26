@@ -8,7 +8,6 @@ import { withTracker } from "meteor/react-meteor-data";
 import PropTypes from "prop-types";
 import { Route, Redirect, Router, withRouter } from 'react-router-dom';
 import { Meteor } from "meteor/meteor";
-import HighLow from "./HighLow.jsx";
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
@@ -16,9 +15,7 @@ import Select from '@material-ui/core/Select'
 import CheckBackTommorow from "./CheckBackTommorow.jsx";
 import classNames from 'classnames';
 
-
-
-
+//for multi bets
 const styles = theme => ({
     height: 3,
 
@@ -28,7 +25,6 @@ const styles = theme => ({
     padding: {
         padding: theme.spacing.unit
     },
-
     button: {
         display: 'block',
         marginTop: theme.spacing.unit * 2,
@@ -40,7 +36,6 @@ const styles = theme => ({
     root: {
         fontFamily: '"Montserrat", sans-serif',
     }
-
 });
 
 class BetTab extends Component {
@@ -53,7 +48,8 @@ class BetTab extends Component {
             highLowInput: "",
             value: "",
             Bet: "",
-            message: ""
+            message: "",
+            statechange: ""
         };
         this.onClick = this.onClick.bind(this);
         this.onChange = this.onChange.bind(this);
@@ -84,12 +80,7 @@ class BetTab extends Component {
                     this.setState({
                         message: res
                     })
-                    //alert(res);
                 }
-                //should render accept or decline button on "yourchallenges" page
-
-                //this.props.history.push("/checkbacktomorrow");
-
             }
         )
     }
@@ -97,6 +88,7 @@ class BetTab extends Component {
     render() {
         const {classes, children, className, ...other} = this.props;
         //const { classes } = this.props;
+        console.log("Render Bet-tab for single player", this.props)
         return (
             <div className={classNames(classes.root, className)}>{this.state.message == "" ?
                 (<div className="BetClass">
@@ -117,7 +109,6 @@ class BetTab extends Component {
                         </Grid>
                     </Grid>
                     <Grid container spacing={8} alignItems="flex-end">
-
                     </Grid>
                     <Grid container justify="center" style={{marginTop: '10px'}}>
                         <FormControl className={classes.formControl}>
@@ -137,22 +128,25 @@ class BetTab extends Component {
                                 <MenuItem value="high">High</MenuItem>
                             </Select>
                         </FormControl>
-
                     </Grid>
                     <Grid container justify="center" style={{marginTop: '10px'}}>
                         <Button variant="outlined" color="primary" style={{textTransform: "none"}}
                                 onClick={this.onClick}>Make Prediction!</Button>
                     </Grid>
                 </div>) :
-                <h3>{this.state.message} <CheckBackTommorow/></h3>}</div>
-
+                <div>
+                    <h3>{this.state.message} <CheckBackTommorow/></h3>
+                </div>}
+                <div>
+                    {/*<Grid container justify="center" style={{ marginTop: '10px' }}>
+            <Link className="btn btn-primary btn-lg col s6 s6" to="/gamesingleplayer" color="primary">See how you are doing</Link></Grid>*/}</div>
+            </div>
         );
     }
 }
 BetTab.propTypes = {
     classes: PropTypes.object.isRequired,
 };
-
 export default withTracker (() => {
     return {
         user: Meteor.user()

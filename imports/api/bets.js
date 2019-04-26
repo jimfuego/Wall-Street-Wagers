@@ -1,13 +1,10 @@
 import { Mongo } from "meteor/mongo";
 import { Meteor } from "meteor/meteor";
 import { check } from "meteor/check";
-import { Accounts } from "meteor/accounts-base";
 
 export const Bets = new Mongo.Collection("bets");
 
-//process.env.API_KEY
 const alpha = require('alphavantage')({ key: process.env.API_KEY });
-
 
 //publish
 if (Meteor.isServer) {
@@ -94,39 +91,10 @@ Meteor.methods({
   }
 });
 
-//checks if @param guess matches the answer string
-Meteor.methods({
-  "bets.checkSolution"(guess)  {
-    check(guess, String);
-    if (! this.userId) {
-      throw new Meteor.Error("not-authorized");
-    }
-    if (Bets.findOne({answer : guess}) != undefined) {
-      return true;
-    }
-    else{
-      return false;
-    }
-  }
-});
-
-// this does not belong here
-Meteor.methods({
-  "bets.endGame" () {
-    Bets.update({}, {
-      $set:{
-        answer :"",
-        player : "",
-        gameInProgress : false
-      }
-    });
-  }
-});
-
 //returns true if a game is in progress
 Meteor.methods({
-  "bets.checkInProgress"() {
-    return (Bets.findOne({gameInProgress : true}) != undefined);
+  "bets.getUserBets"() {
+    return (Bets.findOne({_id : Meteor.user().userId}));
   }
 });
 

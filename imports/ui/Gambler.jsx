@@ -5,15 +5,12 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
-import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-//import Table from 'react-bootstrap/Table'
-import {  Grid, TextField } from '@material-ui/core';
-import { Face, Fingerprint } from '@material-ui/icons'
 import { withTracker } from "meteor/react-meteor-data";
 import { Meteor } from "meteor/meteor";
-import { Route, Redirect, Router, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
+//not used
 const styles = {
   card: {
     maxWidth: 345,
@@ -25,9 +22,8 @@ const styles = {
 
 function Gambler() {
   // const { classes } = props;
-  return(
+  return (
       <div>
-
         <Card className="TheCard">
           <CardActionArea>
             <CardMedia
@@ -48,10 +44,8 @@ function Gambler() {
               <Typography gutterBottom variant="h5" component="h2">
               </Typography>
               <Typography component="p">
-
               </Typography>
             </CardContent>
-
           </CardActionArea>
           <CardActions>
           </CardActions>

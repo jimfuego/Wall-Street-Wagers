@@ -4,7 +4,7 @@ import { Meteor } from "meteor/meteor";
 import React, { Component } from 'react';
 import {withRouter} from "react-router-dom";
 
-class NoChallenge extends Component {
+class NoGamesInProgress extends Component {
     constructor(props) {
         super(props);
         this.onClick = this.onClick.bind(this);
@@ -18,8 +18,7 @@ class NoChallenge extends Component {
     render() {
         return (
             <div className="container-fluid" role="main">
-                <h1 align="center">Go to lobby and challenge someone today</h1>
-                <h2 align="center">or click to go to profile</h2>
+                <h1 align="center">No games in progress</h1>
                 <Button id="accept" align="center" variant="outlined" color="primary" style={{textTransform: "none"}}
                         onClick={this.onClick}>Go to profile</Button>
             </div>
@@ -27,8 +26,9 @@ class NoChallenge extends Component {
     }
 }
 
-  export default withTracker (() => {
+
+export default withTracker (() => {
     return {
-    user: Meteor.user()
-  };
-})(withRouter(NoChallenge));
+        user: Meteor.user()
+    };
+})(withRouter(NoGamesInProgress));

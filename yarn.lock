@@ -2655,6 +2655,11 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
+promisleep@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/promisleep/-/promisleep-1.0.5.tgz#d325bddd323bb60337f79abc4576781b22fab241"
+  integrity sha512-2XV2yUjKhY3AGWjGG+F64dYDZ0ZD8mbgYqH6C3A4I6iSUFdKOe7SyXD8RcX1m1s+aTyHhN5JRjn34dQqFfkOKQ==
+
 prop-types-extra@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/prop-types-extra/-/prop-types-extra-1.1.0.tgz#32609910ea2dcf190366bacd3490d5a6412a605f"

@@ -28,6 +28,7 @@
     "material-ui": "^0.20.2",
     "meteor-node-stubs": "^0.4.1",
     "node-cron": "^2.0.3",
+    "promisleep": "^1.0.5",
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.6",
     "react-bootstrap-table": "^4.3.1",

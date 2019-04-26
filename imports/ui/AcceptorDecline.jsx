@@ -2,14 +2,8 @@ import React, { Component } from "react";
 import { Meteor } from "meteor/meteor";
 import { withTracker } from "meteor/react-meteor-data";
 import { withRouter } from "react-router-dom";
-import { Route, Redirect, Router} from 'react-router-dom';
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
 import PropTypes from "prop-types";
-import { Grid, Button } from '@material-ui/core';
-import {Front} from "../api/minimongo.js";
+import { Button } from '@material-ui/core';
 import { Wager } from "../api/wager.js"
 
 
@@ -21,13 +15,12 @@ class AcceptorDecline extends Component {
         this.state = {
             tickerSymbolInputInput: "",
             statechange: "AcceptedChallenge",
-            id: ""
-        }
+            id: "",
+            thechallenger: ""
+        };
         this.onClick = this.onClick.bind(this);
         this.buttonClicked = this.buttonClicked.bind(this);
-
     }
-
 
     //accept
     onClick(event) {
@@ -47,16 +40,9 @@ class AcceptorDecline extends Component {
                         statechange: this.props.challenger[0].state
                     }
                 });
-
-                //console.log(res + "has been inserted");
-
             }
-
         });
-
-
     }
-
 
     onChange(evt) {
         console.log(Meteor.user().username, evt.target.value);
@@ -76,15 +62,12 @@ class AcceptorDecline extends Component {
             } else {
                 // console.log("Challenger has been deleted");
             }
-
         });
         this.props.history.push("/profile");
-
-
     }
 
     render() {
-        console.log("This.props", this.props)
+        console.log("This.props from Accept/Decline rendered by YourChallenges", this.props)
         return (
             /*if there are challenges render this page else render NoChallenge page*/
             <div className="container-fluid" role="main">
@@ -100,7 +83,6 @@ class AcceptorDecline extends Component {
                     </div>
                 </div>
             </div>
-
         );
     }
 }
@@ -120,10 +102,9 @@ AcceptorDecline.propTypes = {
 };
 export default withTracker (() => {
     const handle = Meteor.subscribe("wager");
-
     return {
         challenger: Wager.find({}).fetch(),
         user: Meteor.user(),
-        ready : handle.ready()
+        ready: handle.ready()
     }
 })(withRouter(AcceptorDecline));

@@ -1,56 +1,24 @@
 import React, { Component } from "react";
 import Table from 'react-bootstrap/Table'
-//import Card from "@material-ui/core/Card";
 import { withTracker } from "meteor/react-meteor-data";
 import {withRouter} from "react-router-dom";
 import { Meteor } from "meteor/meteor";
 
+//work on prediction stats if possible
 class PredictionStats extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      Win: "",
+      wins: "",
       Gamesplayed: "",
       Streak: "",
       BetsPlaced: "",
+      username: ""
     };
   }
 
-  /*componentDidMount(){
-   axios
-   .get("/api/index/getUser")
-   .then(res => {
-       this.setState({StartBMI: parseInt((res.data.StartWeight)/parseInt(res.data.Height*res.data.Height)*703),
-                     CurrentBMI: parseInt((res.data.CurrentWeight)/parseInt(res.data.Height*res.data.Height)*703),
-                     StartCals: parseInt(res.data.StartCals),
-                     CurrentCals: parseInt(res.data.CurrentCals),
-                     StartWeight:parseInt(res.data.StartWeight),
-                     CurrentWeight: parseInt(res.data.CurrentWeight)});
-});
-
-}*/
-
-  componentDidMount() {
-    Meteor.call("user.insert", this.state.Win, this.state.GamesPlayed, this.state.Streak, this.state.BetsPlaced, (err, res) => {
-      if (err) {
-        console.log("User profile cannot be inserted")
-        return;
-      }
-
-      //console.log("User profile was inserted")
-      this.setState({
-        Win: "",
-        Gamesplayed: "",
-        Streak: "",
-        BetsPlaced: "",
-      });
-
-    });
-
-  }
-
   render() {
+    console.log(this.props)
     return (
         <div>
           <h2>Prediction Stats</h2>
@@ -59,19 +27,8 @@ class PredictionStats extends Component {
             </thead>
             <tbody>
             <tr>
-              <td>Win%</td>
-              <td>{this.state.Win}</td>
-            </tr>
-            <tr>
-              <td>Number of Games Played</td>
-              <td>{this.state.GamesPlayed}</td>
-            </tr>
-            <tr>
-
-            </tr>
-            <tr>
-              <td>Total bets placed</td>
-              <td>{this.state.BetsPlaces}</td>
+              <td>Wins</td>
+              <td>{Meteor.user() ? Meteor.user().profile.wins : 0}</td>
             </tr>
             </tbody>
           </Table>
@@ -82,10 +39,9 @@ class PredictionStats extends Component {
 
 export default withTracker (() => {
   const handle = Meteor.subscribe("user");
-
   return {
     user: Meteor.user(),
-    ready : handle.ready()
+    ready: handle.ready()
 
   }
 })(withRouter(PredictionStats));

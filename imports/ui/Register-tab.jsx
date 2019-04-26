@@ -54,66 +54,67 @@ class RegisterTab extends Component {
     );*/
     let that = this;
     let profile = { wins:0,
-                    gamesPlayed:0 };
+      gamesPlayed:0 };
 
     Accounts.createUser({
-      username: document.getElementById("username").value,
-      password: document.getElementById("password").value,
-      profile: profile
-      }, (err) => {
-        if(err){
-          alert("Error inserting into Db");
-          console.log(err);
-          return;
+          username: document.getElementById("username").value,
+          password: document.getElementById("password").value,
+          profile: profile,
+        }, (err) => {
+          if(err){
+            alert("User already exists-Please login")
+            //  alert("Error inserting into Db");
+            console.log(err);
+            return;
+          }
+          else {
+            that.props.history.push("/profile");
+          }
         }
-        else {
-          that.props.history.push("/profile");
-      }
-    }
-   // Accounts.createUser("user.insert",document.getElementById("username").value, document.getElementById("password").value, (err, res) => {
+        // Accounts.createUser("user.insert",document.getElementById("username").value, document.getElementById("password").value, (err, res) => {
     );
   }
 
 
   render() {
-  const { classes } = this.props;
+    const { classes } = this.props;
     return (
-      //<Paper className={classes.padding}>
+        //<Paper className={classes.padding}>
         //<div className={classes.margin}>
         <div>
-        <form onSubmit={this.onClick}>
-          <Grid container spacing={8} alignItems="flex-end">
-            <Grid item>
-              <Face />
+          <form onSubmit={this.onClick}>
+            <Grid container spacing={8} alignItems="flex-end">
+              <Grid item>
+                <Face />
+              </Grid>
+              <Grid item md={true} sm={true} xs={true}>
+                <TextField   id="username"
+                             ref={input =>
+                                 (this.email = input)} label="Username" type="email" fullWidth autoFocus required  />
+              </Grid>
             </Grid>
-            <Grid item md={true} sm={true} xs={true}>
-              <TextField   id="username"
-              ref={input =>
-                (this.email = input)} label="Username" type="email" fullWidth autoFocus required  />
+            <Grid container spacing={8} alignItems="flex-end">
+              <Grid item>
+                <Fingerprint />
+              </Grid>
+              <Grid item md={true} sm={true} xs={true}>
+                <TextField id="password" label="Password" ref={input=> this.password=input} type="password" fullWidth required />
+              </Grid>
             </Grid>
-          </Grid>
-          <Grid container spacing={8} alignItems="flex-end">
-            <Grid item>
-              <Fingerprint />
+            <Grid container spacing={8} alignItems="flex-end">
+              <Grid item>
+                <Fingerprint />
+              </Grid>
+              <Grid item md={true} sm={true} xs={true}>
+                <TextField id="repeatpassword" label="Repeat Password" ref={input=> this.repeatpassword=input} type="password" fullWidth required />
+              </Grid>
             </Grid>
-            <Grid item md={true} sm={true} xs={true}>
-              <TextField id="password" label="Password" ref={input=> this.password=input} type="password" fullWidth required />
+            <Grid container justify="center" style={{ marginTop: '10px' }}>
+              <Button variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onClick}>Register</Button>
             </Grid>
-          </Grid>
-          <Grid container spacing={8} alignItems="flex-end">
-            <Grid item>
-              <Fingerprint />
-            </Grid>
-            <Grid item md={true} sm={true} xs={true}>
-              <TextField id="repeatpassword" label="Repeat Password" ref={input=> this.repeatpassword=input} type="password" fullWidth required />
-            </Grid>
-          </Grid>
-          <Grid container justify="center" style={{ marginTop: '10px' }}>
-            <Button variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onClick}>Register</Button>
-          </Grid>
           </form>
         </div>
-      //</Paper>
+        //</Paper>
     );
   }
 }

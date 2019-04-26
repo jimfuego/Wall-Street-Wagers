@@ -24,15 +24,21 @@ import MenuBar from "./MenuBar.jsx";
 import {Front} from "../api/minimongo.js";
 import Table from 'react-bootstrap/Table';
 import classNames from 'classnames';
+import BetTabForChallengee from "./Bet-tab-for-Challengee.jsx";
+import {Wager} from "../api/wager.js";
+import NoGamesInProgress from "./NoGamesInProgress.jsx"
 
 
+
+
+//Hardest part. Rendering other users stats and checking if they win or lose
 const styles = {
     root: {
         fontFamily: '"Montserrat", sans-serif',
     }
 }
 
-class Game extends Component {
+class Game extends Component{
 
 
     constructor(props) {
@@ -41,11 +47,12 @@ class Game extends Component {
         this.state = {
             gambler: "",
             tickersymbol: "",
-
+            challengerbet:"",
+            _id:""
 
         };
         //this.handleChange = this.handleChange.bind(this);
-        //this.onClick = this.onClick.bind(this);
+        this.onClick = this.onClick.bind(this);
     }
 
 //renderUsers() {
@@ -99,67 +106,147 @@ class Game extends Component {
        this.props.history.push("/lobby");
 
      }*/
+    onClick(event){
+        event.preventDefault();
+        this.props.history.push("/profile");
 
-    componentDidUpdate() {
-        console.log("id", this.props.location.state._id, "challengerbet", this.props.location.state.challengerbet, "challengeebet", this.props.location.state.challengeebet)
-        Meteor.call("wager.fetchthisdatabasemayne", this.props.location.state._id, this.props.location.state.challengerbet, this.props.location.state.challengeebet, (err, res) => {
-            if (err) {
-                alert("Error fetching db");
-                console.log(err);
-                return;
-            } else {
-                console.log("Id found" + res)
-            }
-
-
-        });
 
     }
 
+    /* onButtonClick(){
+          event.preventDefault();
+           this.props.history.push("/ranking");
+     }*/
+
+    /* componentDidUpdate(){
+      let that = this;
+      console.log("Check component did update")
+       Meteor.call("wager.fetchthisdatabasemayne", this.props.location.state._id,this.props.location.state.challengerbet,this.props.location.state.challengeebet,(err,res) => {
+           console.log(res)
+             if (err) {
+                alert("Error fetching db");
+                console.log(err);
+                return;
+              }
+          });
+              //else {
+           // console.log("Id found"+ res)
+
+           that.props.history.push({
+            pathname: "/multibetchallengee/"+ this.props.history.location.state.thechallengee,
+            state: { _id:this.props.location.state._id,
+                     challengerbet:this.props.history.location.state.challengerbet}});
+             console.log("Is this working");*/
+    //           this.props.history.push({
+    // pathname: "/bettabforchallengee",
+    // state: {
+    //          challengerbet:this.props.history.location.state.challengerbet}});
+    //}
+
+
+
+
+
+    // }
+
+    renderWagers(){
+        const { classes, children, className, ...other } = this.props;
+
+        return this.props.wagers.map(m =>
+
+            <tr className={classNames(classes.root, className)}>
+                <td>{m.tickerSymbolInputInput}</td>
+                <td>{m.openingPrice}</td>
+                <td>{m.challengerbet}</td>
+                <td>{m.challengeebet}</td>
+                <td>{m.statechange}</td>
+                <td>{m.challenger}</td>
+                <td>{m.challengee}</td>
+            </tr>
+
+
+        );
+
+
+    }
+
+
+
     render() {
-        console.log(this.props)
-        const {classes, children, className, ...other} = this.props;
-        //if(Meteor.user.username())
-        return (
+        // console.log("Render game props", this.props)
+        //console.log("Important props", "challengerbet", this.props.location.state.challengerbet);
+
+        const { classes, children, className, ...other } = this.props;
+
+        //check method
+        /*if(Meteor.call("wager.size",(err)=>{
+          if(err){
+            console.log("Error grabbing collection size")
+          }
+        })!=0){*/
+        return(
             <div className="container-fluid" role="main">
-                <div className="col s12 12"><MenuBar/></div>
+                <div className="col s12 12"><MenuBar /></div>
 
                 {/*show you lose or win after other users input*/}
-                <h1 align="center">Waiting for other users input</h1>
+                <h1 align="center">GAMES IN PROGRESS</h1>
                 <Table responsive striped bordered hover variant="dark">
+
                     <thead className="heading">
                     <tr>
                         <th>Stock Name</th>
-                        <th>Stock Opening Price today</th>
-                        <th>Your bet</th>
-                        <th>Other user bet</th>
-                        <th>Stock Price Next Day</th>
-
+                        <th>Stock Opening Price today </th>
+                        <th>Challenger Bet</th>
+                        <th>Challengee Bet</th>
+                        <th>Status</th>
+                        <th>Challenger Name</th>
+                        <th>Challengee Name</th>
                     </tr>
                     </thead>
 
                     <tbody className="footing">
-                    <tr className={classNames(classes.root, className)}>
-                        <td>{this.props.location.state.tickerSymbolInputInput}</td>
-                        <td>(show stock opening price)</td>
-                        <td>{this.props.location.state.challengerbet}</td>
-                        <td>{this.props.location.state.challengeebet}</td>
-                        <td>(expected to render upon market open)</td>
+                    {this.renderWagers()}
 
-                    </tr>
                     </tbody>
                 </Table>
+                <Button id="p"  variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onClick}>Back to profile</Button>
+                {/*<Button id="p"  variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.onClick}>See your ranking</Button>*/}
+
             </div>
         );
     }
+
+    /*}else {
+      return <NoGamesInProgress/>
+    }*/
 }
 
+
+
+
+
+
+
 export default withTracker (() => {
-    //const handle = Meteor.subscribe("loggedin");
+    const handle = Meteor.subscribe("wagerresults");
+    let wagers;
+    let wagerfindbyid;
     //const handle = Meteor.subscribe("userPresence");
+    if (Meteor.user()){
+        wagers=Wager.find({ $or: [ { challengee: Meteor.user().username }, { challenger: Meteor.user().username } ] } ).fetch()
+        wagerfindbyid=Wager.find({ _id:Meteor.userId()}).fetch();
+    }
+    else {
+        console.log("user is undefined");
+        wagers=[];
+        wagerfindbyid=[];
+    }
     return {
         user: Meteor.user(),
+        wagers: wagers,
+        wagerfindbyid: wagerfindbyid,
         // usera: Front.find({_id:{$ne:Meteor.userId()}},{sort:{'user': 1}}).fetch(),
         //userPresence: Presences.find({}).fetch(),
+        ready: handle.ready()
     }
 })(withRouter(withStyles(styles)(Game)));
