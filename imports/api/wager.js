@@ -4,7 +4,7 @@ import { check } from "meteor/check";
 
 export const Wager = new Mongo.Collection("wager");
 
- const PUBLIC_KEY = process.env.API_KEY;
+ const PUBLIC_KEY = process.env.WAGER_KEY;
  const alpha = require('alphavantage')({ key: PUBLIC_KEY });
 
 //should fix null property of username
@@ -64,7 +64,7 @@ Meteor.methods({
                 return;
             }
 
-            return await alpha.data.daily_adjusted(challengerbet, 1).then(data => {
+            return await alpha.data.daily_adjusted(tickerSymbolInputInput, 1).then(data => {
                 // attempt to parse
                 let justNYSEThings = data["Time Series (Daily)"];
                 let todaysData = justNYSEThings[todaysDate];
