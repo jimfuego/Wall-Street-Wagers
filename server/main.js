@@ -34,7 +34,7 @@ if (Meteor.isServer) {
 
 Meteor.startup(() => {
     new CronJob({
-        cronTime: '30 * * * * *',
+        cronTime: '* 30 20 * *',
         // use this wrapper if you want to work with mongo:
         onTick: Meteor.bindEnvironment(() => {
             // stuff happens
