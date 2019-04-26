@@ -53,9 +53,3 @@ export default withTracker(() => {
         user: Meteor.userId()
     };
 })(App);
-
-// export default withTracker(() => {
-//   return {
-//     user: Meteor.userId()
-//   };
-// })(App);
