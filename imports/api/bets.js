@@ -1,24 +1,26 @@
 import { Mongo } from "meteor/mongo";
 import { Meteor } from "meteor/meteor";
 import { check } from "meteor/check";
+import { Accounts } from "meteor/accounts-base";
 
 export const Bets = new Mongo.Collection("bets");
 
 //process.env.API_KEY
 const alpha = require('alphavantage')({ key: process.env.API_KEY });
 
+
 //publish
 if (Meteor.isServer) {
-Meteor.publish("bets", function betsPublish() {
-  return (Bets.find({}));
-});
-
+  Meteor.publish("bets", function betsPublish() {
+    return (Bets.find({}));
+  });
 }
+
 //sets answer to game creator's preference
 // FIXME: remove user param
 Meteor.methods({
   async "bets.insert"(tickerSymbol, highLow)  {
-    check(tickerSymbol, String);
+     check(tickerSymbol, String);
      check(highLow, String);
 
     // Make sure the user is logged in before inserting a task
@@ -45,7 +47,6 @@ Meteor.methods({
     }
 
     // get info on tickerSymbol
-    // let apiResponse = JSON.parse(alpha.data.daily_adjusted(tickerSymbol, 1));
     return await alpha.data.daily_adjusted(tickerSymbol, 1).then(data => {
       // attempt to parse
       let justNYSEThings = data["Time Series (Daily)"];
@@ -64,15 +65,15 @@ Meteor.methods({
         // insert bet
         Bets.insert({
           gambler : Meteor.user().username,
+          gamblerID: Meteor.user().userId,
           tickerSymbol : tickerSymbol,
           highOrLow : highLow,
           createdAt : todaysDate,
           openingPrice: todaysOpening
         });
-        console.log("SUCCESS: " + Meteor.user().username + " predicted that " + tickerSymbol +
-        " will close " + highLow + "er than it's opening price of " + todaysOpening);
         var result ="SUCCESS: " + Meteor.user().username + " predicted that " + tickerSymbol +
         " will close " + highLow + "er than it's opening price of " + todaysOpening;
+        console.log(result);
         return result;
       }
     })
@@ -101,12 +102,9 @@ Meteor.methods({
       throw new Meteor.Error("not-authorized");
     }
     if (Bets.findOne({answer : guess}) != undefined) {
-      // Answer.remove({});
-      //game over - winner
       return true;
     }
     else{
-      //continue game
       return false;
     }
   }
@@ -128,7 +126,57 @@ Meteor.methods({
 //returns true if a game is in progress
 Meteor.methods({
   "bets.checkInProgress"() {
-    return (Bets.findOne({gameInProgress : true})!=undefined);
+    return (Bets.findOne({gameInProgress : true}) != undefined);
+  }
+});
+
+// evaluates all single player bets
+Meteor.methods({
+  async "bets.evaluateAll"() {
+    let allBets = [];
+    allBets = Bets.find({});
+    for (let i = 0; i < allBets.length ; i++) {
+      // get "this" bet and fields
+      let bet = allBets[i];
+      let gamblerID = bet["gamblerID"];
+      let tickerSymbol = bet["tickerSymbol"];
+      let highLow = bet["highOrLow"];
+      let betDate = bet["todaysDate"];
+
+      // call api and eval "this" bet
+      await alpha.data.daily_adjusted(tickerSymbol, 1).then(data => {
+        // get "this" stocks closing values
+        let justNYSEThings = data["Time Series (Daily)"];
+        let betData = justNYSEThings[betDate];
+        let betOpening = parseFloat(betData["1. open"]);
+        let closePrice = parseFloat(betData["4. close"]);
+
+        //get winz
+        let wins = parseInt(Meteor.users.findOne({gamblerID: gamblerID}))["wins"];
+
+        // if user bet "high"
+        if (highLow === "high") {
+          if (closePrice > betOpening){
+            //user wins
+            Meteor.users.update({_id:gamblerID}, { $set: {wins: wins + 1} });
+          }
+          else{
+            //user is a loser
+          }
+        }
+        //if user bet "low"
+        else if (highLow === "low") {
+          if (closePrice < betOpening){
+            //user wins
+            Meteor.users.update({_id:gamblerID}, { $set: {wins: wins + 1} });
+          }
+          else {
+            // user is a loser
+          }
+        }
+      })
+    }
+    Bets.remove({});
   }
 });
 
