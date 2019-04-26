@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ebeed04b-8f14-4ff0-8bb3-41caad8ca2bd" name="Default Changelist" comment="" />
+    <list default="true" id="ebeed04b-8f14-4ff0-8bb3-41caad8ca2bd" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -12,7 +14,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -85,7 +87,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
     <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
@@ -94,7 +96,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -133,6 +134,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -198,11 +200,12 @@
       <workItem from="1556171000846" duration="5726000" />
       <workItem from="1556222386404" duration="26757000" />
       <workItem from="1556261700377" duration="9568000" />
+      <workItem from="1556297297012" duration="393000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45434000" />
+    <option name="totallyTimeSpent" value="45827000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -560,9 +563,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/api/scheduled-job.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/api/scheduled-job.js" />
     <entry file="file://$PROJECT_DIR$/imports/api/users.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63">
@@ -573,9 +574,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/api/alphaVantage.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/api/alphaVantage.js" />
     <entry file="file://$PROJECT_DIR$/imports/ui/YourChallenges.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1701">
