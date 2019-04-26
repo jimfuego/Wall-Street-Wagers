@@ -162,46 +162,46 @@ Meteor.methods({
     }
 });
 
-Meteor.methods({
-    async "wager.evaluateAll"(){
-        let allWagers = [];
-        allWagers =  Wager.find({});
-        for (let i = 0; i < allWagers.length ; i++) {
-            let wager = allWagers[i];
-            let challenger = wager["challenger"];
-            let challengee = wager["challengee"];
-            let tickerSymbolInputInput = wager["tickerSymbolInputInput"];
-            let statechange = wager["statechange"];
-            let betDate = wager["betDate"];
-            let challengerPrediction = wager["challengerBet"];
-            let challengeePrediction = wager["challengeeBet"];
-
-            //call API & eval "this" bet
-            await alpha.data.daily_adjusted(tickerSymbolInputInput, 1).then(data => {
-                // get "this" stocks closing values
-                let justNYSEThings = data["Time Series (Daily)"];
-                let betData = justNYSEThings[betDate];
-                let closePrice = parseFloat(betData["4. close"]);
-
-                // get diff challenger/chalengee
-                let chalengerDiff = Math.abs(closePrice - challengerPrediction);
-                let chalengeeDiff = Math.abs(closePrice - challengeePrediction);
-
-                //challenger win
-                if(chalengeeDiff > chalengerDiff){
-                    //get/update chalenger winz
-                    let wins = parseInt(Meteor.users.findOne({username: challenger}))["wins"];
-                    Meteor.users.update({username: challenger}, { $set: {wins: wins + 1} });
-                }
-                // challengee win
-                else if (chalengeeDiff < chalengerDiff){
-                    // get/update challengee wins
-                    let wins = parseInt(Meteor.users.findOne({username: challenger}))["wins"];
-                    Meteor.users.update({username: challengee}, { $set: {wins: wins + 1} });
-                }
-            });
-            // await sleep(10000);
-        }
-        Wager.remove({});
-    }
-});
+// Meteor.methods({
+//     async "wager.evaluateAll"(){
+//         let allWagers = [];
+//         allWagers =  Wager.find({});
+//         for (let i = 0; i < allWagers.length ; i++) {
+//             let wager = allWagers[i];
+//             let challenger = wager["challenger"];
+//             let challengee = wager["challengee"];
+//             let tickerSymbolInputInput = wager["tickerSymbolInputInput"];
+//             let statechange = wager["statechange"];
+//             let betDate = wager["betDate"];
+//             let challengerPrediction = wager["challengerBet"];
+//             let challengeePrediction = wager["challengeeBet"];
+//
+//             //call API & eval "this" bet
+//             await alpha.data.daily_adjusted(tickerSymbolInputInput, 1).then(data => {
+//                 // get "this" stocks closing values
+//                 let justNYSEThings = data["Time Series (Daily)"];
+//                 let betData = justNYSEThings[betDate];
+//                 let closePrice = parseFloat(betData["4. close"]);
+//
+//                 // get diff challenger/chalengee
+//                 let chalengerDiff = Math.abs(closePrice - challengerPrediction);
+//                 let chalengeeDiff = Math.abs(closePrice - challengeePrediction);
+//
+//                 //challenger win
+//                 if(chalengeeDiff > chalengerDiff){
+//                     //get/update chalenger winz
+//                     let wins = parseInt(Meteor.users.findOne({username: challenger}))["wins"];
+//                     Meteor.users.update({username: challenger}, { $set: {wins: wins + 1} });
+//                 }
+//                 // challengee win
+//                 else if (chalengeeDiff < chalengerDiff){
+//                     // get/update challengee wins
+//                     let wins = parseInt(Meteor.users.findOne({username: challenger}))["wins"];
+//                     Meteor.users.update({username: challengee}, { $set: {wins: wins + 1} });
+//                 }
+//             });
+//             // await sleep(10000);
+//         }
+//         Wager.remove({});
+//     }
+// });

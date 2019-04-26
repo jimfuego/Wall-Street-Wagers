@@ -99,54 +99,54 @@ Meteor.methods({
 });
 
 // evaluates all single player bets
-Meteor.methods({
-  async "bets.evaluateAll"() {
-    let allBets = [];
-    allBets = Bets.find({});
-    for (let i = 0; i < allBets.length ; i++) {
-      // get "this" bet and fields
-      let bet = allBets[i];
-      let gamblerID = bet["gamblerID"];
-      let tickerSymbol = bet["tickerSymbol"];
-      let highLow = bet["highOrLow"];
-      let betDate = bet["todaysDate"];
-
-      // call api and eval "this" bet
-      await alpha.data.daily_adjusted(tickerSymbol, 1).then(data => {
-        // get "this" stocks closing values
-        let justNYSEThings = data["Time Series (Daily)"];
-        let betData = justNYSEThings[betDate];
-        let betOpening = parseFloat(betData["1. open"]);
-        let closePrice = parseFloat(betData["4. close"]);
-
-        //get winz
-        let wins = parseInt(Meteor.users.findOne({gamblerID: gamblerID}))["wins"];
-
-        // if user bet "high"
-        if (highLow === "high") {
-          if (closePrice > betOpening){
-            //user wins
-            Meteor.users.update({_id:gamblerID}, { $set: {wins: wins + 1} });
-          }
-          else{
-            //user is a loser
-          }
-        }
-        //if user bet "low"
-        else if (highLow === "low") {
-          if (closePrice < betOpening){
-            //user wins
-            Meteor.users.update({_id:gamblerID}, { $set: {wins: wins + 1} });
-          }
-          else {
-            // user is a loser
-          }
-        }
-      })
-    }
-    Bets.remove({});
-  }
-});
+// Meteor.methods({
+//   async "bets.evaluateAll"() {
+//     let allBets = [];
+//     allBets = Bets.find({});
+//     for (let i = 0; i < allBets.length ; i++) {
+//       // get "this" bet and fields
+//       let bet = allBets[i];
+//       let gamblerID = bet["gamblerID"];
+//       let tickerSymbol = bet["tickerSymbol"];
+//       let highLow = bet["highOrLow"];
+//       let betDate = bet["todaysDate"];
+//
+//       // call api and eval "this" bet
+//       await alpha.data.daily_adjusted(tickerSymbol, 1).then(data => {
+//         // get "this" stocks closing values
+//         let justNYSEThings = data["Time Series (Daily)"];
+//         let betData = justNYSEThings[betDate];
+//         let betOpening = parseFloat(betData["1. open"]);
+//         let closePrice = parseFloat(betData["4. close"]);
+//
+//         //get winz
+//         let wins = parseInt(Meteor.users.findOne({gamblerID: gamblerID}))["wins"];
+//
+//         // if user bet "high"
+//         if (highLow === "high") {
+//           if (closePrice > betOpening){
+//             //user wins
+//             Meteor.users.update({_id:gamblerID}, { $set: {wins: wins + 1} });
+//           }
+//           else{
+//             //user is a loser
+//           }
+//         }
+//         //if user bet "low"
+//         else if (highLow === "low") {
+//           if (closePrice < betOpening){
+//             //user wins
+//             Meteor.users.update({_id:gamblerID}, { $set: {wins: wins + 1} });
+//           }
+//           else {
+//             // user is a loser
+//           }
+//         }
+//       })
+//     }
+//     Bets.remove({});
+//   }
+// });
 
 //returns an array of dates to be used as keys to access JSON data
 //(work in priogress)

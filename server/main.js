@@ -39,23 +39,23 @@ Meteor.startup(() => {
         onTick: Meteor.bindEnvironment(() => {
             // stuff happens
             const d = new Date();
-            console.log('Thirty-second tick:', d);
+            console.log('Market closing time:', d);
             //eval single-player bets
-            Meteor.call("bets.evaluateAll", (err) => {
-                if (err) {
-                    console.log("error evaluating single-player bets.js: ", err);
-                } else {
-                    console.log("Probably evaluated single-player bets");
-                }
-            });
+            // Meteor.call("bets.evaluateAll", (err) => {
+            //     if (err) {
+            //         console.log("error evaluating single-player bets.js: ", err);
+            //     } else {
+            //         console.log("Probably evaluated single-player bets");
+            //     }
+            // });
             //eval multi-player bets
-            Meteor.call("wager.evaluateAll", (err) => {
-                if (err) {
-                    console.log("error evaluating multi-player wager.js: ", err);
-                } else {
-                    console.log("Probably evaluated multi-player bets");
-                }
-            });
+            // Meteor.call("wager.evaluateAll", (err) => {
+            //     if (err) {
+            //         console.log("error evaluating multi-player wager.js: ", err);
+            //     } else {
+            //         console.log("Probably evaluated multi-player bets");
+            //     }
+            // });
         }),
         start: true,
         timeZone: 'America/Los_Angeles',
